@@ -16,30 +16,30 @@
 //////////////////////////////////////////////////////////////////////////////////
 module fpadd_single (input clk,
                      input reset,
-                     input [31:0]reg_A, 
-                     input [31:0]reg_B,  
-		     output reg[31:0] out);
+                     input [31:0] reg_A, 
+                     input [31:0] reg_B,  
+		     		 output reg[31:0] out);
+
+	wire [31:0] A, B;
+	wire [31:0] result;
 				     	
 	// Register the two inputs, and use A and B in the combinational logic. 
-	always @ (posedge clk or posedge reset)
-		begin
-			if (reset == 1'b1)
-				out <= 32'b0;
-			else
-				begin
-					A <= reg_A;
-					B <= reg_B;
-					out <= result;
-				end
+	always @ (posedge clk or posedge reset) begin
+		if (reset == 1'b1)
+			out <= 32'b0;
+		else begin
+			A <= reg_A;
+			B <= reg_B;
+			out <= result;
 		end
+	end
 		
 	//Combinational Logic to (a) compare and adjust the exponents, 
 	//                       (b) shift appropriately the mantissa if necessary, 
 	//                       (c) add the two mantissas, and
 	//                       (d) perform post-normalization. 
 	//                           Make sure to check explicitly for zero output. 
-	always@ (*)
-		begin
-		   
-		end
+	always@ (*) begin
+		
+	end
 endmodule

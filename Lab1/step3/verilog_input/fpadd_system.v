@@ -15,14 +15,14 @@
    // Try this addition of FP numbers 
    // 6b64b235 + 6ac49214 = 6ba37d9f 
    
-   // Instantiate the FP adder 
-        
+   // Instantiate the FP adder
+
    assign leds = fp_out[7:0];
    
    // Instantiate the 7segment display output 0 
-  
+   ssd_driver ssd0(.clk(clk), .rst(rst), .data_in(fp_out[31:24]), .an(an0), .a(a0), .b(b0), .c(c0), .d(d0), .e(e0), .f(f0), .g(g0));
    
    // Instantiate the 7segment display output 1
-
+   ssd_driver ssd1(.clk(clk), .rst(rst), .data_in(fp_out[23:16]), .an(an1), .a(a1), .b(b1), .c(c1), .d(d1), .e(e1), .f(f1), .g(g1));
 
 endmodule
