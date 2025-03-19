@@ -19,7 +19,7 @@
 
 module testbench;
 parameter NUM = 10;  // This is the number of entries in the input file: number of FP additions 
-reg	clk,rst;
+reg	clk,reset;
 reg	[31:0] A;
 reg	[31:0] B;   
 wire [31:0] out;
@@ -32,9 +32,9 @@ reg [31:0] correctOut;
 	initial
 		begin
 			clk=0;
-			rst=0;
-			#(`CYCLE) rst = 1;
-			#(`CYCLE) rst = 0;
+			reset=0;
+			#(`CYCLE) reset = 1;
+			#(`CYCLE) reset = 0;
 			errors = 0;
 			for(i=0;i<NUM;i=i+1)
 				begin	
@@ -65,6 +65,6 @@ reg [31:0] correctOut;
 		end
 		
 		// Instantiate the FP Adder 
-		fpadd_single DUT(.clk(clk), .reset(rst), .reg_A(A),.reg_B(B), .out(out));
+		fpadd_single DUT(.clk(clk), .reset(reset), .reg_A(A),.reg_B(B), .out(out));
 		
 endmodule

@@ -4,7 +4,7 @@
  -----------------------------------------------------------------------------
  */ 
  module fpadd_system (input clk,
-                      input rst, 
+                      input reset, 
                       // input noisy_level, 
                       output [7:0] leds, 
                       output an0, output a0, output b0, output c0, output d0, output e0, output f0, output g0,
@@ -20,9 +20,9 @@
    assign leds = fp_out[7:0];
    
    // Instantiate the 7segment display output 0 
-   ssd_driver ssd0(.clk(clk), .rst(rst), .data_in(fp_out[31:24]), .an(an0), .a(a0), .b(b0), .c(c0), .d(d0), .e(e0), .f(f0), .g(g0));
+   ssd_driver ssd0(.clk(clk), .reset(reset), .data_in(fp_out[31:24]), .an(an0), .a(a0), .b(b0), .c(c0), .d(d0), .e(e0), .f(f0), .g(g0));
    
    // Instantiate the 7segment display output 1
-   ssd_driver ssd1(.clk(clk), .rst(rst), .data_in(fp_out[23:16]), .an(an1), .a(a1), .b(b1), .c(c1), .d(d1), .e(e1), .f(f1), .g(g1));
+   ssd_driver ssd1(.clk(clk), .reset(reset), .data_in(fp_out[23:16]), .an(an1), .a(a1), .b(b1), .c(c1), .d(d1), .e(e1), .f(f1), .g(g1));
 
 endmodule

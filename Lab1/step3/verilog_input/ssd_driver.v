@@ -1,5 +1,5 @@
 module ssd_driver (
-    input clk, rst,
+    input clk, reset,
     input [7:0] data_in,
     output reg an,
     output reg a, b, c, d, e, f, g
@@ -18,7 +18,7 @@ char_decoder decoder (
     .g(g)
 );
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk or posedge reset) begin
     if (reset) begin
         counter <= 6'b0;
     end else begin
