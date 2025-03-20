@@ -2,7 +2,10 @@
 2018.3
 Dec  7 2018
 00:33:28
-C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/fpadd_single.v,1742426932,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/testbench.v,,fpadd_single,,,,,,,,
-C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test.v,1742427716,verilog,,,,tb_fpadd,,,,,,,,
-C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/testbench.v,1742427569,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test.v,,testbench,,,,,,,,
+C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/fpadd_single.v,1742489744,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzcx4.v,,fpadd_single,,,,,,,,
+C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzcounter.v,1742487885,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test/testbench.v,,LZCounter,,,,,,,,
+C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzcx4.v,1742486191,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzex6.v,,LZCx4,,,,,,,,
+C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzex6.v,1742491614,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzcounter.v,,LZEx6,,,,,,,,
+C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test/test.v,1742490643,verilog,,,,tb_fpadd,,,,,,,,
+C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test/testbench.v,1742427569,verilog,,C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test/test.v,,testbench,,,,,,,,
 C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/vivado_project/step1.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,

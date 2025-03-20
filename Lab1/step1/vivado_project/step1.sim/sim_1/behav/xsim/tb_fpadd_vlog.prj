@@ -1,8 +1,11 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../../verilog_input/fpadd_single.v" \
-"../../../../../verilog_input/testbench.v" \
-"../../../../../verilog_input/test.v" \
+"../../../../../verilog_input/lzcx4.v" \
+"../../../../../verilog_input/lzex6.v" \
+"../../../../../verilog_input/lzcounter.v" \
+"../../../../../verilog_input/test/testbench.v" \
+"../../../../../verilog_input/test/test.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

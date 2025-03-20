@@ -1,0 +1,12 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/fpadd_single.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fpadd_single
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzcx4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LZCx4
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzex6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LZEx6
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/lzcounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LZCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nikas/ownCloud/ECE-Uth/University-shared/ECE340/Lab1/step1/verilog_input/test/test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_fpadd
