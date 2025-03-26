@@ -26,7 +26,7 @@ module fpadd_single (
 	reg [31:0] regA, regB;
 	reg [24:0] regsMantSum;
 	wire signed [7:0] expDiff;
-	wire [4:0] LeadingZeroCount;
+	wire [4:0] leadingZeroCount;
 	reg [23:0] shiftedMantA, shiftedMantB;
 
 	// Final / Calculated Signals
@@ -37,7 +37,7 @@ module fpadd_single (
 
 	assign expDiff = regA[30:23] - regB[30:23];
 
-	LZCounter LCZ_inst(.bits(regsMantSum[23:0]), .LeadingZeroCount(LeadingZeroCount));
+	LZCounter LCZ_inst(.bits(regsMantSum[23:0]), .leadingZeroCount(leadingZeroCount));
 				     	
 	// Register the two inputs, and use regA and regB in the combinational logic. 
 	always @(posedge clk or posedge reset) begin
@@ -80,13 +80,13 @@ module fpadd_single (
 	end
 
 	// Final Calculations
-	always @(regA or regB or regsMantSum or LeadingZeroCount) begin
+	always @(regA or regB or regsMantSum or leadingZeroCount) begin
 		if (regsMantSum[24] == 1'b1) begin
 			finalMantissa = regsMantSum >> 1;
 			finalExp = regA[30:23] > regB[30:23] ? regA[30:23] + 1 : regB[30:23] + 1;
 		end else begin
-			finalMantissa = regsMantSum << LeadingZeroCount;
-			finalExp = regA[30:23] > regB[30:23] ? regA[30:23] - LeadingZeroCount : regB[30:23] - LeadingZeroCount;
+			finalMantissa = regsMantSum << leadingZeroCount;
+			finalExp = regA[30:23] > regB[30:23] ? regA[30:23] - leadingZeroCount : regB[30:23] - leadingZeroCount;
 		end
 	end
 
