@@ -9,7 +9,7 @@ wire [31:0] out;
 localparam CLK_PERIOD = 10;
 always #(CLK_PERIOD/2) clk=~clk;
 
-fpadd_single DUT(.clk(clk), .reset(rst), .reg_A(A), .reg_B(B), .out(out));
+fpadd_single DUT(.clk(clk), .reset(rst), .i_fpAdd_regA(A), .i_fpAdd_regB(B), .o_fpAdd_out(out));
 
 initial begin
     clk=0;

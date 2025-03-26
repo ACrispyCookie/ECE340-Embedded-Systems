@@ -7,7 +7,7 @@ module LZCounter_tb;
     // Instantiate the LZCounter module
     LZCounter uut (
         .bits(bits),
-        .lz_count(lz_count)
+        .LeadingZeroCount(lz_count)
     );
 
     initial begin
