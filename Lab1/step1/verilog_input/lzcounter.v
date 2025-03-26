@@ -1,6 +1,6 @@
 module LZCounter (
     input [23:0] bits,
-    output reg [4:0] lz_count
+    output reg [4:0] LeadingZeroCount
 );
     wire [5:0] zrs;
     wire [1:0] count[5:0];  // Fixed indexing to match 6 elements
@@ -21,13 +21,13 @@ module LZCounter (
     // Mux to select the correct count value
     always @(*) begin
         case (all_zero_count)
-            3'd0: lz_count = {all_zero_count, count[5]};
-            3'd1: lz_count = {all_zero_count, count[4]};
-            3'd2: lz_count = {all_zero_count, count[3]};
-            3'd3: lz_count = {all_zero_count, count[2]};
-            3'd4: lz_count = {all_zero_count, count[1]};
-            3'd5: lz_count = {all_zero_count, count[0]};
-            default: lz_count = 24'd24;
+            3'd0: LeadingZeroCount = {all_zero_count, count[5]};
+            3'd1: LeadingZeroCount = {all_zero_count, count[4]};
+            3'd2: LeadingZeroCount = {all_zero_count, count[3]};
+            3'd3: LeadingZeroCount = {all_zero_count, count[2]};
+            3'd4: LeadingZeroCount = {all_zero_count, count[1]};
+            3'd5: LeadingZeroCount = {all_zero_count, count[0]};
+            default: LeadingZeroCount = 24'd24;
         endcase
     end
 endmodule
