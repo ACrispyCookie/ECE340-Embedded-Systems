@@ -1,33 +1,36 @@
+
 module LZCounter (
     input [23:0] bits,
     output reg [4:0] leadingZeroCount
 );
-
     always @(bits) begin
-        if (bits[23] == 1) leadingZeroCount = 5'd0;
-        else if (bits[22] == 1) leadingZeroCount = 5'd1;
-        else if (bits[21] == 1) leadingZeroCount = 5'd2;
-        else if (bits[20] == 1) leadingZeroCount = 5'd3;
-        else if (bits[19] == 1) leadingZeroCount = 5'd4;
-        else if (bits[18] == 1) leadingZeroCount = 5'd5;
-        else if (bits[17] == 1) leadingZeroCount = 5'd6;
-        else if (bits[16] == 1) leadingZeroCount = 5'd7;
-        else if (bits[15] == 1) leadingZeroCount = 5'd8;
-        else if (bits[14] == 1) leadingZeroCount = 5'd9;
-        else if (bits[13] == 1) leadingZeroCount = 5'd10;
-        else if (bits[12] == 1) leadingZeroCount = 5'd11;
-        else if (bits[11] == 1) leadingZeroCount = 5'd12;
-        else if (bits[10] == 1) leadingZeroCount = 5'd13;
-        else if (bits[9] == 1) leadingZeroCount = 5'd14;
-        else if (bits[8] == 1) leadingZeroCount = 5'd15;
-        else if (bits[7] == 1) leadingZeroCount = 5'd16;
-        else if (bits[6] == 1) leadingZeroCount = 5'd17;
-        else if (bits[5] == 1) leadingZeroCount = 5'd18;
-        else if (bits[4] == 1) leadingZeroCount = 5'd19;
-        else if (bits[3] == 1) leadingZeroCount = 5'd20;
-        else if (bits[2] == 1) leadingZeroCount = 5'd21;
-        else if (bits[1] == 1) leadingZeroCount = 5'd22;
-        else if (bits[0] == 1) leadingZeroCount = 5'd23;
-        else leadingZeroCount = 5'd24; // If all bits are zero
+        casex (bits)
+            24'b1xxxxxxxxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd0;
+            24'b01xxxxxxxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd1;
+            24'b001xxxxxxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd2;
+            24'b0001xxxxxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd3;
+            24'b00001xxxxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd4;
+            24'b000001xxxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd5;
+            24'b0000001xxxxxxxxxxxxxxxxx: leadingZeroCount = 5'd6;
+            24'b00000001xxxxxxxxxxxxxxxx: leadingZeroCount = 5'd7;
+            24'b000000001xxxxxxxxxxxxxxx: leadingZeroCount = 5'd8;
+            24'b0000000001xxxxxxxxxxxxxx: leadingZeroCount = 5'd9;
+            24'b00000000001xxxxxxxxxxxxx: leadingZeroCount = 5'd10;
+            24'b000000000001xxxxxxxxxxxx: leadingZeroCount = 5'd11;
+            24'b0000000000001xxxxxxxxxxx: leadingZeroCount = 5'd12;
+            24'b00000000000001xxxxxxxxxx: leadingZeroCount = 5'd13;
+            24'b000000000000001xxxxxxxxx: leadingZeroCount = 5'd14;
+            24'b0000000000000001xxxxxxxx: leadingZeroCount = 5'd15;
+            24'b00000000000000001xxxxxxx: leadingZeroCount = 5'd16;
+            24'b000000000000000001xxxxxx: leadingZeroCount = 5'd17;
+            24'b0000000000000000001xxxxx: leadingZeroCount = 5'd18;
+            24'b00000000000000000001xxxx: leadingZeroCount = 5'd19;
+            24'b000000000000000000001xxx: leadingZeroCount = 5'd20;
+            24'b0000000000000000000001xx: leadingZeroCount = 5'd21;
+            24'b00000000000000000000001x: leadingZeroCount = 5'd22;
+            24'b000000000000000000000001: leadingZeroCount = 5'd23;
+            default: leadingZeroCount = 5'd24;
+        endcase
     end
+
 endmodule
