@@ -56,7 +56,7 @@ reg [31:0] correctOut;
 	
 	// Open the test file and read the two input operands A and B as well as the correct (expected) output 	
 	initial begin
-		   $readmemh("C:\Users\nikas\ownCloud\ECE-Uth\University-shared\ECE340\Lab1\step1\verilog_input\fp_InOut.hex", fp_InOut);  // You may have to change the path to the test file
+		   $readmemh("fp_InOut.hex", fp_InOut);  // You may have to change the path to the test file
     end
         
 	always
