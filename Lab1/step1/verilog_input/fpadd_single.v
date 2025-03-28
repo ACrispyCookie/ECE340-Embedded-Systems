@@ -55,14 +55,14 @@ module fpadd_single (
 	// Shift Mantissa bits until same exponents for addition
 	always @(regA or regB or expDiff) begin
 		if (regA[30:23] > regB[30:23]) begin
-			shiftedMantA = {1'b1, regA[22:0]};
-			shiftedMantB = {1'b1, regB[22:0]} >> expDiff;
+			shiftedMantA = regA[30:0] != 31'b0 ? {1'b1, regA[22:0]} : {1'b0, regA[22:0]};
+			shiftedMantB = (regB[30:0] != 31'b0 ? {1'b1, regB[22:0]} : {1'b0, regB[22:0]}) >> expDiff;
 		end else if (regA[30:23] < regB[30:23]) begin
-			shiftedMantA = {1'b1, regA[22:0]} >> -expDiff;
-			shiftedMantB = {1'b1, regB[22:0]};
+			shiftedMantA = (regA[30:0] != 31'b0 ? {1'b1, regA[22:0]} : {1'b0, regA[22:0]}) >> -expDiff;
+			shiftedMantB = regB[30:0] != 31'b0 ? {1'b1, regB[22:0]} : {1'b0, regB[22:0]};
 		end else begin
-			shiftedMantA = {1'b1, regA[22:0]};
-			shiftedMantB = {1'b1, regB[22:0]};
+			shiftedMantA = regA[30:0] != 31'b0 ? {1'b1, regA[22:0]} : {1'b0, regA[22:0]};
+			shiftedMantB = regB[30:0] != 31'b0 ? {1'b1, regB[22:0]} : {1'b0, regB[22:0]};
 		end
 	end
 
@@ -84,9 +84,12 @@ module fpadd_single (
 		if (regsMantSum[24] == 1'b1) begin
 			finalMantissa = regsMantSum >> 1;
 			finalExp = regA[30:23] > regB[30:23] ? regA[30:23] + 1 : regB[30:23] + 1;
-		end else begin
+		end else if (regsMantSum != 25'b0) begin
 			finalMantissa = regsMantSum << leadingZeroCount;
 			finalExp = regA[30:23] > regB[30:23] ? regA[30:23] - leadingZeroCount : regB[30:23] - leadingZeroCount;
+		end else begin
+			finalMantissa = 23'b0;
+			finalExp = 8'b0;
 		end
 	end
 
