@@ -258,8 +258,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports clk]
 set_property PACKAGE_PIN P16 [get_ports reset]
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
 
-# set_property PACKAGE_PIN T18 [get_ports noisy_level]
-# set_property IOSTANDARD LVCMOS33 [get_ports noisy_level]
+# set_property PACKAGE_PIN T18 [get_ports button]
+# set_property IOSTANDARD LVCMOS33 [get_ports button]
 
 set_property PACKAGE_PIN T22 [get_ports {leds[0]}]
 set_property PACKAGE_PIN T21 [get_ports {leds[1]}]
@@ -318,11 +318,11 @@ set_property IOSTANDARD LVCMOS33 [get_ports g0]
 
 set_property PACKAGE_PIN N15 [get_ports mem_select[0]];  # "BTNL"
 set_property PACKAGE_PIN R18 [get_ports mem_select[1]];  # "BTNR"
-set_property IOSTANDARD LVCMOS18 [get_ports mem_select[0]]
-set_property IOSTANDARD LVCMOS18 [get_ports mem_select[1]]
+set_property IOSTANDARD LVCMOS33 [get_ports mem_select[0]]
+set_property IOSTANDARD LVCMOS33 [get_ports mem_select[1]]
 
 set_property PACKAGE_PIN F22 [get_ports display_select[0]];  # "SW0"
 set_property PACKAGE_PIN G22 [get_ports display_select[1]];  # "SW1"
-set_property IOSTANDARD LVCMOS18 [get_ports display_select[0]]
-set_property IOSTANDARD LVCMOS18 [get_ports display_select[1]]
+set_property IOSTANDARD LVCMOS33 [get_ports display_select[0]]
+set_property IOSTANDARD LVCMOS33 [get_ports display_select[1]]
 

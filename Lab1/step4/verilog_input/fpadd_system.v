@@ -15,7 +15,6 @@
 
    wire [31:0] fp_out;
    wire [31:0] numA, numB;
-   reg [31:0] pl_numA, pl_numB;
    reg [7:0] ssd0_input, ssd1_input;
 
    wire reset_debounced;
@@ -28,20 +27,20 @@
    input_debouncer mem_select1_debouncer_inst (.clk(clk), .signal(mem_select[1]), .signal_debounced(mem_select_debounced[1]));
    input_debouncer display_select0_debouncer_inst (.clk(clk), .signal(display_select[0]), .signal_debounced(display_select_debounced[0]));
    input_debouncer display_select1_debouncer_inst (.clk(clk), .signal(display_select[1]), .signal_debounced(display_select_debounced[1]));
-   level_to_pulse l2p_inst1 (.clk(clk), .reset(reset), .level_input(mem_select_debounced[0]), .pulse_output(mem_select_pulse[0]));
-   level_to_pulse l2p_inst2 (.clk(clk), .reset(reset), .level_input(mem_select_debounced[1]), .pulse_output(mem_select_pulse[1]));
+   level_to_pulse l2p_inst1 (.clk(clk), .reset(reset_debounced), .level_input(mem_select_debounced[0]), .pulse_output(mem_select_pulse[0]));
+   level_to_pulse l2p_inst2 (.clk(clk), .reset(reset_debounced), .level_input(mem_select_debounced[1]), .pulse_output(mem_select_pulse[1]));
 
-   input_memory #(
-      .INIT_00(32'h3f800000),
-      .INIT_01(32'hbf800000),
-      .INIT_02(32'hc2de8000),
-      .INIT_03(32'h6b64b235),
-      .INIT_04(32'h2ac49214),
-      .INIT_05(32'hbfc66666),
-      .INIT_06(32'hc565ee8b),
-      .INIT_07(32'h447a4efa)
-   )
-   memA(.clk(clk), .reset(reset_debounced), .scroll_button(mem_select_pulse[0]), .selected_num(numA));
+    input_memory #(
+       .INIT_00(32'h3f800000),
+       .INIT_01(32'hbf800000),
+       .INIT_02(32'hc2de8000),
+       .INIT_03(32'h6b64b235),
+       .INIT_04(32'h2ac49214),
+       .INIT_05(32'hbfc66666),
+       .INIT_06(32'hc565ee8b),
+       .INIT_07(32'h447a4efa)
+    )
+    memA(.clk(clk), .reset(reset_debounced), .scroll_button(mem_select_pulse[0]), .selected_num(numA));
    
    input_memory #(
       .INIT_00(32'h40000000),
@@ -54,19 +53,9 @@
       .INIT_07(32'h00000000)
    )
    memB(.clk(clk), .reset(reset_debounced), .scroll_button(mem_select_pulse[1]), .selected_num(numB));
-   
-   always @(posedge clk or posedge reset) begin
-      if (reset) begin
-         pl_numA <= 0;
-         pl_numB <= 0;
-      end else begin
-         pl_numA <= numA;
-         pl_numB <= numB;
-      end
-   end
 
    // Instantiate the FP adder
-   fpadd_pipeline fpadd_pipeline_inst(.clk(clk), .reset(reset), .i_fpAdd_regA(pl_numA), .i_fpAdd_regB(pl_numB), .o_fpAdd_out(fp_out));
+   fpadd_pipeline fpadd_pipeline_inst(.clk(clk), .reset(reset_debounced), .i_fpAdd_regA(numA), .i_fpAdd_regB(numB), .o_fpAdd_out(fp_out));
 
    always @(display_select_debounced or numA or numB or fp_out) begin
       case (display_select_debounced)
