@@ -298,14 +298,14 @@ set_property IOSTANDARD LVCMOS33 [get_ports e1]
 set_property IOSTANDARD LVCMOS33 [get_ports f1]
 set_property IOSTANDARD LVCMOS33 [get_ports g1]
 
-set_property PACKAGE_PIN XXX [get_ports an0]
-set_property PACKAGE_PIN XXX [get_ports a0]
-set_property PACKAGE_PIN XXX [get_ports b0]
-set_property PACKAGE_PIN XXX  [get_ports c0]
-set_property PACKAGE_PIN XXX [get_ports d0]
-set_property PACKAGE_PIN XXX [get_ports e0]
-set_property PACKAGE_PIN XXX  [get_ports f0]
-set_property PACKAGE_PIN XXX  [get_ports g0]
+set_property PACKAGE_PIN V4 [get_ports an0]
+set_property PACKAGE_PIN AB7 [get_ports a0]
+set_property PACKAGE_PIN AB6 [get_ports b0]
+set_property PACKAGE_PIN Y4  [get_ports c0]
+set_property PACKAGE_PIN AA4 [get_ports d0]
+set_property PACKAGE_PIN V7 [get_ports e0]
+set_property PACKAGE_PIN W7  [get_ports f0]
+set_property PACKAGE_PIN V5  [get_ports g0]
 
 set_property IOSTANDARD LVCMOS33 [get_ports an0]
 set_property IOSTANDARD LVCMOS33 [get_ports a0]
@@ -315,3 +315,14 @@ set_property IOSTANDARD LVCMOS33 [get_ports d0]
 set_property IOSTANDARD LVCMOS33 [get_ports e0]
 set_property IOSTANDARD LVCMOS33 [get_ports f0]
 set_property IOSTANDARD LVCMOS33 [get_ports g0]
+
+set_property PACKAGE_PIN N15 [get_ports mem_select[0]];  # "BTNL"
+set_property PACKAGE_PIN R18 [get_ports mem_select[1]];  # "BTNR"
+set_property IOSTANDARD LVCMOS18 [get_ports mem_select[0]]
+set_property IOSTANDARD LVCMOS18 [get_ports mem_select[1]]
+
+set_property PACKAGE_PIN F22 [get_ports display_select[0]];  # "SW0"
+set_property PACKAGE_PIN G22 [get_ports display_select[1]];  # "SW1"
+set_property IOSTANDARD LVCMOS18 [get_ports display_select[0]]
+set_property IOSTANDARD LVCMOS18 [get_ports display_select[1]]
+
