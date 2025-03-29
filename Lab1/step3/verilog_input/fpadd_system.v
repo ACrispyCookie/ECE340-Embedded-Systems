@@ -14,8 +14,9 @@
      
    // Try this addition of FP numbers 
    // 6b64b235 + 6ac49214 = 6ba37d9f 
-   
+
    // Instantiate the FP adder
+   fpadd_pipeline fpadd_pipeline_inst(.clk(clk), .reset(reset), .i_fpAdd_regA(32'h6b64b235), .i_fpAdd_regB(32'h6ac49214), .o_fpAdd_out(fp_out));
 
    assign leds = fp_out[7:0];
    

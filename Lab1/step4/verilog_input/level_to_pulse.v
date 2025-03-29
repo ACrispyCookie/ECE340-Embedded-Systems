@@ -2,7 +2,7 @@ module level_to_pulse (
     input clk,
     input reset,
     input level_input,
-    output wire pulse_output
+    output reg pulse_output
 );
 
     parameter IDLE = 2'b00;
