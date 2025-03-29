@@ -19,7 +19,7 @@ module level_to_pulse (
         end
     end
 
-    always @(current_state) begin
+    always @(current_state or level_input) begin
         case (current_state)
             IDLE: next_state <= level_input == 1'b1 ? PULSE : IDLE;
             PULSE: next_state <= WAIT;

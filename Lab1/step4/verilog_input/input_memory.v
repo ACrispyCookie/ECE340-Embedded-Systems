@@ -11,7 +11,7 @@ module input_memory # (
     input clk,
     input reset,
     input scroll_button,
-    output wire [7:0] selected_num
+    output wire [31:0] selected_num
 );
 
     reg [31:0] memory [7:0];

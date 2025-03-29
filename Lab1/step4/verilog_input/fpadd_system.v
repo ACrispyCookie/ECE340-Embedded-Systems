@@ -15,6 +15,7 @@
 
    wire [31:0] fp_out;
    wire [31:0] numA, numB;
+   reg [31:0] pl_numA, pl_numB;
    reg [7:0] ssd0_input, ssd1_input;
 
    wire reset_debounced;
@@ -22,11 +23,11 @@
    wire [1:0] mem_select_debounced;
    wire [1:0] mem_select_pulse;
    
-   input_debouncer reset_debounced_inst (.clk(clk), .input_bounce(reset), .debounced(reset_debounced));
-   input_debouncer mem_select0_debouncer_inst (.clk(clk), .input_bounce(mem_select[0]), .debounced(mem_select_debounced[0]));
-   input_debouncer mem_select1_debouncer_inst (.clk(clk), .input_bounce(mem_select[1]), .debounced(mem_select_debounced[1]));
-   input_debouncer display_select0_debouncer_inst (.clk(clk), .input_bounce(display_select[0]), .debounced(display_select_debounced[0]));
-   input_debouncer display_select1_debouncer_inst (.clk(clk), .input_bounce(display_select[1]), .debounced(display_select_debounced[1]));
+   input_debouncer reset_debounced_inst (.clk(clk), .signal(reset), .signal_debounced(reset_debounced));
+   input_debouncer mem_select0_debouncer_inst (.clk(clk), .signal(mem_select[0]), .signal_debounced(mem_select_debounced[0]));
+   input_debouncer mem_select1_debouncer_inst (.clk(clk), .signal(mem_select[1]), .signal_debounced(mem_select_debounced[1]));
+   input_debouncer display_select0_debouncer_inst (.clk(clk), .signal(display_select[0]), .signal_debounced(display_select_debounced[0]));
+   input_debouncer display_select1_debouncer_inst (.clk(clk), .signal(display_select[1]), .signal_debounced(display_select_debounced[1]));
    level_to_pulse l2p_inst1 (.clk(clk), .reset(reset), .level_input(mem_select_debounced[0]), .pulse_output(mem_select_pulse[0]));
    level_to_pulse l2p_inst2 (.clk(clk), .reset(reset), .level_input(mem_select_debounced[1]), .pulse_output(mem_select_pulse[1]));
 
@@ -54,10 +55,20 @@
    )
    memB(.clk(clk), .reset(reset_debounced), .scroll_button(mem_select_pulse[1]), .selected_num(numB));
    
-   // Instantiate the FP adder
-   fpadd_pipeline fpadd_pipeline_inst(.clk(clk), .reset(reset), .i_fpAdd_regA(numA), .i_fpAdd_regB(numB), .o_fpAdd_out(fp_out));
+   always @(posedge clk or posedge reset) begin
+      if (reset) begin
+         pl_numA <= 0;
+         pl_numB <= 0;
+      end else begin
+         pl_numA <= numA;
+         pl_numB <= numB;
+      end
+   end
 
-   always @(display_select_debounced) begin
+   // Instantiate the FP adder
+   fpadd_pipeline fpadd_pipeline_inst(.clk(clk), .reset(reset), .i_fpAdd_regA(pl_numA), .i_fpAdd_regB(pl_numB), .o_fpAdd_out(fp_out));
+
+   always @(display_select_debounced or numA or numB or fp_out) begin
       case (display_select_debounced)
          2'b01: {ssd0_input, ssd1_input, leds} = {numA[31:24], numA[23:16], numA[7:0]};
          2'b10: {ssd0_input, ssd1_input, leds} = {numB[31:24], numB[23:16], numB[7:0]};
