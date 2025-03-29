@@ -255,8 +255,8 @@ create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk -fi
 set_property PACKAGE_PIN Y9 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
 
-set_property PACKAGE_PIN P16 [get_ports rst]
-set_property IOSTANDARD LVCMOS33 [get_ports rst]
+set_property PACKAGE_PIN P16 [get_ports reset]
+set_property IOSTANDARD LVCMOS33 [get_ports reset]
 
 # set_property PACKAGE_PIN T18 [get_ports noisy_level]
 # set_property IOSTANDARD LVCMOS33 [get_ports noisy_level]

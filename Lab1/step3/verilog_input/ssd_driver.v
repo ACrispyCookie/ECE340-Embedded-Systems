@@ -2,11 +2,12 @@ module ssd_driver (
     input clk, reset,
     input [7:0] data_in,
     output reg an,
-    output reg a, b, c, d, e, f, g
+    output a, b, c, d, e, f, g
 );
 
 reg [5:0] counter;
 reg [3:0] decoder_input;
+
 char_decoder decoder (
     .data_in(decoder_input),
     .a(a),
@@ -26,7 +27,7 @@ always @(posedge clk or posedge reset) begin
     end
 end
 
-always @(counter) begin
+always @(counter or data_in) begin
     if (counter[5] == 1'b1) begin
         an = 1'b1;
         decoder_input = data_in[3:0];
