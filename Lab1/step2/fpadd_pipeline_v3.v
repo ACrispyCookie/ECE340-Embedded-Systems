@@ -46,11 +46,6 @@ module fpadd_pipeline (
     wire [32:0] pipeOutS2;
     wire [7:0] pl_largerExp;
     wire [24:0] pl_regsMantSum;
-
-    assign expDiff = largerExp - smallerExp;
-    assign smallShiftMant = smallerMant >> expDiff;
-
-	LZCounter LCZ_inst(.bits(pl_regsMantSum[23:0]), .leadingZeroCount(leadingZeroCount));
     
     // Pipe Stage 1
     pipeline #(.WIDTH(64)) 
@@ -76,11 +71,8 @@ module fpadd_pipeline (
         end
     end
 
-    // Pipe Stage 2
-    pipeline #(.WIDTH(33)) 
-        pipeline_inst3 (.clk(clk), .reset(reset), .in({largerExp, regsMantSum}), .out(pipeOutS2));
-
-    assign {pl_largerExp, pl_regsMantSum} = pipeOutS2;
+    assign expDiff = largerExp - smallerExp;
+    assign smallShiftMant = smallerMant >> expDiff;
 
     // Perform addition/subtraction based on sign
     always @(*) begin 
@@ -90,6 +82,14 @@ module fpadd_pipeline (
             regsMantSum = largerMant + smallShiftMant;
         end
     end
+
+    // Pipe Stage 2
+    pipeline #(.WIDTH(33)) 
+        pipeline_inst3 (.clk(clk), .reset(reset), .in({largerExp, regsMantSum}), .out(pipeOutS2));
+
+    assign {pl_largerExp, pl_regsMantSum} = pipeOutS2;
+
+	LZCounter LCZ_inst(.bits(pl_regsMantSum[23:0]), .leadingZeroCount(leadingZeroCount));
 
     // Normalize result
     always @(*) begin
@@ -104,6 +104,7 @@ module fpadd_pipeline (
 			finalExp = 8'b0;
         end
     end
+    
     // Pipe Stage 3
     pipeline #(.WIDTH(32)) 
         pipeline_inst2 (.clk(clk), .reset(reset), .in({largerSign, finalExp, finalMantissa}), .out(o_fpAdd_out));
