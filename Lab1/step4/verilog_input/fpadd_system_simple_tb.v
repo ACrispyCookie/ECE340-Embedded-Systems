@@ -30,7 +30,7 @@ module fpadd_system_tb;
         button = 0;
 
         // Apply reset
-        #20 reset = 0;
+        #100_000_200 reset = 0;
 
         // Press button to trigger input selection
         #50 button = 1;

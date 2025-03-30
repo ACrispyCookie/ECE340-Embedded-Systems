@@ -14,7 +14,7 @@
 //  We also assume that the output does not overflow or undeflow, so there is no need to check for these conditions.
 //  An FP32 number has 1 sign bit, 8 exponent bits(biased by 127), and 23 mantissa bits.
 //////////////////////////////////////////////////////////////////////////////////
-module fpadd_single (
+module fpadd (
 	input clk,
     input reset,
     input [31:0] i_fpAdd_regA, 
