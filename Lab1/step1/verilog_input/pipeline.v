@@ -1,11 +1,11 @@
 
 module pipeline #(
-    parameter PIPE_LEN = 2
+    parameter WIDTH = 64
 ) (
     input clk,
     input reset,
-    input [PIPE_LEN-1:0] in,
-    output reg [PIPE_LEN-1:0] out
+    input [WIDTH-1:0] in,
+    output reg [WIDTH-1:0] out
 );
     always @(posedge clk or posedge reset) begin
         if (reset) begin

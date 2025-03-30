@@ -19,12 +19,12 @@ module fpadd_pipeline (
     input reset,
     input [31:0] i_fpAdd_regA, 
     input [31:0] i_fpAdd_regB,  
-	output reg[31:0] o_fpAdd_out
+	output [31:0] o_fpAdd_out
 );
     // Inputs
-    reg signA, signB;
-    reg [7:0] expA, expB;
-    reg [22:0] mantA, mantB;
+    wire signA, signB;
+    wire [7:0] expA, expB;
+    wire [22:0] mantA, mantB;
 
     reg [7:0] finalExp;
     reg [22:0] finalMantissa;
@@ -36,44 +36,22 @@ module fpadd_pipeline (
     reg [7:0] largerExp, smallerExp;
     reg [23:0] largerMant, smallerMant;
     wire [23:0] smallShiftMant;
+    wire [63:0] pipe_out;
+    wire [32:0] pipe_out_3;
 
-    reg [24:0] regsMantSumPl;
-    reg [7:0] largerExpPl;
+    wire [24:0] regsMantSumPl;
+    wire [7:0] largerExpPl;
 
     assign expDiff = largerExp - smallerExp;
     assign smallShiftMant = smallerMant >> expDiff;
 
 	LZCounter LCZ_inst(.bits(regsMantSumPl[23:0]), .leadingZeroCount(leadingZeroCount));
     
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            signA <= 0;
-            signB <= 0;
-            expA <= 0;
-            expB <= 0;
-            mantA <= 0;
-            mantB <= 0;
-            o_fpAdd_out <= 0;
-        end else begin
-            signA <= i_fpAdd_regA[31];
-            signB <= i_fpAdd_regB[31];
-            expA <= i_fpAdd_regA[30:23];
-            expB <= i_fpAdd_regB[30:23];
-            mantA <= i_fpAdd_regA[22:0];
-            mantB <= i_fpAdd_regB[22:0];
-            o_fpAdd_out <= {largerSign, finalExp, finalMantissa};
-        end
-    end
+    // Pipe Stage 1
+    pipeline #(.WIDTH(64)) 
+        pipeline_inst (.clk(clk), .reset(reset), .in({i_fpAdd_regA, i_fpAdd_regB}), .out(pipe_out));
 
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            largerExpPl <= 0;
-            regsMantSumPl <= 0;
-        end else begin
-            largerExpPl <= largerExp;
-            regsMantSumPl <= regsMantSum;
-        end
-    end
+    assign {signA, expA, mantA, signB, expB, mantB} = pipe_out;
 
     always @(signA or signB or expA or expB or mantA or mantB) begin
         if ({expA, mantA} > {expB, mantB}) begin
@@ -92,6 +70,12 @@ module fpadd_pipeline (
             smallerMant = {|expA, mantA};
         end
     end
+
+    // Pipe Stage 2
+    pipeline #(.WIDTH(33)) 
+        pipeline_inst3 (.clk(clk), .reset(reset), .in({largerExp, regsMantSum}), .out(pipe_out_3));
+
+    assign {largerExpPl, regsMantSumPl} = pipe_out_3;
 
     // Perform addition/subtraction based on sign
     always @(*) begin 
@@ -115,5 +99,8 @@ module fpadd_pipeline (
 			finalExp = 8'b0;
         end
     end
+    // Pipe Stage 3
+    pipeline #(.WIDTH(32)) 
+        pipeline_inst2 (.clk(clk), .reset(reset), .in({largerSign, finalExp, finalMantissa}), .out(o_fpAdd_out));
 endmodule
 
