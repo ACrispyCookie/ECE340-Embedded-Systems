@@ -1,19 +1,19 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: UTH
-// 
-// Design Name: 
-// Module Name:   fpadd_single 
-// Project Name: 32 bit Floating Point Unit - Add
-// Target Devices: Zedboard
-// Tool versions: Vivado 2020.2
-//
-// Description: 32-bit FP adder with regA single pipeline stage (everything happens in one cycle)
-//  The module does not check the input for subnormal and NaN numbers, 
-//  and assumes that the two inputs are normal FP32 numbers with 0<exp<255.
-//  We also assume that the output does not overflow or undeflow, so there is no need to check for these conditions.
-//  An FP32 number has 1 sign bit, 8 exponent bits(biased by 127), and 23 mantissa bits.
-//////////////////////////////////////////////////////////////////////////////////
+
+/*
+    The Floating Point Adder (fpadd_pipeline) module implements a pipelined floating-point adder.
+    It takes two 32-bit floating-point numbers as input and produces a 32-bit floating-point result,
+    following the IEEE 754 standard for single-precision floating-point representation.
+    Both addition and subtraction operations are supported based on the signs of the inputs.
+
+    ?Inputs:
+        clk: Clock signal
+        reset: Reset signal
+        i_fpAdd_regA: First floating-point number (32 bits)
+        i_fpAdd_regB: Second floating-point number (32 bits)
+    ?Outputs:
+        o_fpAdd_out: Result of the floating-point addition/subtraction (32 bits)
+*/
+
 module fpadd_pipeline (
 	input clk,
     input reset,
@@ -22,60 +22,65 @@ module fpadd_pipeline (
 	output [31:0] o_fpAdd_out
 );
     // Inputs
-    wire signA, signB;
-    wire [7:0] expA, expB;
-    wire [22:0] mantA, mantB;
+    wire pl_signA, pl_signB;
+    wire [7:0] pl_expA, pl_expB;
+    wire [22:0] pl_mantA, pl_mantB;
 
+    // Final Signals
     reg [7:0] finalExp;
     reg [22:0] finalMantissa;
-    reg [24:0] regsMantSum;
+
+    // Addition and Subtraction Signals
     wire [7:0] expDiff;
+    reg [24:0] regsMantSum;
     wire [4:0] leadingZeroCount;
 
+    // Larger and Smaller difference
     reg largerSign, smallerSign;
     reg [7:0] largerExp, smallerExp;
     reg [23:0] largerMant, smallerMant;
     wire [23:0] smallShiftMant;
-    wire [63:0] pipe_out;
-    wire [32:0] pipe_out_3;
 
-    wire [24:0] regsMantSumPl;
-    wire [7:0] largerExpPl;
+    // Pipeline Signals
+    wire [63:0] pipeOutS1;
+    wire [32:0] pipeOutS2;
+    wire [7:0] pl_largerExp;
+    wire [24:0] pl_regsMantSum;
 
     assign expDiff = largerExp - smallerExp;
     assign smallShiftMant = smallerMant >> expDiff;
 
-	LZCounter LCZ_inst(.bits(regsMantSumPl[23:0]), .leadingZeroCount(leadingZeroCount));
+	LZCounter LCZ_inst(.bits(pl_regsMantSum[23:0]), .leadingZeroCount(leadingZeroCount));
     
     // Pipe Stage 1
     pipeline #(.WIDTH(64)) 
-        pipeline_inst (.clk(clk), .reset(reset), .in({i_fpAdd_regA, i_fpAdd_regB}), .out(pipe_out));
+        pipeline_inst (.clk(clk), .reset(reset), .in({i_fpAdd_regA, i_fpAdd_regB}), .out(pipeOutS1));
 
-    assign {signA, expA, mantA, signB, expB, mantB} = pipe_out;
+    assign {pl_signA, pl_expA, pl_mantA, pl_signB, pl_expB, pl_mantB} = pipeOutS1;
 
-    always @(signA or signB or expA or expB or mantA or mantB) begin
-        if ({expA, mantA} > {expB, mantB}) begin
-            largerSign = signA;
-            largerExp = expA;
-            largerMant = {|expA, mantA};
-            smallerSign = signB;
-            smallerExp = expB;
-            smallerMant = {|expB, mantB};
+    always @(pl_signA or pl_signB or pl_expA or pl_expB or pl_mantA or pl_mantB) begin
+        if ({pl_expA, pl_mantA} > {pl_expB, pl_mantB}) begin
+            largerSign = pl_signA;
+            largerExp = pl_expA;
+            largerMant = {|pl_expA, pl_mantA};
+            smallerSign = pl_signB;
+            smallerExp = pl_expB;
+            smallerMant = {|pl_expB, pl_mantB};
         end else begin
-            largerSign = signB;
-            largerExp = expB;
-            largerMant = {|expB, mantB};
-            smallerSign = signA;
-            smallerExp = expA;
-            smallerMant = {|expA, mantA};
+            largerSign = pl_signB;
+            largerExp = pl_expB;
+            largerMant = {|pl_expB, pl_mantB};
+            smallerSign = pl_signA;
+            smallerExp = pl_expA;
+            smallerMant = {|pl_expA, pl_mantA};
         end
     end
 
     // Pipe Stage 2
     pipeline #(.WIDTH(33)) 
-        pipeline_inst3 (.clk(clk), .reset(reset), .in({largerExp, regsMantSum}), .out(pipe_out_3));
+        pipeline_inst3 (.clk(clk), .reset(reset), .in({largerExp, regsMantSum}), .out(pipeOutS2));
 
-    assign {largerExpPl, regsMantSumPl} = pipe_out_3;
+    assign {pl_largerExp, pl_regsMantSum} = pipeOutS2;
 
     // Perform addition/subtraction based on sign
     always @(*) begin 
@@ -88,12 +93,12 @@ module fpadd_pipeline (
 
     // Normalize result
     always @(*) begin
-        if (regsMantSumPl[24]) begin // Overflow
-            finalMantissa = regsMantSumPl >> 1;
-            finalExp = largerExpPl + 1;
-        end else if (|regsMantSumPl) begin
-            finalMantissa = regsMantSumPl << leadingZeroCount;
-            finalExp = largerExpPl - leadingZeroCount;
+        if (pl_regsMantSum[24]) begin // Overflow
+            finalMantissa = pl_regsMantSum >> 1;
+            finalExp = pl_largerExp + 1;
+        end else if (|pl_regsMantSum) begin
+            finalMantissa = pl_regsMantSum << leadingZeroCount;
+            finalExp = pl_largerExp - leadingZeroCount;
         end else begin
             finalMantissa = 23'b0;
 			finalExp = 8'b0;

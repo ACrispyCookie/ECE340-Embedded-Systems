@@ -1,19 +1,5 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: UTH
-// 
-// Design Name: 
-// Module Name:   fpadd_single 
-// Project Name: 32 bit Floating Point Unit - Add
-// Target Devices: Zedboard
-// Tool versions: Vivado 2020.2
-//
-// Description: 32-bit FP adder with regA single pipeline stage (everything happens in one cycle)
-//  The module does not check the input for subnormal and NaN numbers, 
-//  and assumes that the two inputs are normal FP32 numbers with 0<exp<255.
-//  We also assume that the output does not overflow or undeflow, so there is no need to check for these conditions.
-//  An FP32 number has 1 sign bit, 8 exponent bits(biased by 127), and 23 mantissa bits.
-//////////////////////////////////////////////////////////////////////////////////
+
 module fpadd (
 	input clk,
     input reset,

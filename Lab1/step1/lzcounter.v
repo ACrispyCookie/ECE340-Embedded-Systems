@@ -1,4 +1,14 @@
 
+/*
+    The Leading Zero Counter (LZCounter) module counts the number of leading zeros in a 24-bit input.
+    This is used in floating-point addition to align the mantissas before performing the addition.
+
+    ?Input:
+        bits: 24-bit input signal
+    ?Output:
+        leadingZeroCount: 5-bit output representing the number of leading zeros in the input
+*/
+
 module LZCounter (
     input [23:0] bits,
     output reg [4:0] leadingZeroCount
