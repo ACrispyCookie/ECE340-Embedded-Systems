@@ -14,9 +14,11 @@ module fpadd (
     reg [23:0] shiftedMantA, shiftedMantB;
     reg [23:0] mantA, mantB;
     reg [24:0] regsMantSum;
-    reg [7:0] expDiff;
+    wire signed [7:0] expDiff;
     wire [1:0] isZero;
     reg [22:0] finalMantissa;
+
+	assign expDiff = expA - expB;
 
 	LZCounter LCZ_inst(.bits(regsMantSum[23:0]), .leadingZeroCount(leadingZeroCount));
     
@@ -43,13 +45,11 @@ module fpadd (
     // Exponent Calculations
     always @(*) begin
         if (expA > expB) begin
-            expDiff = expA - expB;
             shiftedMantA = mantA;
             shiftedMantB = mantB >> expDiff;
             expOut = expA;
         end else begin
-            expDiff = expB - expA;
-            shiftedMantA = mantA >> expDiff;
+            shiftedMantA = mantA >> -expDiff;
             shiftedMantB = mantB;
             expOut = expB;
         end
