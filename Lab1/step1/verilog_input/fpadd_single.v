@@ -19,7 +19,7 @@ module fpadd_single (
     input reset,
     input [31:0] i_fpAdd_regA, 
     input [31:0] i_fpAdd_regB,  
-	output reg[31:0] o_fpAdd_out
+	output reg [31:0] o_fpAdd_out
 );
 
 	// Internal Signals
