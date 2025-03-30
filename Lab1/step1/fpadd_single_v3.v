@@ -1,4 +1,18 @@
-`timescale 1ns / 1ps
+
+/*
+    The Floating Point Adder (fpadd_pipeline) module implements a single-cycle floating-point adder.
+    It takes two 32-bit floating-point numbers as input and produces a 32-bit floating-point result,
+    following the IEEE 754 standard for single-precision floating-point representation.
+    Both addition and subtraction operations are supported based on the signs of the inputs.
+
+    ?Inputs:
+        clk: Clock signal
+        reset: Reset signal
+        i_fpAdd_regA: First floating-point number (32 bits)
+        i_fpAdd_regB: Second floating-point number (32 bits)
+    ?Outputs:
+        o_fpAdd_out: Result of the floating-point addition/subtraction (32 bits)
+*/
 
 module fpadd (
 	input clk,

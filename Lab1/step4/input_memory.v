@@ -1,3 +1,17 @@
+
+/*
+   The Input Memory (input_memory) module stores eight 32-bit values (provided through the INIT_XX parameters) and cycles
+   through them each time the scroll_button is pressed. The currently addressed value is provided on selected_num.
+
+   ?Inputs:
+      clk          : Clock signal
+      reset        : Reset signal
+      scroll_button: Increments the address pointer to select the next memory location
+
+   ?Outputs:
+      selected_num : 32-bit data output from the currently addressed memory location
+*/
+
 module input_memory # (
     parameter INIT_00 = 32'b0,
     parameter INIT_01 = 32'b0,

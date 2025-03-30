@@ -1,3 +1,19 @@
+
+/*
+   The SSD Driver (ssd_driver) module drives a single 7-segment display (via the char_decoder) by cycling between the
+   high nibble and the low nibble of the input data every time the internal counter reaches a certain value. This allows 
+   two distinct 4-bit segments from data_in to be displayed at a regular interval.
+
+   ?Inputs:
+      clk    : Clock signal
+      reset  : Asynchronous reset signal
+      data_in: 8-bit input containing two 4-bit segments to display
+
+   ?Outputs:
+      an : Enables the display of the selected 4-bit segment
+      a, b, c, d, e, f, g : 7-segment display outputs, driven by the char_decoder submodule
+*/
+
 module ssd_driver (
     input clk, reset,
     input [7:0] data_in,

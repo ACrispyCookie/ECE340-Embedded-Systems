@@ -1,3 +1,17 @@
+
+/*
+   The Level to Pulse (level_to_pulse) module detects a high level on its input and generates a single-cycle pulse. 
+   It ensures that whenever the level_input signal transitions to high, a one-clock-wide pulse is asserted on pulse_output.
+
+   ?Inputs:
+      clk:   Clock signal
+      reset: Asynchronous reset signal
+      level_input: Input signal indicating a high (1'b1) or low (1'b0) level
+
+   ?Outputs:
+      pulse_output: A single-cycle pulse asserted when level_input goes high
+*/
+
 module level_to_pulse (
     input clk,
     input reset,

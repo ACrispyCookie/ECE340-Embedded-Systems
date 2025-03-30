@@ -1,4 +1,23 @@
 
+/*
+   The Floating Point Adder System (fpadd_system) module integrates input memory, debouncing logic, a floating-point 
+   addition pipeline, and 7-segment display drivers. It reads two floating-point numbers (numA and numB) from separate 
+   memory blocks (selected via mem_select), adds them using fpadd_pipeline, and displays the 16 MSBs of either the
+   floating-point result or one of the input values on two 7-segment displays in hexadecimal form and the lower 8 bits 
+   on LEDs (as selected by display_select).
+
+   ?Inputs:
+      clk           : Clock signal
+      reset         : Reset signal
+      mem_select    : 2-bit input used to cycle through stored values for numA and numB
+      display_select: 2-bit input used to choose which data (numA, numB, or fp_out) is shown on the displays and LEDs
+
+   ?Outputs:
+      leds     : 8 LEDs that display the lower 8 bits of the chosen 32-bit value
+      an0, a0, b0, c0, d0, e0, f0, g0 : 7-segment display signals for the first display
+      an1, a1, b1, c1, d1, e1, f1, g1 : 7-segment display signals for the second display
+*/
+
  module fpadd_system (
    input clk,
    input reset, 
