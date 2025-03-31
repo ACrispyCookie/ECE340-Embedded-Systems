@@ -45,10 +45,10 @@ end
 
 always @(counter or data_in) begin
     if (counter[5] == 1'b1) begin
-        an = 1'b1;
+        an = 1'b0;
         decoder_input = data_in[3:0];
     end else begin
-        an = 1'b0;
+        an = 1'b1;
         decoder_input = data_in[7:4];
     end
 end
