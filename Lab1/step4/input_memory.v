@@ -20,7 +20,9 @@ module input_memory # (
     parameter INIT_04 = 32'b0,
     parameter INIT_05 = 32'b0,
     parameter INIT_06 = 32'b0,
-    parameter INIT_07 = 32'b0
+    parameter INIT_07 = 32'b0,
+    parameter INIT_08 = 32'b0,
+    parameter INIT_09 = 32'b0
 ) (
     input clk,
     input reset,
@@ -28,8 +30,8 @@ module input_memory # (
     output wire [31:0] selected_num
 );
 
-    reg [31:0] memory [7:0];
-    reg [2:0] address;
+    reg [31:0] memory [9:0];
+    reg [3:0] address;
     assign selected_num = memory[address];
 
     initial memory[0] = INIT_00;
@@ -40,12 +42,17 @@ module input_memory # (
     initial memory[5] = INIT_05;
     initial memory[6] = INIT_06;
     initial memory[7] = INIT_07;
+    initial memory[8] = INIT_08;
+    initial memory[9] = INIT_09;
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            address <= 3'b0;
+            address <= 4'b0;
         end else if (scroll_button) begin
-            address <= address + 3'b1;
+            if (address == 4'd9) 
+                address <= 4'd0;
+            else
+                address <= address + 4'b1;
         end
     end
     

@@ -53,7 +53,9 @@
        .INIT_04(32'h2ac49214),
        .INIT_05(32'hbfc66666),
        .INIT_06(32'hc565ee8b),
-       .INIT_07(32'h447a4efa)
+       .INIT_07(32'h447a4efa),
+       .INIT_08(32'h00000000),
+       .INIT_09(32'h38108900)
     )
     memA(.clk(clk), .reset(reset_debounced), .scroll_button(mem_select_pulse[0]), .selected_num(numA));
    
@@ -65,7 +67,9 @@
       .INIT_04(32'h6ac49214),
       .INIT_05(32'h3fc7ae14),
       .INIT_06(32'h4565ee8a),
-      .INIT_07(32'h00000000)
+      .INIT_07(32'hc47a1ccd),
+      .INIT_08(32'h00000000),
+      .INIT_09(32'hbb908900)
    )
    memB(.clk(clk), .reset(reset_debounced), .scroll_button(mem_select_pulse[1]), .selected_num(numB));
 
