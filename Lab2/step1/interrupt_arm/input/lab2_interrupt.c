@@ -43,6 +43,13 @@ void BTN_Intr_Handler(void *InstancePtr)
 	// This is where you place your code 
         // Increment counter based on button value
 	// Reset if center button pressed
+	if (btn_value & 0x1) { // Center button is the LSB
+		counter_value = 0;
+		xil_printf("Reset counter!\r\n");
+	} else if ((btn_value & 0x1e) != 0) { // Check if any of the other buttons are pressed
+		counter_value++;
+		xil_printf("Button pressed: %x, Counter: %d\r\n", btn_value, counter_value);
+	}
 	
 	
     (void)XGpio_InterruptClear(&BTNInst, BTN_INT);
