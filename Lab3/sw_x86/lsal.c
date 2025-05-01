@@ -13,7 +13,7 @@
 // #define N 256
 // #define M 2048
 
-typedef enum { CENTER, NORTH, NORTH_WEST, WEST } Direction;
+typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_i -1
 #define GAP_d -1
 #define MATCH 2
@@ -43,13 +43,12 @@ void compute_matrices(
 	int j = 0;
 
     // Following values are used for the N, W, and NW values wrt. similarity_matrix[i]
-    int north_value = 0;
-	int west_value = 0;
-	int northwest_value = 0;
+	short match;
+	int values[4];
+	short max_value_index = 0;
 	int max_value = 0;
 
-	short match;
-	short direction;
+	values[CENTER] = 0;
 	*max_index = N + 1;
 
 	//Here the real computation starts. Place your code whenever is required. 
@@ -59,33 +58,18 @@ void compute_matrices(
 		index = j * N;
 		similarity_index = index + N + j + 2;
 		for (i = 0; i < N; i++, index++, similarity_index++) {
-			max_value = 0;
-			direction = CENTER;
-
 			match = string1[i] == string2[j] ? MATCH : MISS_MATCH;
-			northwest_value = similarity_matrix[similarity_index - N - 2] + match;
-			north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
-			west_value = similarity_matrix[similarity_index - 1] + GAP_i;
+			values[NORTH_WEST] = similarity_matrix[similarity_index - N - 2] + match;
+			values[NORTH] = similarity_matrix[similarity_index - N - 1] + GAP_d;
+			values[WEST] = similarity_matrix[similarity_index - 1] + GAP_i;
 
-			if (northwest_value > max_value) {
-				max_value = northwest_value;
-				direction = NORTH_WEST;
-			}
+			for (int k = 1; k < 4; k++) 
+				max_value_index = values[k] > values[max_value_index] ? k : max_value_index;
 
-			if (north_value > max_value) {
-				max_value = north_value;
-				direction = NORTH;
-			}
-
-			if (west_value > max_value) {
-				max_value = west_value;
-				direction = WEST;
-			}
-
+			max_value = values[max_value_index];
 			similarity_matrix[similarity_index] = max_value;
-			direction_matrix[index] = direction;
-			if (max_value > similarity_matrix[*max_index])
-				*max_index = similarity_index;
+			direction_matrix[index] = max_value_index;
+			*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
 		}
 	}
 }  // end of function
@@ -214,8 +198,8 @@ int main(int argc, char** argv) {
 	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, N, M);
 	t2 = clock();
 
-	// printSimilarityMatrix(similarity_matrix, query, database, N, M);
-	// printDirectionMatrix(direction_matrix, N, M);
+	printSimilarityMatrix(similarity_matrix, query, database, N, M);
+	printDirectionMatrix(direction_matrix, N, M);
 
     printf("max index is in position (%d, %d) \n", max_index[0]/(N + 1), max_index[0]%(N+1));
 	printf("execution time of LSAL SW algorithm is %f sec \n", (double)(t2-t1) / CLOCKS_PER_SEC);

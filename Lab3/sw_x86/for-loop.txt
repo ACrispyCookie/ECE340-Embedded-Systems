@@ -1,0 +1,22 @@
+
+ Performance counter stats for './lsal 256 300000':
+
+            698.15 msec task-clock                       #    0.999 CPUs utilized             
+                 6      context-switches                 #    8.594 /sec                      
+                 0      cpu-migrations                   #    0.000 /sec                      
+           112,934      page-faults                      #  161.762 K/sec                     
+     2,315,684,336      cycles                           #    3.317 GHz                       
+     3,263,750,264      instructions                     #    1.41  insn per cycle            
+       512,828,391      branches                         #  734.556 M/sec                     
+        34,210,251      branch-misses                    #    6.67% of all branches           
+                        TopdownL1                 #     18.1 %  tma_backend_bound      
+                                                  #     43.4 %  tma_bad_speculation    
+                                                  #     11.3 %  tma_frontend_bound     
+                                                  #     27.2 %  tma_retiring           
+
+       0.699069420 seconds time elapsed
+
+       0.514635000 seconds user
+       0.183869000 seconds sys
+
+
