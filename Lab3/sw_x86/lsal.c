@@ -63,13 +63,15 @@ void compute_matrices(
 			values[NORTH] = similarity_matrix[similarity_index - N - 1] + GAP_d;
 			values[WEST] = similarity_matrix[similarity_index - 1] + GAP_i;
 
-			for (int k = 1; k < 4; k++) 
-				max_value_index = values[k] > values[max_value_index] ? k : max_value_index;
+			max_value_index = values[1] > values[max_value_index] ? 1 : max_value_index;
+			max_value_index = values[2] > values[max_value_index] ? 2 : max_value_index;
+			max_value_index = values[3] > values[max_value_index] ? 3 : max_value_index;
 
 			max_value = values[max_value_index];
 			similarity_matrix[similarity_index] = max_value;
 			direction_matrix[index] = max_value_index;
 			*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
+			max_value_index = 0;
 		}
 	}
 }  // end of function
