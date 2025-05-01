@@ -56,9 +56,9 @@ void compute_matrices(
 	// Scan the N*M array row-wise starting from the second row.
 
 	for (j = 0; j < M; j++) {
-		for (i = 0; i < N; i++) {
-			index = j * N + i;
-			similarity_index = index + N + j + 2;
+		index = j * N;
+		similarity_index = index + N + j + 2;
+		for (i = 0; i < N; i++, index++, similarity_index++) {
 			max_value = 0;
 			direction = CENTER;
 
