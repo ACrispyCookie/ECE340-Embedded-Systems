@@ -63,9 +63,9 @@ void compute_matrices(
 			values[NORTH] = similarity_matrix[similarity_index - N - 1] + GAP_d;
 			values[WEST] = similarity_matrix[similarity_index - 1] + GAP_i;
 
-			max_value_index = values[1] > values[max_value_index] ? 1 : max_value_index;
-			max_value_index = values[2] > values[max_value_index] ? 2 : max_value_index;
-			max_value_index = values[3] > values[max_value_index] ? 3 : max_value_index;
+			max_value_index = values[NORTH_WEST] > values[max_value_index] ? NORTH_WEST : max_value_index;
+			max_value_index = values[NORTH] > values[max_value_index] ? NORTH : max_value_index;
+			max_value_index = values[WEST] > values[max_value_index] ? WEST : max_value_index;
 
 			max_value = values[max_value_index];
 			similarity_matrix[similarity_index] = max_value;
@@ -200,8 +200,10 @@ int main(int argc, char** argv) {
 	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, N, M);
 	t2 = clock();
 
+#ifdef ENABLE_TEST_OUTPUT
 	printSimilarityMatrix(similarity_matrix, query, database, N, M);
 	printDirectionMatrix(direction_matrix, N, M);
+#endif
 
     printf("max index is in position (%d, %d) \n", max_index[0]/(N + 1), max_index[0]%(N+1));
 	printf("execution time of LSAL SW algorithm is %f sec \n", (double)(t2-t1) / CLOCKS_PER_SEC);
