@@ -38,53 +38,49 @@ void compute_matrices(
 {
     int i = 0, j = 0;
     int index = 0;
-    int similarity_index = 0;
+	int similarity_index = 0;
 
     int north_value = 0;
     int west_value = 0;
     int northwest_value = 0;
-    int max_value = 0;
+	int max_value = 0;
 
-    short match = 0;
-    short direction = 0;
-    *max_index = N + 1;
+	short match = 0;
+	short direction = 0;
+	*max_index = N + 1;
 
-    for (j = 0; j < M; j++) {
-        index = j * N;
-        similarity_index = index + N + j + 2;
+	for (j = 0; j < M; j++) {
+		index = j * N;
+		similarity_index = index + N + j + 2;
 
-        for (i = 0; i < N; i++, index++, similarity_index++) {
-            // Math-like style: no branches here
-            match = (string1[i] == string2[j]) ? MATCH : MISS_MATCH;
+		for (i = 0; i < N; i++, index++, similarity_index++) {
+			match = (string1[i] == string2[j]) ? MATCH : MISS_MATCH;
+			
+			northwest_value = similarity_matrix[similarity_index - N - 2] + match;
+			north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
+			west_value = similarity_matrix[similarity_index - 1] + GAP_i;
 
-            northwest_value = similarity_matrix[similarity_index - N - 2] + match;
-            north_value     = similarity_matrix[similarity_index - N - 1] + GAP_d;
-            west_value      = similarity_matrix[similarity_index - 1] + GAP_i;
+			max_value = 0;
+			direction = CENTER;
 
-            // Flattened decision logic using ternary ops (promotes CMOV usage)
-            max_value = northwest_value;
-            direction = NORTH_WEST;
+			int cond_nw = (northwest_value > max_value);
+			max_value = cond_nw ? northwest_value : max_value;
+			direction = cond_nw ? NORTH_WEST : direction;
 
-            int cond_north = (north_value > max_value);
-            max_value = cond_north ? north_value : max_value;
-            direction = cond_north ? NORTH : direction;
+			int cond_north = (north_value > max_value);
+			max_value = cond_north ? north_value : max_value;
+			direction = cond_north ? NORTH : direction;
 
-            int cond_west = (west_value > max_value);
-            max_value = cond_west ? west_value : max_value;
-            direction = cond_west ? WEST : direction;
-            
-			int cond_zero = (max_value > 0);
-            max_value = cond_zero ? max_value : 0;
-            direction = cond_zero ? direction : CENTER;
-            similarity_matrix[similarity_index] = max_value;
-            direction_matrix[index] = direction;
+			int cond_west = (west_value > max_value);
+			max_value = cond_west ? west_value : max_value;
+			direction = cond_west ? WEST : direction;
 
-            // Branch-minimized update of max_index
-            int current_max = similarity_matrix[*max_index];
-            int update_max = (max_value > current_max);
-            *max_index = update_max ? similarity_index : *max_index;
-        }
-    }
+			similarity_matrix[similarity_index] = max_value;
+			direction_matrix[index] = direction;
+			
+			*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
+		}
+	}
 }  // end of function
 
 /************************************************************************/

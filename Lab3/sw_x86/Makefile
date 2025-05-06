@@ -8,18 +8,23 @@ endif
 #  Directories
 SRC_DIR = ./src/
 TARGET_DIR = ./target/
+ASSEMBLY_DIR = ./asm/
 OUT_DIR = ./out/
 
 # Default names and final paths
-SRC ?= lsal.c
+TARGET ?= lsal
 CORRECT_OUT = correct_out
-TARGET_PATH = $(TARGET_DIR)$(basename $(SRC) .c)
-SRC_PATH   = $(SRC_DIR)$(SRC)
+TARGET_PATH = $(TARGET_DIR)$(TARGET)
+ASSEMBLY_PATH = $(ASSEMBLY_DIR)$(TARGET).s
+SRC_PATH   = $(SRC_DIR)$(TARGET).c
 
 all: $(TARGET_PATH)
 
 $(TARGET_PATH): $(SRC_PATH)
 	$(CC) $(CFLAGS) -o $(TARGET_PATH) $(SRC_PATH)
+
+assembly: $(SRC_PATH)
+	$(CC) $(CFLAGS) -S $(SRC_PATH) -o $(ASSEMBLY_PATH)
 
 clean-all: clean clean-out
 

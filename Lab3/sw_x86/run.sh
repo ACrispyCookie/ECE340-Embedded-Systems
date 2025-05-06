@@ -9,6 +9,8 @@ CORRECT_OUTPUT="$OUT_DIR/correct_out"
 # Will be set later once a file is selected
 OUTPUT_FILE=""
 
+ALL=false
+STORE_ASM=false
 RUN_TEST=false
 RUN_PERF=false
 ARGS=""
@@ -20,6 +22,7 @@ print_help() {
     echo "Options:"
     echo "  --test       Compile and run the selected program with test arguments."
     echo "               Output will be stored in $OUTPUT_FILE and compared with $CORRECT_OUTPUT."
+    echo "  --asm        Store the assembly of the input source code."
     echo "  --perf       Run the program under perf stat with the provided arguments."
     echo "  --help       Show this help message."
     echo ""
@@ -31,6 +34,10 @@ print_help() {
 # Handle flags
 while [[ $# -gt 0 ]]; do
     case "$1" in
+        --asm)
+            STORE_ASM=true
+            shift
+            ;;
         --test)
             RUN_TEST=true
             shift
@@ -69,11 +76,18 @@ select file_path in "${c_files[@]}"; do
         PERF_FILE="$PERF_DIR/${target}.data"
         echo "Selected: $src_file"
 
+        if [ "$STORE_ASM" = true ]; then
+            echo "###################### ASSEMBLY ######################"
+            echo "Compiling assembly..."
+            make TARGET="$target" assembly
+            echo "######################################################"
+        fi
+
         if [ "$RUN_TEST" = true ]; then
             echo "######################## TEST ########################"
             echo "Compiling with test output enabled..."
             make clean > /dev/null
-            make SRC="$src_file" TEST=1
+            make TARGET="$target" TEST=1
             if [ ! -x "$binary" ]; then
                 echo "Compilation failed or binary not found."
                 exit 1
@@ -97,7 +111,7 @@ select file_path in "${c_files[@]}"; do
             echo "######################## PERF ########################"
             echo "Compiling with test output disabled..."
             make clean > /dev/null
-            make SRC="$src_file"
+            make TARGET="$target"
             if [ ! -x "$binary" ]; then
                 echo "Compilation failed or binary not found."
                 exit 1
