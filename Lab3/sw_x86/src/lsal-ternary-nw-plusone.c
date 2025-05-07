@@ -1,6 +1,3 @@
-#include <emmintrin.h>
-#include <omp.h>
-#include <string.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,89 +10,76 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+// #define N 256
+// #define M 2048
+
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_i -1
 #define GAP_d -1
 #define MATCH 2
 #define MISS_MATCH -1
-#define SIMD_WIDTH 8 // Number of 16-bit values in 128-bit SIMD
-#define MAX(a,b) ((a) > (b) ? (a) : (b))
+// static long int cnt_ops=0;
+// static long int cnt_bytes=0;
 
-// SSE2-compatible blend: chooses b[i] if mask[i] is 1, else a[i]
-static inline __m128i _mm_blendv_epi8(__m128i a, __m128i b, __m128i mask) {
-    return _mm_or_si128(
-        _mm_and_si128(mask, b),
-        _mm_andnot_si128(mask, a)
-    );
-}
+/**********************************************************************************************
+ * LSAL algorithm
+ * Inputs:
+ *          string1 is the query[N]
+ *          string2 is the database[M]
+ *          input sizes N, M
+ * Outputs:
+ *           max_index is the location of the highest similiarity score 
+ *           similarity and direction matrices. Note that these two matrices are initialized with zeros.
+ **********************************************************************************************/
 
 void compute_matrices(
 	const char *string1, const char *string2,
-	int *max_index, int *similarity_matrix, short *direction_matrix,
-	const int N, const int M)
+	int *max_index, int *similarity_matrix, short *direction_matrix, const int N, const int M)
 {
-	const short match_score = MATCH;
-	const short mismatch_penalty = MISS_MATCH;
-	const short gap_open = GAP_i;
-	const short gap_extend = GAP_d;
+    int i = 0, j = 0;
+    int index = 0;
 
+    int north_value = 0;
+    int west_value = 0;
+    int northwest_value = 0;
+	int max_value = 0;
+
+	short match = 0;
+	short direction = 0;
 	*max_index = N + 1;
-	int total = (N + 1) * (M + 1);
-	memset(similarity_matrix, 0, total * sizeof(int));
-	memset(direction_matrix, 0, total * sizeof(short));
 
-	// Allocate gap vectors
-	__m128i v_gap_open = _mm_set1_epi16(gap_open);
-	__m128i v_gap_extend = _mm_set1_epi16(gap_extend);
-	__m128i v_zero = _mm_setzero_si128();
-	__m128i max_val = v_zero;
+	for (i = 0; i < M+1; i++) {
+		index = i * N+1;
 
-	// #pragma omp parallel for schedule(static) // enable for multi-threaded
-	for (int j = 0; j < M; j++) {
-		__m128i E[SIMD_WIDTH] = { v_zero };  // Insertion gaps
-		__m128i F = v_zero;                  // Deletion gap
-		__m128i H = v_zero;                  // Current values
+		for (j = 0; j < N+1; j++, index++) {
+			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
+			
+			northwest_value = similarity_matrix[index - N - 2] + match;
+			north_value = similarity_matrix[index - N - 1] + GAP_d;
+			west_value = similarity_matrix[index - 1] + GAP_i;
 
-		for (int i = 0; i < N; i += SIMD_WIDTH) {
-			__m128i v_H_diag = v_zero;
-			__m128i v_H_left = v_zero;
-			__m128i v_H_above = v_zero;
+			max_value = northwest_value;
+			direction = NORTH_WEST;
 
-			short s1[SIMD_WIDTH], s2[SIMD_WIDTH];
-			for (int k = 0; k < SIMD_WIDTH; k++) {
-				s1[k] = (i + k < N) ? string1[i + k] : 0;
-				s2[k] = string2[j];
-			}
+			int cond_north = (north_value > max_value);
+			max_value = cond_north ? north_value : max_value;
+			direction = cond_north ? NORTH : direction;
 
-			__m128i v_s1 = _mm_loadu_si128((__m128i*)s1);
-			__m128i v_s2 = _mm_loadu_si128((__m128i*)s2);
-			__m128i v_cmp = _mm_cmpeq_epi16(v_s1, v_s2);
-			__m128i v_score = _mm_blendv_epi8(_mm_set1_epi16(mismatch_penalty), _mm_set1_epi16(match_score), v_cmp);
+			int cond_west = (west_value > max_value);
+			max_value = cond_west ? west_value : max_value;
+			direction = cond_west ? WEST : direction;
 
-			// Load previous scores from matrix
-			for (int k = 0; k < SIMD_WIDTH; k++) {
-				int idx = (j + 1) * (N + 1) + (i + k + 1);
-				int idx_diag = j * (N + 1) + i + k;
-				int idx_above = j * (N + 1) + i + k + 1;
-				int idx_left = (j + 1) * (N + 1) + i + k;
+			max_value = max_value & ~(max_value >> 31);
+			direction = (max_value == 0) ? CENTER : direction;
 
-				short diag = similarity_matrix[idx_diag];
-				short up = similarity_matrix[idx_above];
-				short left = similarity_matrix[idx_left];
-
-				short score = MAX(0, MAX(diag + ((s1[k] == s2[k]) ? match_score : mismatch_penalty),
-									MAX(up + gap_extend, left + gap_open)));
-				
-				similarity_matrix[idx] = score;
-				#pragma omp critical
-				{
-					if (score > similarity_matrix[*max_index])
-						*max_index = idx;
-				}
-			}
+			similarity_matrix[index] = max_value;
+			direction_matrix[index] = direction;
+			
+			*max_index = max_value > similarity_matrix[*max_index] ? index : *max_index;
 		}
 	}
-}
+}  // end of function
+
 /************************************************************************/
 
 /*
@@ -206,7 +190,7 @@ int main(int argc, char** argv) {
     char *query = (char*) malloc(sizeof(char) * N);//"TGTTACGGTAGTGTTACGGTAG";
 	char *database = (char*) malloc(sizeof(char) * M);//"GGTTGACTAGGTTGACTAGGTTGACTA";
 	int *similarity_matrix = (int*) malloc(sizeof(int) * ((N + 1) * (M + 1)));
-	short *direction_matrix = (short*) malloc(sizeof(short) * N * M);
+	short *direction_matrix = (short*) malloc(sizeof(short) * ((N+1) * (M+1)));
 	int *max_index = (int *) malloc(sizeof(int));
 
 	/* Create the two input strings by calling a random number generator */

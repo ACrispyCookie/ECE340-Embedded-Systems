@@ -49,12 +49,12 @@ void compute_matrices(
 	short direction = 0;
 	*max_index = N + 1;
 
-	for (j = 0; j < M; j++) {
-		index = j * N;
-		similarity_index = index + N + j + 2;
+	for (i = 0; i < M; i++) {
+		index = i * N;
+		similarity_index = index + N + i + 2;
 
-		for (i = 0; i < N; i++, index++, similarity_index++) {
-			match = (string1[i] == string2[j]) ? MATCH : MISS_MATCH;
+		for (j = 0; j < N; j++, index++, similarity_index++) {
+			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
 			
 			northwest_value = similarity_matrix[similarity_index - N - 2] + match;
 			north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;

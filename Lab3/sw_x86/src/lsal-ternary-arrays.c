@@ -54,11 +54,11 @@ void compute_matrices(
 	//Here the real computation starts. Place your code whenever is required. 
 	// Scan the N*M array row-wise starting from the second row.
 
-	for (j = 0; j < M; j++) {
-		index = j * N;
-		similarity_index = index + N + j + 2;
-		for (i = 0; i < N; i++, index++, similarity_index++) {
-			match = string1[i] == string2[j] ? MATCH : MISS_MATCH;
+	for (i = 0; i < M; i++) {
+		index = i * N;
+		similarity_index = index + N + i + 2;
+		for (j = 0; j < N; j++, index++, similarity_index++) {
+			match = string1[j] == string2[i] ? MATCH : MISS_MATCH;
 			values[NORTH_WEST] = similarity_matrix[similarity_index - N - 2] + match;
 			values[NORTH] = similarity_matrix[similarity_index - N - 1] + GAP_d;
 			values[WEST] = similarity_matrix[similarity_index - 1] + GAP_i;
