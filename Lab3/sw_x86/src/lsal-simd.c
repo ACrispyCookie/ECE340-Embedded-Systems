@@ -38,6 +38,7 @@ void compute_matrices(
 {
     int i = 0, j = 0;
     int index = 0;
+	int similarity_index = 0;
 
     int north_value = 0;
     int west_value = 0;
@@ -47,37 +48,7 @@ void compute_matrices(
 	short match = 0;
 	short direction = 0;
 	*max_index = N + 1;
-
-	for (i = 0; i < M+1; i++) {
-		index = i * N+1;
-
-		for (j = 0; j < N+1; j++, index++) {
-			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
-			
-			northwest_value = similarity_matrix[index - N - 2] + match;
-			north_value = similarity_matrix[index - N - 1] + GAP_d;
-			west_value = similarity_matrix[index - 1] + GAP_i;
-
-			max_value = northwest_value;
-			direction = NORTH_WEST;
-
-			int cond_north = (north_value > max_value);
-			max_value = cond_north ? north_value : max_value;
-			direction = cond_north ? NORTH : direction;
-
-			int cond_west = (west_value > max_value);
-			max_value = cond_west ? west_value : max_value;
-			direction = cond_west ? WEST : direction;
-
-			max_value = max_value & ~(max_value >> 31);
-			direction = (max_value == 0) ? CENTER : direction;
-
-			similarity_matrix[index] = max_value;
-			direction_matrix[index] = direction;
-			
-			*max_index = max_value > similarity_matrix[*max_index] ? index : *max_index;
-		}
-	}
+	
 }  // end of function
 
 /************************************************************************/
@@ -190,7 +161,7 @@ int main(int argc, char** argv) {
     char *query = (char*) malloc(sizeof(char) * N);//"TGTTACGGTAGTGTTACGGTAG";
 	char *database = (char*) malloc(sizeof(char) * M);//"GGTTGACTAGGTTGACTAGGTTGACTA";
 	int *similarity_matrix = (int*) malloc(sizeof(int) * ((N + 1) * (M + 1)));
-	short *direction_matrix = (short*) malloc(sizeof(short) * ((N+1) * (M+1)));
+	short *direction_matrix = (short*) malloc(sizeof(short) * N * M);
 	int *max_index = (int *) malloc(sizeof(int));
 
 	/* Create the two input strings by calling a random number generator */
