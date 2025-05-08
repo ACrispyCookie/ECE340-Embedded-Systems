@@ -6,8 +6,33 @@
 #define SIMD_WIDTH_CHAR 32
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
+#define DIAGONAL_LENGTH(d, N, M) ((d) < (N) && (d) < (M) ? (d) + 1 : (N) + (M) - (d) - 1)
+
 
 /************************************************************************/
+
+int *aDiagFlatTransform(int *matrix, int matrixSizeN, int matrixSizeM) {
+    int totalDiags = matrixSizeN + matrixSizeM - 1;
+    int largestDiagLen = MIN(matrixSizeN, matrixSizeM);
+    
+    int *result = (int *)malloc(totalDiags * largestDiagLen * sizeof(int));
+    if (!result) return NULL;
+
+    memset(result, 0, totalDiags * largestDiagLen * sizeof(int));
+
+    // Fill in anti-diagonal elements row by row
+    for (int d = 0; d < totalDiags; ++d) {
+        int idx = 0;
+        for (int i = 0; i < matrixSizeN; ++i) {
+            int j = d - i;
+            if (j >= 0 && j < matrixSizeM) {
+                result[d * largestDiagLen + idx++] = matrix[i * matrixSizeM + j];
+            }
+        }
+    }
+    
+    return result;
+}
 
 //* In a perfect world MM and C should return at about the same time.
 //* tweak allowed threads for each until load is balanced. 
@@ -36,7 +61,7 @@ void compute_missmatch(int diag, int vectorNum, int *similarity_matrix, const in
                 
                 // Store to matrix
                 _mm256_storeu_si256((__m256i*)&similarity_matrix[simIdx], result32_1);
-                _mm256_storeu_si256((__m256i*)&similarity_matrix[simIdx + 16], result32_2);                
+                _mm256_storeu_si256((__m256i*)&similarity_matrix[simIdx + 16], result32_2);
             #else
                 // do the MissMatch calculation //* Like above but Storing is prob diff. Remove same stuff from ifdef block.
             #endif
