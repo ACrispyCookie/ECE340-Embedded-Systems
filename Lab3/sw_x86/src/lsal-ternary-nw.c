@@ -38,7 +38,7 @@ void compute_matrices(
 {
     int i = 0, j = 0;
     int index = 0;
-	int similarity_index = 0;
+	int similarity_index = N + 2;
 
     int north_value = 0;
     int west_value = 0;
@@ -49,10 +49,7 @@ void compute_matrices(
 	short direction = 0;
 	*max_index = N + 1;
 
-	for (i = 0; i < M; i++) {
-		index = i * N;
-		similarity_index = index + N + i + 2;
-
+	for (i = 0; i < M; i++, similarity_index++) {
 		for (j = 0; j < N; j++, index++, similarity_index++) {
 			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
 			
