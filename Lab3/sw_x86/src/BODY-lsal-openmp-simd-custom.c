@@ -1,5 +1,5 @@
-
 #include <omp.h>
+#include <immintrin.h>
 #define CORE_COUNT 6
 #define MIN(a,b) (((a)<(b))?(a):(b))
 
@@ -13,17 +13,30 @@ void compute_missmatch(int diag, int minSideSize, int **similarity_matrix, const
     //* that's why this exists
     const int diagLen = MIN(diag, minSideSize);
     int vectorNum = (diagLen + SIMD_WIDTH - 1) / SIMD_WIDTH;
-    // vectorization #vectorNum vectors //* maybe too many not enough registers
+    
 
-    //pragma for (static) //* (This will create the threads)
-    #pragma omp parallel for schedule(static) num_threads(maxThrAllowed)
-    for (int i = 0; i < vectorNum; i++) {
-        // vector logic here
+    #pragma omp parallel num_threads(maxThrAllowed)
+    {
+        __m256i* vectors = (__m256i*)_mm_malloc(vectorNum * sizeof(__m256i), 32);
+        if (vectors == NULL) exit(EXIT_FAILURE);
+        
+        #pragma omp for schedule(static)
+        for (int i = 0; i < vectorNum; ++i) {
+            //* var is either N*diag + i if similarity is the transposed array
+            //* or something a little more complex cant be bothered rn :D
+            #ifdef TRANSFORMED_MATRIX
+                // do the MissMatch calculation //* I CANT THINK RN
+                // set *similarity_matrix[var] //* easy because a row = the anti-diagonal <- idk its name
+            #else
+                // do the MissMatch calculation //* I CANT THINK RN
+                // set *similarity_matrix[var] //* Weird index stuff
+            #endif
+        }
 
-        //* var is either N*diag + i if similarity is the transposed array
-        //* or something a little more complex cant be bothered rn :D
-        // set *similarity_matrix[var]
+        // Free all vectors //* Could do 1 time from main function and pass pointer?
+        _mm_free(vectors);
     }
+
 }
 
 void compute_result(int diag, int minSideSize, int **similarity_matrix, const int maxThrAllowed, const int N, const int M) {
