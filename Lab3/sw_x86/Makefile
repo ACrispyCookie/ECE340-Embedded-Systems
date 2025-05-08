@@ -1,6 +1,6 @@
 # Compiler binary and flags
 CC = gcc
-CFLAGS = -Wall -O3 -g -mavx2 -fopenmp
+CFLAGS = -Wall -O3 -g -mavx2 -fopenmp 
 ifdef TEST
 	CFLAGS += -DENABLE_TEST_OUTPUT
 endif

@@ -94,7 +94,7 @@ select file_path in "${c_files[@]}"; do
             fi
 
             echo "Running test against known output..."
-            args="200 5000"
+            args="256 15000"
 
             "$binary" $args > "$OUTPUT_FILE"
             diff <(head -n -1 "$OUTPUT_FILE") <(head -n -1 "$CORRECT_OUTPUT") >/dev/null
