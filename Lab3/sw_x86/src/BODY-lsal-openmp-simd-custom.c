@@ -11,6 +11,10 @@
 
 /************************************************************************/
 
+// TODO IDEA:
+//! Maybe try using the transformed array and as the algorithm does
+//! each diag transform the 'done' elements (those above the 'diag' (current antidiag variable))
+//! Win -> fast get_antidiag, map_antidiag_to_matrix ?
 
 /*
  * This func shifts all elements of a vector 1 element to the left
@@ -42,7 +46,6 @@ int *get_antidiag(const int *matrix, int diag, int diagLen, int cols) {
     return antidiag;
 }
 
-
 /*
  * This func stores a given to a specific antidiagonal (diag) of a matrix 
  ? Returns: Nothing
@@ -55,7 +58,6 @@ void map_antidiag_to_matrix(int *matrix, const int *antidiag, int diag, int diag
         matrix[row * cols + col] = antidiag[row];
     }
 }
-
 
 void compute_missmatch(int *similarity_matrix, const char *string1, const char *string2, const int N, const int M) {
     #pragma omp parallel num_threads(CORE_COUNT)
@@ -114,6 +116,8 @@ void compute_result(int diag, int *similarity_matrix, int *cur_diag, int *prev_d
 
         // Write to matrix //* Write the calculated values back to the similarity_matrix 
         _mm256_storeu_si256((__m256i*)&cur_diag[i << 2], max_vec);
+
+        // TODO Maybe save in temp array here first and call this outside of the loop
         map_antidiag_to_matrix(similarity_matrix, cur_diag, diag, maxDiagLen, N);
     }
 }
