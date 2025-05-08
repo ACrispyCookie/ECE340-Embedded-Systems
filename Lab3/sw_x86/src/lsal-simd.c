@@ -9,47 +9,129 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <omp.h>
+#include <immintrin.h>
 
-// #define N 256
-// #define M 2048
-
+#define CORE_COUNT 6
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define SIMD_WIDTH 8
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
-#define GAP_i -1
-#define GAP_d -1
-#define MATCH 2
-#define MISS_MATCH -1
-// static long int cnt_ops=0;
-// static long int cnt_bytes=0;
 
-/**********************************************************************************************
- * LSAL algorithm
- * Inputs:
- *          string1 is the query[N]
- *          string2 is the database[M]
- *          input sizes N, M
- * Outputs:
- *           max_index is the location of the highest similiarity score 
- *           similarity and direction matrices. Note that these two matrices are initialized with zeros.
- **********************************************************************************************/
+/************************************************************************/
+
+//* In a perfect world MM and C should return at about the same time.
+//* tweak allowed threads for each until load is balanced. 
+
+void compute_missmatch(int diag, int minSideSize, int *similarity_matrix, const int maxThrAllowed, const int N, const int M) {
+    //* Calculate minSideSize between N and M 1 time somewhere outside of this function 
+    //* that's why this exists
+    const int diagLen = MIN(diag, minSideSize);
+    int vectorNum = (diagLen + SIMD_WIDTH - 1) / SIMD_WIDTH;
+
+    #pragma omp parallel num_threads(maxThrAllowed)
+    {
+        __m256i* vectors = (__m256i*)_mm_malloc(vectorNum * sizeof(__m256i), 32);
+        if (vectors == NULL) exit(EXIT_FAILURE);
+        
+        #pragma omp for schedule(static)
+        for (int i = 0; i < vectorNum; ++i) {
+            //* var is either N*diag + i if similarity is the transposed array
+            //* or something a little more complex cant be bothered rn :D
+            #ifdef TRANSFORMED_MATRIX
+                // do the MissMatch calculation //* I CANT THINK RN
+                // set *similarity_matrix[var] //* easy because a row = the anti-diagonal <- idk its name
+            #else
+                // do the MissMatch calculation //* I CANT THINK RN
+                // set *similarity_matrix[var] //* Weird index stuff
+            #endif
+        }
+
+        // Free all vectors //* Could do 1 time from main function and pass pointer?
+        _mm_free(vectors);
+    }
+
+}
+
+void compute_result(int diag, int minSideSize, int *similarity_matrix, const int maxThrAllowed, const int N, const int M) {
+    // prev_diag = cur_diag
+
+    //* Calculate minSideSize between N and M 1 time somewhere outside of this function 
+    //* that's why this exists
+    const int diagLen = MIN(diag, minSideSize);
+    int vectorNum = (diagLen + SIMD_WIDTH - 1) / SIMD_WIDTH;
+    // Vectorization 
+
+    // create vZero
+    // set 0 diag cur starts from 1 diag
+    //pragma for (static) //* (This will create the threads)
+    #pragma omp parallel for schedule(static) num_threads(maxThrAllowed)
+    for (int i = 0; i < vectorNum; i++) {
+        // vector logic here
+        // v1 = sub(vectors[i], 1)
+        // v2 = sub(sll(vectors[i],1), 1)
+        // vCur = add(vectors[i+1], v3)
+        // max all vectors
+
+        //* var is either N*diag + i if similarity is the transposed array
+        //* or something a little more complex cant be bothered rn :D
+        // set *similarity_matrix[var]
+    }
+}
 
 void compute_matrices(
-	const char *string1, const char *string2,
-	int *max_index, int *similarity_matrix, short *direction_matrix, const int N, const int M)
+    const char *string1, const char *string2,
+    int *max_index, int *similarity_matrix,
+    short *direction_matrix, const int N, const int M)
 {
-    int i = 0, j = 0;
-    int index = 0;
-	int similarity_index = 0;
+    int diagResult = 0;
+    int diagMissMatch = 0;
 
-    int north_value = 0;
-    int west_value = 0;
-    int northwest_value = 0;
-	int max_value = 0;
+    short maxThreadC = CORE_COUNT * 2 / 3; 
 
-	short match = 0;
-	short direction = 0;
-	*max_index = N + 1;
-	
-}  // end of function
+    omp_lock_t mutex;
+    omp_init_lock(&mutex);
+    omp_set_nested(1); // Must stay here //! Do not move inside #pragmas
+
+    int minSideSize = MIN(N, M);
+
+    #pragma omp parallel num_threads(2) shared(diagResult, diagMissMatch, mutex) 
+    {
+        int diagC, diagMM;
+        int tid = omp_get_thread_num();
+
+        if (!tid) {
+            for (int diag = 0; diag < minSideSize; ++diag) {
+                while (1) {
+                    #pragma omp atomic read
+                    diagC = diagResult;
+                    #pragma omp atomic read
+                    diagMM = diagMissMatch;
+
+                    if (diagC < diagMM) 
+                        break;
+
+                    #pragma omp taskyield
+                }  
+                
+                omp_set_lock(&mutex);
+                compute_result(diag, minSideSize, similarity_matrix, maxThreadC, N, M);
+                omp_unset_lock(&mutex);
+
+                #pragma omp atomic
+                ++diagResult;
+            } 
+        } else if (tid == 1) {
+            for (int diag = 0; diag < minSideSize; ++diag) {
+                compute_missmatch(diag, minSideSize, similarity_matrix, CORE_COUNT - maxThreadC, N, M);
+                
+                #pragma omp atomic
+                ++diagMissMatch;
+            }
+        }
+    }
+
+    omp_destroy_lock(&mutex);
+}
 
 /************************************************************************/
 
@@ -82,7 +164,6 @@ void fillRandom(char* string, int dimension) {
 		int randomNum = rand_lim(3);
 		string[i] = possibleLetters[randomNum];
 	}
-
 }
 
 void printSimilarityMatrix(int *similarity_matrix, char *query, char *database, const int N, const int M) {
