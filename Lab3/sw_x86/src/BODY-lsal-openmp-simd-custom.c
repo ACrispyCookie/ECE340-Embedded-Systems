@@ -237,7 +237,7 @@ void compute_matrices(
     
     for (int diag = 0; diag < diagNum; ++diag)
         compute_result(diag, similarity_matrix, cur_diag, prev_diag, prev_prev_diag, vectorNumR, maxDiagLen, N, M);
-
+    
     //* Free ladder
     free_cur:
         free(cur_diag);
@@ -387,8 +387,6 @@ int main(int argc, char** argv) {
 
     int queryLen = num_pad_cols;    // TODO Remove later readability for now 
     int databaseLen = num_pad_rows; // TODO Remove later readability for now
-
-	printSimilarityMatrix(similarity_matrix, query, database, queryLen, databaseLen);
     
     t1 = clock();
 	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, queryLen, databaseLen);
