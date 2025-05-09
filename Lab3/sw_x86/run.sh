@@ -9,7 +9,7 @@ CORRECT_OUTPUT="$OUT_DIR/correct_out"
 # Will be set later once a file is selected
 OUTPUT_FILE=""
 
-ALL=false
+NONE=true
 STORE_ASM=false
 RUN_TEST=false
 RUN_PERF=false
@@ -35,19 +35,23 @@ print_help() {
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --asm)
+            NONE=false
             STORE_ASM=true
             shift
             ;;
         --test)
+            NONE=false
             RUN_TEST=true
             shift
             ;;
         --perf)
+            NONE=false
             RUN_PERF=true
             ARGS="$2"
             shift 2
             ;;
         --help)
+            NONE=false
             print_help
             ;;
         *)
@@ -75,6 +79,13 @@ select file_path in "${c_files[@]}"; do
         OUTPUT_FILE="$OUT_DIR/${target}.out"
         PERF_FILE="$PERF_DIR/${target}.data"
         echo "Selected: $src_file"
+
+        if [ "$NONE" = true ]; then
+            echo "###################### COMPILE ######################"
+            echo "Compiling..."
+            make TARGET="$target"
+            echo "######################################################"
+        fi
 
         if [ "$STORE_ASM" = true ]; then
             echo "###################### ASSEMBLY ######################"
