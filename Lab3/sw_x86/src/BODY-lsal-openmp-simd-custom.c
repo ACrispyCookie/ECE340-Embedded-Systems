@@ -24,12 +24,14 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 // static long int cnt_ops=0;
 // static long int cnt_bytes=0;
 
-#define CORE_COUNT 6
+#define CORE_COUNT 1
 #define SIMD_WIDTH_INT 8
 #define SIMD_WIDTH_CHAR 32
 
 #define CEIL_DIVISIBLE(x, divi) (((x) + (divi - 1)) & ~(divi - 1) )
 #define MIN(a,b) (((a)<(b))?(a):(b))
+
+FILE *f;
 
 /************************************************************************/
 
@@ -38,15 +40,60 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 //! each diag transform the 'done' elements (those above the 'diag' (current antidiag variable))
 //! Win -> fast get_antidiag, map_antidiag_to_matrix ?
 
+#include <stdio.h>
+#include <immintrin.h>
+#include <stdint.h>
+
+void print_m256i_to(FILE *stream, __m256i vec, const char *prefix, int bit_size, int unsigned_input) {
+    #pragma omp critical
+    {
+        fprintf(stream, "%s: ", prefix);
+        if (bit_size == 32) {
+            int vals[8];
+            _mm256_storeu_si256((__m256i*)vals, vec);
+            for (int i = 0; i < 8; ++i) {
+                if (unsigned_input)
+                    fprintf(stream, "%u ", (unsigned int)vals[i]);
+                else
+                    fprintf(stream, "%d ", vals[i]);
+            }
+        } else if (bit_size == 16) {
+            short vals[16];
+            _mm256_storeu_si256((__m256i*)vals, vec);
+            for (int i = 0; i < 16; ++i) {
+                if (unsigned_input)
+                    fprintf(stream, "%u ", (unsigned short)vals[i]);
+                else
+                    fprintf(stream, "%d ", vals[i]);
+            }
+        } else if (bit_size == 8) {
+            int8_t vals[32];
+            _mm256_storeu_si256((__m256i*)vals, vec);
+            for (int i = 0; i < 32; ++i) {
+                if (unsigned_input)
+                    fprintf(stream, "%u ", (uint8_t)vals[i]);
+                else
+                    fprintf(stream, "%d ", vals[i]);
+            }
+        } else {
+            fprintf(stream, "[Unsupported bit size: %d]", bit_size);
+        }
+
+        fprintf(stream, "\n");
+        fflush(stream); // Force print
+
+    }
+}
+
 /*
- * This func shifts all elements of a vector 1 element to the left
+ * This func shifts all elements of a vector 1 element to the right setting first element to 0
  ? Returns: Shifted vector
  ! Note: Doesn't change given vector
 */
-__m256i _mm256_shift_left_1_epi32(__m256i v) {
-    // Shift indices: move lanes 1–7 into 0–6, last lane to zero
+__m256i _mm256_shift_right_1_epi32(__m256i v) {
+    // Shift indices: move lanes 0–6 into 1–7, first lane becomes zero
     __m256i indices = _mm256_set_epi32(
-        255, 7, 6, 5, 4, 3, 2, 1
+        6, 5, 4, 3, 2, 1, 0, 255
     );
     return _mm256_permutevar8x32_epi32(v, indices);
 }
@@ -84,26 +131,46 @@ void map_antidiag_to_matrix(int *matrix, const int *antidiag, int diag, int diag
 void compute_missmatch(int *similarity_matrix, const char *string1, const char *string2, const int N, const int M) {
     #pragma omp parallel num_threads(CORE_COUNT)
     {  
-        __m256i str1_vec, str2_vec, cmps_vec, match_val, mismatch_val, result, result32_1, result32_2;
+        __m256i str1_vec, str2_vec, cmps_vec, match_val, mismatch_val, result, cnv0_vec, cnv1_vec, cnv2_vec, cnv3_vec;
+        __m128i low, high;
         //* Set for to static (same workload amongst threads) 
-        #pragma omp for schedule(static) private(str1_vec, str2_vec, cmps_vec, result, result32_1, result32_2)
-        for (int j = 0; j < M; j++) {
-            for (int idx = 0; idx < N; idx += SIMD_WIDTH_CHAR) {
+        #pragma omp for schedule(static) private(str1_vec, str2_vec, cmps_vec, result, cnv0_vec, cnv1_vec, cnv2_vec, cnv3_vec, low, high)
+        for (int j = 0; j < N; j++) {
+            for (int idx = 0; idx < M; idx += SIMD_WIDTH_CHAR) {
                 str1_vec = _mm256_loadu_si256((__m256i*)&string1[idx]);
+                print_m256i_to(f, str1_vec, "str1_vec: ", 8, 0);
                 str2_vec = _mm256_set1_epi8(string2[j]);
+                print_m256i_to(f, str2_vec, "str2_vec: ", 8, 0);
                 cmps_vec = _mm256_cmpeq_epi8(str1_vec, str2_vec);
+                print_m256i_to(f, cmps_vec, "cmps_vec: ", 8, 0);
                 
                 // Set values for blendv //* Sets value for packed int of length (epiX -> epi8) 8bits           
                 match_val = _mm256_set1_epi8(2);
+                print_m256i_to(f, match_val, "match_val: ", 8, 0);
                 mismatch_val = _mm256_set1_epi8(-1);
+                print_m256i_to(f, mismatch_val, "mismatch_val: ", 8, 0);
                 
                 // Calculation &Alignments //* Calculate vector with missmatch values
                 result = _mm256_blendv_epi8(mismatch_val, match_val, cmps_vec);
-                result32_1 = _mm256_cvtepi8_epi32(_mm256_castsi256_si128(result)); //* Align first 16 bytes for 32bit integer
-                result32_2 = _mm256_cvtepi8_epi32(_mm256_extracti128_si256(result, 1)); //* Align last 16 bytes for 32bit integer
-    
-                __mm256_storeu_si256((__m256i*)&similarity_matrix[j * M + idx], result32_1);
-                __mm256_storeu_si256((__m256i*)&similarity_matrix[j * M + idx + 16], result32_2);
+                print_m256i_to(f, result, "result: ", 8, 0);
+
+                low = _mm256_castsi256_si128(result);
+                high = _mm256_extracti128_si256(result, 1);
+                cnv0_vec = _mm256_cvtepi8_epi32(low);
+                print_m256i_to(f, cnv0_vec, "cnv0_vec: ", 32, 0);
+                cnv1_vec = _mm256_cvtepi8_epi32(_mm_srli_si128(low, 8));
+                print_m256i_to(f, cnv1_vec, "cnv1_vec: ", 32, 0);
+                cnv2_vec = _mm256_cvtepi8_epi32(high);
+                print_m256i_to(f, cnv2_vec, "cnv2_vec: ", 32, 0);
+                cnv3_vec = _mm256_cvtepi8_epi32(_mm_srli_si128(high, 8));
+                print_m256i_to(f, cnv3_vec, "cnv3_vec: ", 32, 0);
+                
+                fprintf(f, "j * M + idx: %d, j: %d, idx: %d\n", j * M + idx, j, idx);
+                _mm256_storeu_si256((__m256i*)&similarity_matrix[j * M + idx +  0], cnv0_vec);
+                _mm256_storeu_si256((__m256i*)&similarity_matrix[j * M + idx +  8], cnv1_vec);
+                _mm256_storeu_si256((__m256i*)&similarity_matrix[j * M + idx + 16], cnv2_vec);
+                _mm256_storeu_si256((__m256i*)&similarity_matrix[j * M + idx + 24], cnv3_vec);
+
             }
         }
     }
@@ -128,7 +195,7 @@ void compute_result(int diag, int *similarity_matrix, int *cur_diag, int *prev_d
 
         // Setup vectors //* Perform operations -1 for W and N and += Match for NW
         prev_vec = _mm256_add_epi32(prev_vec, _mm256_set1_epi32(GAP_i));
-        prev_shifted_vec = _mm256_shift_left_1_epi32(prev_vec);
+        prev_shifted_vec = _mm256_shift_right_1_epi32(prev_vec);
         prev_prev_vec = _mm256_add_epi32(prev_prev_vec, cur_vec); //* cur is mm vector
 
         // Find max
@@ -214,24 +281,28 @@ void fillRandom(char* string, int dimension) {
 
 }
 
+void fillLetter(char* string, int dimension, const char letter) {
+	for (int i = 0; i < dimension; i++) string[i] = letter;
+}
+
 void printSimilarityMatrix(int *similarity_matrix, char *query, char *database, const int N, const int M) {
 	printf("################# Similarity Matrix #################\n");
 
 	//Print query string
 	printf("     ");
-	for (int i = 0; i < N; i++) {
-		printf("%3c", query[i]);
+	for (int i = 0; i < M; i++) {
+		printf("%3c", database[i]);
 	}
 	printf("\n");
 
 	//Print matrix and database
 	printf("  ");
-	for (int j = 0; j < M + 1; j++) {
-		if (j > 0)
-			printf("%c ", database[j - 1]);
+	for (int j = 0; j < N; j++) {
+		if (j >= 0)
+			printf("%c ", query[j]);
 
-		for (int i = 0; i < N + 1; i++) {
-			int index = j * (N + 1) + i;
+		for (int i = 0; i < M ; i++) {
+			int index = j * M + i;
 			printf("%3d", similarity_matrix[index]);
 		}
 
@@ -274,44 +345,60 @@ void printDirectionMatrix(short *direction_matrix, const int N, const int M) {
 int main(int argc, char** argv) {
 
     clock_t t1, t2;
-
+    
+    f = fopen("VECTOR_OUT.txt", "w"); // Or "/tmp/my_fifo" for a named pipe
+    if (!f) {
+        perror("fopen");
+        return 1;
+    }
+    
 	if (argc != 3) {
-		printf("%s <Query Size N> <DataBase Size M>\n", argv[0]);
+        printf("%s <Query Size N> <DataBase Size M>\n", argv[0]);
 		return EXIT_FAILURE;
 	}
- 
+    
     printf("Starting Local Alignment Code \n");
 	fflush(stdout);
-
+    
 	/* Typically, M >> N */
 	int N = atoi(argv[1]); 
     int M = atoi(argv[2]);
-
+    
     int num_pad_cols = CEIL_DIVISIBLE(N, 32);
+    const int maxDiagLen = MIN(num_pad_cols, M);
+    int num_pad_rows = M + (maxDiagLen << 1);
+    int similarityLen = num_pad_cols * num_pad_rows;
 
-    char *query = (char*) malloc(sizeof(char) * num_pad_cols);//"TGTTACGGTAGTGTTACGGTAG";
-	char *database = (char*) malloc(sizeof(char) * M);//"GGTTGACTAGGTTGACTAGGTTGACTA";
-	int *similarity_matrix = (int*) malloc(sizeof(int) * ((num_pad_cols + 1) * (M + 1)));
-	short *direction_matrix = (short*) malloc(sizeof(short) * num_pad_cols * M);
+    char *query = (char*) malloc(sizeof(char) * num_pad_cols);              //"TGTTACGGTAGTGTTACGGTAG";
+	char *database = (char*) malloc(sizeof(char) * num_pad_rows);    //"GGTTGACTAGGTTGACTAGGTTGACTA";
+	int *similarity_matrix = (int*) malloc(sizeof(int) * similarityLen);
+	short *direction_matrix = (short*) malloc(sizeof(short) * num_pad_cols * M); // TODO FIX 
 	int *max_index = (int *) malloc(sizeof(int));
 
 	/* Create the two input strings by calling a random number generator */
 	fillRandom(query, N);
-	fillRandom(database, M);
+    fillLetter(&query[N], num_pad_cols - N, 'X');
+    fillLetter(database, maxDiagLen, 'X');
+	fillRandom(&database[maxDiagLen], M);
+    fillLetter(&database[maxDiagLen + M], maxDiagLen, 'X');
 
-	memset(similarity_matrix, 0, sizeof(int) * ((num_pad_cols + 1) * (M + 1)));
-	memset(direction_matrix, 0, sizeof(short) * N * M);
+	memset(similarity_matrix, 0, sizeof(int) * similarityLen);
+	memset(direction_matrix, 0, sizeof(short) * N * M); // TODO FIX 
 
+    int queryLen = num_pad_cols;    // TODO Remove later readability for now 
+    int databaseLen = num_pad_rows; // TODO Remove later readability for now
+
+	printSimilarityMatrix(similarity_matrix, query, database, queryLen, databaseLen);
+    
     t1 = clock();
-	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, N, M);
+	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, queryLen, databaseLen);
 	t2 = clock();
 
 #ifdef ENABLE_TEST_OUTPUT
-	printSimilarityMatrix(similarity_matrix, query, database, N, M);
-	printDirectionMatrix(direction_matrix, N, M);
+    printSimilarityMatrix(similarity_matrix, query, database, queryLen, databaseLen);
 #endif
 
-    printf("max index is in position (%d, %d) \n", max_index[0]/(num_pad_cols + 1), max_index[0]%(num_pad_cols+1));
+    printf("max index is in position (%d, %d) \n", max_index[0]/(num_pad_cols), max_index[0]%(num_pad_cols));
 	printf("execution time of LSAL SW algorithm is %f sec \n", (double)(t2-t1) / CLOCKS_PER_SEC);
 	
 	free(similarity_matrix);
@@ -320,6 +407,7 @@ int main(int argc, char** argv) {
 	free(query);
 	free(database);
 
+    fclose(f);
     // printf("cnt_ops=%d, cnt_bytes=%d\n", cnt_ops, cnt_bytes);
 	return EXIT_SUCCESS;
 }
