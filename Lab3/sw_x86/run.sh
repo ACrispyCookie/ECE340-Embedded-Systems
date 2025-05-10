@@ -99,7 +99,11 @@ fi
 
 echo "Starting data gathering and plotting process..."
 if [ "$PLOT_MODE" = true ]; then
-    mkdir -p "$PERF_DIR"
+    read -r FIRST_DIM SECOND_DIM <<< "$ARGS"
+    INPUT="${FIRST_DIM}x${SECOND_DIM}"
+    INPUT_DESC="${INPUT} input"
+    FINAL_PERF_DIR="$PERF_DIR/$INPUT"
+    mkdir -p "$FINAL_PERF_DIR"
     mkdir -p "$OUT_DIR"
     mkdir -p "$TARGET_DIR"
 
@@ -108,7 +112,7 @@ if [ "$PLOT_MODE" = true ]; then
         target="${src_file%.c}"
         binary="$TARGET_DIR/$target"
         OUTPUT_FILE="$OUT_DIR/${target}.out"
-        PERF_FILE="$PERF_DIR/${target}.data"
+        PERF_FILE="$FINAL_PERF_DIR/${target}.data"
 
         echo "▶️ Compiling $target..."
         make clean > /dev/null
@@ -134,10 +138,8 @@ if [ "$PLOT_MODE" = true ]; then
 
     echo ""
     echo "📈 Generating plots..."
-    read -r FIRST_DIM SECOND_DIM <<< "$ARGS"
-    INPUT_DESC="${FIRST_DIM}x${SECOND_DIM} input"
     for stat in "${STATS[@]}"; do
-        python3 plot-avg.py "$PERF_DIR" "$stat" "$INPUT_DESC"
+        python3 plot-avg.py "$FINAL_PERF_DIR" "$stat" "$INPUT_DESC"
     done
 
     echo "✅ All plots generated."
