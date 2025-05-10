@@ -97,8 +97,8 @@ if [ ${#c_files[@]} -eq 0 ]; then
     exit 1
 fi
 
-echo "Starting data gathering and plotting process..."
 if [ "$PLOT_MODE" = true ]; then
+    echo "Starting data gathering and plotting process..."
     read -r FIRST_DIM SECOND_DIM <<< "$ARGS"
     INPUT="${FIRST_DIM}x${SECOND_DIM}"
     INPUT_DESC="${INPUT} input"
@@ -115,7 +115,7 @@ if [ "$PLOT_MODE" = true ]; then
         PERF_FILE="$FINAL_PERF_DIR/${target}.data"
 
         echo "▶️ Compiling $target..."
-        make clean > /dev/null
+        make clean TARGET="$target" > /dev/null
         make TARGET="$target" > /dev/null
 
         echo "Running $target under perf stat $PERF_RUNS times..."
@@ -173,7 +173,7 @@ select file_path in "${c_files[@]}"; do
         if [ "$RUN_TEST" = true ]; then
             echo "######################## TEST ########################"
             echo "Compiling with test output enabled..."
-            make clean > /dev/null
+            make clean TARGET="$target" > /dev/null
             make TARGET="$target" TEST=1
             if [ ! -x "$binary" ]; then
                 echo "Compilation failed or binary not found."
@@ -196,7 +196,7 @@ select file_path in "${c_files[@]}"; do
 
         if [ "$RUN_PERF" = true ]; then
             echo "######################## PERF ########################"
-            make clean > /dev/null
+            make clean TARGET="$target" > /dev/null
             if [ "$PERF_OUTPUT" = true ]; then
                 echo "Compiling with test output enabled..."
                 make TARGET="$target" TEST=1

@@ -31,5 +31,8 @@ clean-all: clean clean-out
 clean-out:
 	find $(OUT_DIR) -type f ! -name '$(CORRECT_OUT)' -exec rm -f {} +
 
-clean:
+clean-target:
 	rm -f $(TARGET_DIR)*
+
+clean:
+	rm -f $(TARGET_DIR)$(TARGET)
