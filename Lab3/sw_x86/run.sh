@@ -227,7 +227,6 @@ if [[ -n "$file_path" ]]; then
         
         > "$PERF_FILE"  # Clear old data
         for ((i = 1; i <= PERF_RUNS; i++)); do
-            echo "▶️ Run $i/$PERF_RUNS"
 
             {
                 echo ""
@@ -235,12 +234,20 @@ if [[ -n "$file_path" ]]; then
                 perf stat "$binary" $ARGS > "$OUTPUT_FILE"
             } >> "$PERF_FILE" 2>&1
 
-            echo ""
-            echo "🔹 Last line of program output:"
-            tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
-            tail -n 1 "$OUTPUT_FILE"
-            echo ""
+            if [ $PERF_RUNS -eq 1 ]; then
+                echo "▶️ Run $i/$PERF_RUNS"
+                echo ""
+                echo "🔹 Last line of program output:"
+                tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
+                tail -n 1 "$OUTPUT_FILE"
+                echo ""
+            else
+                percent=$(( (i * 100) / PERF_RUNS ))
+                printf "\r🔄 Running %d/%d (%d%% complete)" "$i" "$PERF_RUNS" "$percent"
+                tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
+            fi
         done
+        printf "\n"
 
         echo "✅ Perf stat output saved to $PERF_FILE"
         echo "######################################################"
