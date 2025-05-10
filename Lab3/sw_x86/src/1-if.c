@@ -1,3 +1,9 @@
+/* Optimizations:
+   - Change one for loop to a double loop to avoid addition
+   - Move unnecessary computations to the outer loop
+   - Add 1 empty column and row to remove checking for edge cases
+*/
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,9 +15,6 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
-// #define N 256
-// #define M 2048
 
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_i -1

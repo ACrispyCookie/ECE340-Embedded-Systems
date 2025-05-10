@@ -1,3 +1,7 @@
+/* Optimizations:
+   - Reuse of already fetched elements used previously
+*/
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,9 +13,6 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
-// #define N 256
-// #define M 2048
 
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_i -1
@@ -33,12 +34,12 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
  **********************************************************************************************/
 
 void compute_matrices(
-	const char *string1, const char *string2,
-	int *max_index, int *similarity_matrix, short *direction_matrix, const int N, const int M)
+	const char *restrict string1, const char *restrict string2,
+	int *restrict max_index, int *restrict similarity_matrix, short *restrict direction_matrix, const int N, const int M)
 {
-    int i = 0, j = 0;
-    int index = 0;
-	int similarity_index = N + 2;
+    int i, j;
+    long int index = 0;
+	long int similarity_index = N + 2;
 
     int north_value = 0;
     int west_value = 0;
@@ -50,12 +51,13 @@ void compute_matrices(
 	*max_index = N + 1;
 
 	for (i = 0; i < M; i++, similarity_index++) {
+		northwest_value = 0;
+		west_value = 0;
 		for (j = 0; j < N; j++, index++, similarity_index++) {
 			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
-			
-			northwest_value = similarity_matrix[similarity_index - N - 2] + match;
+
+			northwest_value += match;
 			north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
-			west_value = similarity_matrix[similarity_index - 1] + GAP_i;
 
 			max_value = northwest_value;
 			direction = NORTH_WEST;
@@ -76,6 +78,8 @@ void compute_matrices(
 			direction_matrix[index] = direction;
 			
 			*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
+			northwest_value = north_value - GAP_d;
+			west_value = max_value + GAP_i;
 		}
 	}
 }  // end of function
@@ -172,9 +176,7 @@ void printDirectionMatrix(short *direction_matrix, const int N, const int M) {
 
 /* ******************************************************************/
 int main(int argc, char** argv) {
-
     clock_t t1, t2;
-
 	if (argc != 3) {
 		printf("%s <Query Size N> <DataBase Size M>\n", argv[0]);
 		return EXIT_FAILURE;
@@ -184,8 +186,8 @@ int main(int argc, char** argv) {
 	fflush(stdout);
 
 	/* Typically, M >> N */
-	int N = atoi(argv[1]); 
-    int M = atoi(argv[2]);
+	long int N = atoi(argv[1]); 
+    long int M = atoi(argv[2]);
 
     char *query = (char*) malloc(sizeof(char) * N);//"TGTTACGGTAGTGTTACGGTAG";
 	char *database = (char*) malloc(sizeof(char) * M);//"GGTTGACTAGGTTGACTAGGTTGACTA";
@@ -209,7 +211,7 @@ int main(int argc, char** argv) {
 	printDirectionMatrix(direction_matrix, N, M);
 #endif
 
-    printf("max index is in position (%d, %d) \n", max_index[0]/(N + 1), max_index[0]%(N+1));
+    printf("max index is in position (%ld, %ld) \n", max_index[0]/(N + 1), max_index[0]%(N+1));
 	printf("execution time of LSAL SW algorithm is %f sec \n", (double)(t2-t1) / CLOCKS_PER_SEC);
 	
 	free(similarity_matrix);

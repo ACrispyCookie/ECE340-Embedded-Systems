@@ -1,3 +1,7 @@
+/* Optimizations:
+   - Change order in which max is computed (for some reason it has an effect)
+*/
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,9 +13,6 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
-// #define N 256
-// #define M 2048
 
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_i -1
@@ -36,7 +37,7 @@ void compute_matrices(
 	const char *string1, const char *string2,
 	int *max_index, int *similarity_matrix, short *direction_matrix, const int N, const int M)
 {
-    int i, j;
+    int i = 0, j = 0;
     int index = 0;
 	int similarity_index = N + 2;
 
@@ -50,13 +51,12 @@ void compute_matrices(
 	*max_index = N + 1;
 
 	for (i = 0; i < M; i++, similarity_index++) {
-		northwest_value = 0;
-		west_value = 0;
 		for (j = 0; j < N; j++, index++, similarity_index++) {
 			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
-
-			northwest_value += match;
+			
+			northwest_value = similarity_matrix[similarity_index - N - 2] + match;
 			north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
+			west_value = similarity_matrix[similarity_index - 1] + GAP_i;
 
 			max_value = northwest_value;
 			direction = NORTH_WEST;
@@ -77,8 +77,6 @@ void compute_matrices(
 			direction_matrix[index] = direction;
 			
 			*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
-			northwest_value = north_value - GAP_d;
-			west_value = max_value + GAP_i;
 		}
 	}
 }  // end of function

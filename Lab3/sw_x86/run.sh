@@ -13,6 +13,9 @@ NONE=true
 STORE_ASM=false
 RUN_TEST=false
 RUN_PERF=false
+PERF_OUTPUT=false
+PERF_RUNS=1
+PLOT_MODE=false
 ARGS=""
 
 # Print usage/help
@@ -20,11 +23,13 @@ print_help() {
     echo "Usage: ./run.sh [OPTION] [ARGUMENTS]"
     echo ""
     echo "Options:"
-    echo "  --test       Compile and run the selected program with test arguments."
-    echo "               Output will be stored in $OUTPUT_FILE and compared with $CORRECT_OUTPUT."
-    echo "  --asm        Store the assembly of the input source code."
-    echo "  --perf       Run the program under perf stat with the provided arguments."
-    echo "  --help       Show this help message."
+    echo "  --test                                  Compile and run the selected program with test arguments."
+    echo "                                          Output will be stored in $OUTPUT_FILE and compared with $CORRECT_OUTPUT."
+    echo "  --asm                                   Store the assembly of the input source code."
+    echo "  --perf                                  Run the program under perf stat with the provided arguments."
+    echo "  --perf-out                              Store the output of the program when using the perf flag."
+    echo "  --plot [runs] [args] [stats to plot]    Runs all the available versions for the specified times and plots the specified stats"
+    echo "  --help                                  Show this help message."
     echo ""
     echo "If both --test and --perf are used, the code will be compiled twice:"
     echo "once with output for testing and once without for perf analysis."
@@ -47,9 +52,31 @@ while [[ $# -gt 0 ]]; do
         --perf)
             NONE=false
             RUN_PERF=true
-            ARGS="$2"
-            shift 2
+            PERF_RUNS="$2"
+            ARGS="$3"
+            shift 3
             ;;
+        --perf-out)
+            NONE=false
+            RUN_PERF=true
+            PERF_OUTPUT=true
+            PERF_RUNS="$2"
+            ARGS="$3"
+            shift 3
+            ;;
+        --plot)
+            NONE=false
+            PLOT_MODE=true
+            PERF_RUNS="$2"
+            ARGS="$3"
+            shift 3
+            STATS=()
+            while [[ $# -gt 0 && "$1" != --* ]]; do
+                STATS+=("$1")
+                shift
+            done
+            ;;
+
         --help)
             NONE=false
             print_help
@@ -68,6 +95,53 @@ c_files=($(find "$SRC_DIR" -maxdepth 1 -type f -name '*.c'))
 if [ ${#c_files[@]} -eq 0 ]; then
     echo "No .c files found in $SRC_DIR"
     exit 1
+fi
+
+echo "Starting data gathering and plotting process..."
+if [ "$PLOT_MODE" = true ]; then
+    mkdir -p "$PERF_DIR"
+    mkdir -p "$OUT_DIR"
+    mkdir -p "$TARGET_DIR"
+
+    for file_path in "${c_files[@]}"; do
+        src_file=$(basename "$file_path")
+        target="${src_file%.c}"
+        binary="$TARGET_DIR/$target"
+        OUTPUT_FILE="$OUT_DIR/${target}.out"
+        PERF_FILE="$PERF_DIR/${target}.data"
+
+        echo "▶️ Compiling $target..."
+        make clean > /dev/null
+        make TARGET="$target" > /dev/null
+
+        echo "Running $target under perf stat $PERF_RUNS times..."
+
+        > "$PERF_FILE"  # Clear old data
+        for ((i = 1; i <= PERF_RUNS; i++)); do
+            percent=$(( (i * 100) / PERF_RUNS ))
+            printf "\r🔄 Running %d/%d (%d%% complete)" "$i" "$PERF_RUNS" "$percent"
+
+            {
+                echo ""
+                echo "### Run $i on $(date) with args: $ARGS"
+                perf stat "$binary" $ARGS > "$OUTPUT_FILE"
+            } >> "$PERF_FILE" 2>&1
+
+            tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
+        done
+        printf "\n"
+    done
+
+    echo ""
+    echo "📈 Generating plots..."
+    read -r FIRST_DIM SECOND_DIM <<< "$ARGS"
+    INPUT_DESC="${FIRST_DIM}x${SECOND_DIM} input"
+    for stat in "${STATS[@]}"; do
+        python3 plot-avg.py "$PERF_DIR" "$stat" "$INPUT_DESC"
+    done
+
+    echo "✅ All plots generated."
+    exit 0
 fi
 
 echo "Select a source file to compile and run:"
@@ -120,17 +194,38 @@ select file_path in "${c_files[@]}"; do
 
         if [ "$RUN_PERF" = true ]; then
             echo "######################## PERF ########################"
-            echo "Compiling with test output disabled..."
             make clean > /dev/null
-            make TARGET="$target"
+            if [ "$PERF_OUTPUT" = true ]; then
+                echo "Compiling with test output enabled..."
+                make TARGET="$target" TEST=1
+            else
+                echo "Compiling with test output disabled..."
+                make TARGET="$target"
+            fi
+
             if [ ! -x "$binary" ]; then
                 echo "Compilation failed or binary not found."
                 exit 1
             fi
 
-            echo "Running under perf stat with arguments: $ARGS"
-            perf stat "$binary" $ARGS > /dev/null 2> >(tee "$PERF_FILE")
-            cat $PERF_FILE
+            echo "Running under perf stat $PERF_RUNS time(s) with arguments: $ARGS"
+
+            for ((i = 1; i <= PERF_RUNS; i++)); do
+                echo "▶️ Run $i/$PERF_RUNS"
+
+                {
+                    echo ""
+                    echo "### Run $i on $(date) with args: $ARGS"
+                    perf stat "$binary" $ARGS > "$OUTPUT_FILE"
+                } >> "$PERF_FILE" 2>&1
+
+                echo ""
+                echo "🔹 Last line of program output:"
+                tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
+                tail -n 1 "$OUTPUT_FILE"
+                echo ""
+            done
+
             echo "✅ Perf stat output saved to $PERF_FILE"
             echo "######################################################"
         fi

@@ -1,0 +1,35 @@
+## Installation & Usage
+
+To execute the scheduler simulation and generate the related plots based on the output, you can use the `run.sh` helper script, which executes the `make` command with the appropriate parameters and also the `plot.py` script to generate the plots.
+
+The `plot.py` file requires the python packages from the `requirements.txt` file to be installed. To set up the python dependencies for the first time, run the following commands in the root of the project:
+
+```bash
+python -m venv venv
+```
+
+```bash
+# Linux/MacOS
+source venv/bin/activate
+
+# Windows (CMD)
+venv\Scripts\activate.bat
+
+# Windows (PowerShell)
+venv\Scripts\Activate.ps1
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+On Linux systems you may need to install the following package:
+```bash
+sudo apt-get install python3-tk
+```
+
+Finally, you can run the run.sh script:
+
+```bash
+bash run.sh
+```
