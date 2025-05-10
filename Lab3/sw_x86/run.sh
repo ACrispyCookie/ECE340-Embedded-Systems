@@ -146,93 +146,105 @@ if [ "$PLOT_MODE" = true ]; then
     exit 0
 fi
 
+IFS=$'\n' sorted_files=($(printf "%s\n" "${c_files[@]}" | sort))
+unset IFS
+
 echo "Select a source file to compile and run:"
-select file_path in "${c_files[@]}"; do
-    if [[ -n "$file_path" ]]; then
-        src_file=$(basename "$file_path")
-        target="${src_file%.c}"
-        binary="$TARGET_DIR/$target"
-        OUTPUT_FILE="$OUT_DIR/${target}.out"
-        PERF_FILE="$PERF_DIR/${target}.data"
-        echo "Selected: $src_file"
-
-        if [ "$NONE" = true ]; then
-            echo "###################### COMPILE ######################"
-            echo "Compiling..."
-            make TARGET="$target"
-            echo "######################################################"
-        fi
-
-        if [ "$STORE_ASM" = true ]; then
-            echo "###################### ASSEMBLY ######################"
-            echo "Compiling assembly..."
-            make TARGET="$target" assembly
-            echo "######################################################"
-        fi
-
-        if [ "$RUN_TEST" = true ]; then
-            echo "######################## TEST ########################"
-            echo "Compiling with test output enabled..."
-            make clean TARGET="$target" > /dev/null
-            make TARGET="$target" TEST=1
-            if [ ! -x "$binary" ]; then
-                echo "Compilation failed or binary not found."
-                exit 1
-            fi
-
-            echo "Running test against known output..."
-            args="256 15000"
-
-            "$binary" $args > "$OUTPUT_FILE"
-            diff <(head -n -1 "$OUTPUT_FILE") <(head -n -1 "$CORRECT_OUTPUT") >/dev/null
-            if [ $? -eq 0 ]; then
-                echo "✅ Test Passed."
-            else
-                echo "❌ Test Failed. See diff below:"
-                diff "$OUTPUT_FILE" "$CORRECT_OUTPUT"
-            fi
-            echo "######################################################"
-        fi
-
-        if [ "$RUN_PERF" = true ]; then
-            echo "######################## PERF ########################"
-            make clean TARGET="$target" > /dev/null
-            if [ "$PERF_OUTPUT" = true ]; then
-                echo "Compiling with test output enabled..."
-                make TARGET="$target" TEST=1
-            else
-                echo "Compiling with test output disabled..."
-                make TARGET="$target"
-            fi
-
-            if [ ! -x "$binary" ]; then
-                echo "Compilation failed or binary not found."
-                exit 1
-            fi
-
-            echo "Running under perf stat $PERF_RUNS time(s) with arguments: $ARGS"
-
-            for ((i = 1; i <= PERF_RUNS; i++)); do
-                echo "▶️ Run $i/$PERF_RUNS"
-
-                {
-                    echo ""
-                    echo "### Run $i on $(date) with args: $ARGS"
-                    perf stat "$binary" $ARGS > "$OUTPUT_FILE"
-                } >> "$PERF_FILE" 2>&1
-
-                echo ""
-                echo "🔹 Last line of program output:"
-                tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
-                tail -n 1 "$OUTPUT_FILE"
-                echo ""
-            done
-
-            echo "✅ Perf stat output saved to $PERF_FILE"
-            echo "######################################################"
-        fi
-        break
-    else
-        echo "Invalid selection."
-    fi
+for i in "${!sorted_files[@]}"; do
+    printf "%d) %s\n" "$i" "$(basename "${sorted_files[$i]}")"
 done
+
+read -rp "Enter the number corresponding to the file: " index
+file_path="${sorted_files[$index]}"
+if [[ -n "$file_path" ]]; then
+    src_file=$(basename "$file_path")
+    target="${src_file%.c}"
+    binary="$TARGET_DIR/$target"
+    OUTPUT_FILE="$OUT_DIR/${target}.out"
+    
+    read -r FIRST_DIM SECOND_DIM <<< "$ARGS"
+    INPUT="${FIRST_DIM}x${SECOND_DIM}"
+    FINAL_PERF_DIR="$PERF_DIR/$INPUT"
+    PERF_FILE="$FINAL_PERF_DIR/${target}.data"
+    mkdir -p "$FINAL_PERF_DIR"
+    echo "Selected: $src_file"
+
+    if [ "$NONE" = true ]; then
+        echo "###################### COMPILE ######################"
+        echo "Compiling..."
+        make TARGET="$target"
+        echo "######################################################"
+    fi
+
+    if [ "$STORE_ASM" = true ]; then
+        echo "###################### ASSEMBLY ######################"
+        echo "Compiling assembly..."
+        make TARGET="$target" assembly
+        echo "######################################################"
+    fi
+
+    if [ "$RUN_TEST" = true ]; then
+        echo "######################## TEST ########################"
+        echo "Compiling with test output enabled..."
+        make clean TARGET="$target" > /dev/null
+        make TARGET="$target" TEST=1
+        if [ ! -x "$binary" ]; then
+            echo "Compilation failed or binary not found."
+            exit 1
+        fi
+
+        echo "Running test against known output..."
+        args="256 15000"
+
+        "$binary" $args > "$OUTPUT_FILE"
+        diff <(head -n -1 "$OUTPUT_FILE") <(head -n -1 "$CORRECT_OUTPUT") >/dev/null
+        if [ $? -eq 0 ]; then
+            echo "✅ Test Passed."
+        else
+            echo "❌ Test Failed. See diff below:"
+            diff "$OUTPUT_FILE" "$CORRECT_OUTPUT"
+        fi
+        echo "######################################################"
+    fi
+
+    if [ "$RUN_PERF" = true ]; then
+        echo "######################## PERF ########################"
+        make clean TARGET="$target" > /dev/null
+        if [ "$PERF_OUTPUT" = true ]; then
+            echo "Compiling with test output enabled..."
+            make TARGET="$target" TEST=1
+        else
+            echo "Compiling with test output disabled..."
+            make TARGET="$target"
+        fi
+
+        if [ ! -x "$binary" ]; then
+            echo "Compilation failed or binary not found."
+            exit 1
+        fi
+
+        echo "Running under perf stat $PERF_RUNS time(s) with arguments: $ARGS"
+        
+        > "$PERF_FILE"  # Clear old data
+        for ((i = 1; i <= PERF_RUNS; i++)); do
+            echo "▶️ Run $i/$PERF_RUNS"
+
+            {
+                echo ""
+                echo "### Run $i on $(date) with args: $ARGS"
+                perf stat "$binary" $ARGS > "$OUTPUT_FILE"
+            } >> "$PERF_FILE" 2>&1
+
+            echo ""
+            echo "🔹 Last line of program output:"
+            tail -n 1 "$OUTPUT_FILE" >> "$PERF_FILE"
+            tail -n 1 "$OUTPUT_FILE"
+            echo ""
+        done
+
+        echo "✅ Perf stat output saved to $PERF_FILE"
+        echo "######################################################"
+    fi
+else
+    echo "Invalid selection."
+fi

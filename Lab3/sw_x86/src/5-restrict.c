@@ -1,5 +1,6 @@
 /* Optimizations:
-   - Reuse of already fetched elements used previously
+   - Add restrict to pointers
+   - Loop unrolling
 */
 
 #include <fcntl.h>
@@ -13,12 +14,14 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <xmmintrin.h>
 
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_i -1
 #define GAP_d -1
 #define MATCH 2
 #define MISS_MATCH -1
+#define PREFETCH_DISTANCE 64
 // static long int cnt_ops=0;
 // static long int cnt_bytes=0;
 
@@ -38,8 +41,6 @@ void compute_matrices(
 	int *restrict max_index, int *restrict similarity_matrix, short *restrict direction_matrix, const int N, const int M)
 {
     int i, j;
-    long int index = 0;
-	long int similarity_index = N + 2;
 
     int north_value = 0;
     int west_value = 0;
@@ -50,14 +51,27 @@ void compute_matrices(
 	short direction = 0;
 	*max_index = N + 1;
 
-	for (i = 0; i < M; i++, similarity_index++) {
+	short *restrict dir_ptr = direction_matrix;
+	int *restrict sim_nw = similarity_matrix + 1;
+	int *restrict sim_cur = sim_nw + N + 1;
+
+	for (i = 0; i < M; i++, sim_nw++, sim_cur++) {
 		northwest_value = 0;
 		west_value = 0;
-		for (j = 0; j < N; j++, index++, similarity_index++) {
-			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
+
+		_mm_prefetch(string2 + i + 1, _MM_HINT_T0);
+
+		#pragma GCC unroll 64
+		for (j = 0; j < N; j++, dir_ptr++, sim_nw++, sim_cur++) {
+
+			_mm_prefetch(string1 + j + PREFETCH_DISTANCE, _MM_HINT_T0);
+			_mm_prefetch((const char*)(sim_nw + N + 1), _MM_HINT_T0);
+			_mm_prefetch((const char*)(sim_cur + N + 1), _MM_HINT_T0);
+
+			match = (*(string1 + j) == *(string2 + i)) ? MATCH : MISS_MATCH;
 
 			northwest_value += match;
-			north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
+			north_value = *sim_nw + GAP_d;
 
 			max_value = northwest_value;
 			direction = NORTH_WEST;
@@ -74,10 +88,10 @@ void compute_matrices(
 			max_value = cond_zero ? 0 : max_value;
 			direction = cond_zero ? CENTER : direction;
 
-			similarity_matrix[similarity_index] = max_value;
-			direction_matrix[index] = direction;
+			*sim_cur = max_value;
+			*dir_ptr = direction;
 			
-			*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
+			*max_index = max_value > *(similarity_matrix + *max_index) ? (sim_nw - similarity_matrix - 1) : *max_index;
 			northwest_value = north_value - GAP_d;
 			west_value = max_value + GAP_i;
 		}

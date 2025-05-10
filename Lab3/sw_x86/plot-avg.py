@@ -92,34 +92,35 @@ def plot_averages(file_avg_map, stat_name, output_path, input_desc):
     print(f"✅ Saved plot to {output_path}")
 
 def report_speedups(file_avg_map, stat_name):
-    # Higher is better for timing or perf stats (slowest is baseline)
-    sorted_items = sorted(file_avg_map.items(), key=lambda x: x[1], reverse=True)
-    slowest_name, slowest_value = sorted_items[0]
-
-    # Determine the time unit for exec-time
     if stat_name == "exec-time":
-        if slowest_value < 1:
-            unit = "µs"
-            slowest_value *= 1e6  # Convert to microseconds
-        else:
-            unit = "ms"
-            slowest_value *= 1e3  # Convert to milliseconds
+        # Lower is better: fastest first
+        sorted_items = sorted(file_avg_map.items(), key=lambda x: x[1])
+        fastest_name, fastest_value = sorted_items[0]
     else:
-        unit = stat_name  # For other stats, use the name as unit
+        # Higher is better: best first
+        sorted_items = sorted(file_avg_map.items(), key=lambda x: x[1], reverse=True)
+        fastest_name, fastest_value = sorted_items[0]
 
-    print(f"\n📊 Speedup report (higher is better for '{stat_name}'):")
+    print(f"\n📊 Speedup report ({'lower is better' if stat_name == 'exec-time' else 'higher is better'} for '{stat_name}'):")
+
     for name, val in sorted_items:
         if stat_name == "exec-time":
-            if val < 1:
-                val *= 1e6  # Convert to microseconds if needed
+            # Convert time to readable units
+            unit = "ms" if val >= 1 else "µs"
+            val_converted = val * 1e3 if unit == "ms" else val * 1e6
+            if val == fastest_value:
+                print(f"  - {name}: baseline ({val_converted:.4f} {unit})")
             else:
-                val *= 1e3  # Convert to milliseconds if needed
-        if val == slowest_value:
-            print(f"  - {name}: baseline ({val:.4f} {unit})")
+                speedup = val / fastest_value
+                print(f"  - {name}: {val_converted:.4f} {unit}  ({speedup:.2f}× slower than {fastest_name})")
         else:
-            speedup = slowest_value / val
-            descriptor = "faster" if stat_name == "exec-time" else "better"
-            print(f"  - {name}: {val:.4f} {unit}  ({speedup:.2f}× {descriptor} than {slowest_name})")
+            unit = stat_name
+            if val == fastest_value:
+                print(f"  - {name}: baseline ({val:.4f} {unit})")
+            else:
+                speedup = val / fastest_value
+                print(f"  - {name}: {val:.4f} {unit}  ({speedup:.2f}× better than {fastest_name})")
+
 
 
 def main():
