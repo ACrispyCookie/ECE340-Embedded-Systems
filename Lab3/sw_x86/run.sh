@@ -172,6 +172,7 @@ if [[ -n "$file_path" ]]; then
     if [ "$NONE" = true ]; then
         echo "###################### COMPILE ######################"
         echo "Compiling..."
+        make clean TARGET="$target" > /dev/null
         make TARGET="$target"
         echo "######################################################"
     fi
