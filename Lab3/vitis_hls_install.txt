@@ -1,0 +1,7 @@
+ubuntu 20.04
+download 2020.2 vivado offline installer
+sudo apt-get install -y libtinfo5 libncurses5
+add to .bashrc: source /tools/Xilinx/Vitis_HLS/2020.2/settings64.sh
+cd /tools/Xilinx/Vivado/2020.2/data/xicom/cable_drivers/lin64/install_script/install_drivers/
+./install_drivers
+Apply patch: Export IP Invalid Argument / Revision Number Overflow Issue (Y2K22)
