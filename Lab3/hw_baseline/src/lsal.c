@@ -10,9 +10,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-// #define N 256
-// #define M 2048
-
 const short GAP_i = -1;
 const short GAP_d = -1;
 const short MATCH = 2;
@@ -25,7 +22,7 @@ const short WEST = 3;
 // static long int cnt_bytes=0;
 
 /**********************************************************************************************
- * LSAL kernel code to be implemented in Hardware
+ * LSAL algorithm
  * Inputs:
  *          string1 is the query[N]
  *          string2 is the database[M]
@@ -43,37 +40,59 @@ void compute_matrices(
     int index = 0;
     int i = 0;
 	int j = 0;
+	int match = 0;
+	int test_val = 0;
+	short dir = CENTER;
 
     // Following values are used for the N, W, and NW values wrt. similarity_matrix[i]
     int north = 0;
 	int west = 0;
 	int northwest = 0;
 	int max_value = 0;
+	*max_index = 0;
 
 	//Here the real computation starts. Place your code whenever is required. 
 	// Scan the N*M array row-wise starting from the second row.
-   for(index = N; index < N*M; index++) {
-
-   	  i = index % N; // column index
-	  j = index / N; // row index
-   	   if (i == 0) {  
+    for(index = N; index < N*M; index++) {
+		i = index % N; // column index
+		j = index / N; // row index
+   	    
+		if (i == 0) {  
 			// first column. 
-			west = 0;
 			northwest = 0;
-		} else {      
+			west = 0;
+		} else {
+			northwest = similarity_matrix[index - N - 1];
+			west = similarity_matrix[index - 1];
+		}
 
-           north = similarity_matrix[index - N]; 
-           match = ( string1[i] == string2[j] ) ? MATCH : MISS_MATCH; 
-			test_val = northwest + match;
-			if(test_val > val){
-				val = test_val;
-				dir = NORTH_WEST;
-			}
-        //////// 
-        }
+		north = similarity_matrix[index - N]; 
+		match = ( string1[i] == string2[j] ) ? MATCH : MISS_MATCH; 
 
+		test_val = northwest + match;
+		if (test_val > max_value) {
+			max_value = test_val;
+			dir = NORTH_WEST;
+		}
+		
+		test_val = north + GAP_d;
+		if (test_val > max_value) {
+			max_value = test_val;
+			dir = NORTH;
+		}
 
-}   // end of for-loop
+		test_val = west + GAP_i;
+		if (test_val > max_value) {
+			max_value = test_val;
+			dir = WEST;
+		}
+
+		similarity_matrix[index] = max_value;
+		direction_matrix[index] = dir;
+
+		if (max_value > similarity_matrix[*max_index])
+			*max_index = index;
+		max_value = 0;
+		dir = CENTER;
+	}   // end of for-loop
 }  // end of function
-
-/************************************************************************/

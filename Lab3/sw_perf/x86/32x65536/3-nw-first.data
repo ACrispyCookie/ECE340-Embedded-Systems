@@ -1,0 +1,2600 @@
+
+### Run 1 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             21,10 msec task-clock                #    0,970 CPUs utilized          
+                 1      context-switches          #   47,396 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  152,282 K/sec                  
+          39527753      cycles                    #    1,873 GHz                    
+          87023696      instructions              #    2,20  insn per cycle         
+           7891986      branches                  #  374,045 M/sec                  
+             78159      branch-misses             #    0,99% of all branches        
+         190770300      slots                     #    9,042 G/sec                  
+          92018615      topdown-retiring          #     48,2% retiring              
+          10473663      topdown-bad-spec          #      5,5% bad speculation       
+          31420990      topdown-fe-bound          #     16,5% frontend bound        
+          56857030      topdown-be-bound          #     29,8% backend bound         
+
+       0,021740823 seconds time elapsed
+
+       0,008694000 seconds user
+       0,013041000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.009464 sec 
+
+### Run 2 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,10 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   82,635 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  265,424 K/sec                  
+          42107317      cycles                    #    3,480 GHz                    
+          87383845      instructions              #    2,08  insn per cycle         
+           7936892      branches                  #  655,865 M/sec                  
+             79403      branch-misses             #    1,00% of all branches        
+         205985060      slots                     #   17,022 G/sec                  
+          92087438      topdown-retiring          #     44,7% retiring              
+          11308983      topdown-bad-spec          #      5,5% bad speculation       
+          31503597      topdown-fe-bound          #     15,3% frontend bound        
+          71085040      topdown-be-bound          #     34,5% backend bound         
+
+       0,012427500 seconds time elapsed
+
+       0,008267000 seconds user
+       0,004133000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006511 sec 
+
+### Run 3 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             13,39 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  239,900 K/sec                  
+          46644018      cycles                    #    3,484 GHz                    
+          87126408      instructions              #    1,87  insn per cycle         
+           7907129      branches                  #  590,574 M/sec                  
+             78335      branch-misses             #    0,99% of all branches        
+         209586900      slots                     #   15,654 G/sec                  
+          92053854      topdown-retiring          #     43,9% retiring              
+          10684822      topdown-bad-spec          #      5,1% bad speculation       
+          34520195      topdown-fe-bound          #     16,5% frontend bound        
+          72328028      topdown-be-bound          #     34,5% backend bound         
+
+       0,013671627 seconds time elapsed
+
+       0,013686000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006738 sec 
+
+### Run 4 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,90 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  269,892 K/sec                  
+          41464819      cycles                    #    3,484 GHz                    
+          86957401      instructions              #    2,10  insn per cycle         
+           7881503      branches                  #  662,251 M/sec                  
+             77318      branch-misses             #    0,98% of all branches        
+         206410505      slots                     #   17,344 G/sec                  
+          92277637      topdown-retiring          #     44,7% retiring              
+          10522888      topdown-bad-spec          #      5,1% bad speculation       
+          32378118      topdown-fe-bound          #     15,7% frontend bound        
+          71231860      topdown-be-bound          #     34,5% backend bound         
+
+       0,012204986 seconds time elapsed
+
+       0,004074000 seconds user
+       0,008149000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006278 sec 
+
+### Run 5 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,67 msec task-clock                #    0,975 CPUs utilized          
+                 2      context-switches          #  157,858 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  253,599 K/sec                  
+          44008846      cycles                    #    3,474 GHz                    
+          86971645      instructions              #    1,98  insn per cycle         
+           7883133      branches                  #  622,209 M/sec                  
+             78250      branch-misses             #    0,99% of all branches        
+         199652170      slots                     #   15,758 G/sec                  
+          91605113      topdown-retiring          #     45,9% retiring              
+          11744245      topdown-bad-spec          #      5,9% bad speculation       
+          32100937      topdown-fe-bound          #     16,1% frontend bound        
+          64201874      topdown-be-bound          #     32,2% backend bound         
+
+       0,012992023 seconds time elapsed
+
+       0,008629000 seconds user
+       0,004314000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006717 sec 
+
+### Run 6 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,95 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  268,844 K/sec                  
+          41434354      cycles                    #    3,467 GHz                    
+          86974905      instructions              #    2,10  insn per cycle         
+           7884768      branches                  #  659,748 M/sec                  
+             77668      branch-misses             #    0,99% of all branches        
+         201258735      slots                     #   16,840 G/sec                  
+          92342243      topdown-retiring          #     45,9% retiring              
+          10260249      topdown-bad-spec          #      5,1% bad speculation       
+          31569997      topdown-fe-bound          #     15,7% frontend bound        
+          67086245      topdown-be-bound          #     33,3% backend bound         
+
+       0,012243370 seconds time elapsed
+
+       0,008180000 seconds user
+       0,004090000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006409 sec 
+
+### Run 7 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,76 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   78,357 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  251,684 K/sec                  
+          44388788      cycles                    #    3,478 GHz                    
+          86956532      instructions              #    1,96  insn per cycle         
+           7883167      branches                  #  617,704 M/sec                  
+             78087      branch-misses             #    0,99% of all branches        
+         200985880      slots                     #   15,749 G/sec                  
+          92217050      topdown-retiring          #     45,9% retiring              
+           9458159      topdown-bad-spec          #      4,7% bad speculation       
+          33103556      topdown-fe-bound          #     16,5% frontend bound        
+          66207113      topdown-be-bound          #     32,9% backend bound         
+
+       0,013044981 seconds time elapsed
+
+       0,013082000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006711 sec 
+
+### Run 8 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,05 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   82,991 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,568 K/sec                  
+          41822368      cycles                    #    3,471 GHz                    
+          86985611      instructions              #    2,08  insn per cycle         
+           7888516      branches                  #  654,678 M/sec                  
+             78406      branch-misses             #    0,99% of all branches        
+         200841960      slots                     #   16,668 G/sec                  
+          92151016      topdown-retiring          #     45,9% retiring              
+          10239001      topdown-bad-spec          #      5,1% bad speculation       
+          33079852      topdown-fe-bound          #     16,5% frontend bound        
+          65372088      topdown-be-bound          #     32,5% backend bound         
+
+       0,012354142 seconds time elapsed
+
+       0,012354000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006405 sec 
+
+### Run 9 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,38 msec task-clock                #    0,961 CPUs utilized          
+                 2      context-switches          #  161,544 /sec                   
+                 1      cpu-migrations            #   80,772 /sec                   
+              3211      page-faults               #  259,359 K/sec                  
+          43066886      cycles                    #    3,479 GHz                    
+          87385515      instructions              #    2,03  insn per cycle         
+           7937940      branches                  #  641,164 M/sec                  
+             78597      branch-misses             #    0,99% of all branches        
+         213909405      slots                     #   17,278 G/sec                  
+          91435784      topdown-retiring          #     42,7% retiring              
+          11744045      topdown-bad-spec          #      5,5% bad speculation       
+          32715556      topdown-fe-bound          #     15,3% frontend bound        
+          78014018      topdown-be-bound          #     36,5% backend bound         
+
+       0,012876670 seconds time elapsed
+
+       0,008400000 seconds user
+       0,004200000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006350 sec 
+
+### Run 10 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,33 msec task-clock                #    0,982 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  260,593 K/sec                  
+          42842422      cycles                    #    3,476 GHz                    
+          87018055      instructions              #    2,03  insn per cycle         
+           7893758      branches                  #  640,430 M/sec                  
+             77755      branch-misses             #    0,99% of all branches        
+         203531675      slots                     #   16,513 G/sec                  
+          92586958      topdown-retiring          #     45,5% retiring              
+           9577961      topdown-bad-spec          #      4,7% bad speculation       
+          32724700      topdown-fe-bound          #     16,1% frontend bound        
+          68642055      topdown-be-bound          #     33,7% backend bound         
+
+       0,012554563 seconds time elapsed
+
+       0,012613000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006550 sec 
+
+### Run 11 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             13,17 msec task-clock                #    0,975 CPUs utilized          
+                 2      context-switches          #  151,827 /sec                   
+                 1      cpu-migrations            #   75,913 /sec                   
+              3212      page-faults               #  243,834 K/sec                  
+          45673310      cycles                    #    3,467 GHz                    
+          87602210      instructions              #    1,92  insn per cycle         
+           7971509      branches                  #  605,144 M/sec                  
+             78845      branch-misses             #    0,99% of all branches        
+         215018045      slots                     #   16,323 G/sec                  
+          92752882      topdown-retiring          #     43,1% retiring              
+          10961704      topdown-bad-spec          #      5,1% bad speculation       
+          32885112      topdown-fe-bound          #     15,3% frontend bound        
+          78418345      topdown-be-bound          #     36,5% backend bound         
+
+       0,013514972 seconds time elapsed
+
+       0,008943000 seconds user
+       0,004471000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006775 sec 
+
+### Run 12 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,81 msec task-clock                #    0,981 CPUs utilized          
+                 1      context-switches          #   78,041 /sec                   
+                 1      cpu-migrations            #   78,041 /sec                   
+              3210      page-faults               #  250,513 K/sec                  
+          44570693      cycles                    #    3,478 GHz                    
+          87528903      instructions              #    1,96  insn per cycle         
+           7954632      branches                  #  620,790 M/sec                  
+             78972      branch-misses             #    0,99% of all branches        
+         206854380      slots                     #   16,143 G/sec                  
+          91664882      topdown-retiring          #     44,3% retiring              
+          11356711      topdown-bad-spec          #      5,5% bad speculation       
+          32447745      topdown-fe-bound          #     15,7% frontend bound        
+          71385040      topdown-be-bound          #     34,5% backend bound         
+
+       0,013067318 seconds time elapsed
+
+       0,008710000 seconds user
+       0,004355000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006745 sec 
+
+### Run 13 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,56 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   79,628 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  255,926 K/sec                  
+          43670645      cycles                    #    3,477 GHz                    
+          87284302      instructions              #    2,00  insn per cycle         
+           7931006      branches                  #  631,534 M/sec                  
+             77593      branch-misses             #    0,98% of all branches        
+         208125745      slots                     #   16,573 G/sec                  
+          92228271      topdown-retiring          #     44,3% retiring              
+          10610332      topdown-bad-spec          #      5,1% bad speculation       
+          31830996      topdown-fe-bound          #     15,3% frontend bound        
+          73456145      topdown-be-bound          #     35,3% backend bound         
+
+       0,012887146 seconds time elapsed
+
+       0,008572000 seconds user
+       0,004286000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006461 sec 
+
+### Run 14 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,41 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  258,797 K/sec                  
+          43206439      cycles                    #    3,482 GHz                    
+          87115390      instructions              #    2,02  insn per cycle         
+           7903625      branches                  #  637,009 M/sec                  
+             78224      branch-misses             #    0,99% of all branches        
+         202513150      slots                     #   16,322 G/sec                  
+          92123629      topdown-retiring          #     45,5% retiring              
+          10324199      topdown-bad-spec          #      5,1% bad speculation       
+          32560937      topdown-fe-bound          #     16,1% frontend bound        
+          67504383      topdown-be-bound          #     33,3% backend bound         
+
+       0,012672389 seconds time elapsed
+
+       0,008463000 seconds user
+       0,004231000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006485 sec 
+
+### Run 15 on Τετ 04 Ιουν 2025 05:00:41 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,07 msec task-clock                #    0,972 CPUs utilized          
+                 1      context-switches          #   82,816 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,006 K/sec                  
+          42066969      cycles                    #    3,484 GHz                    
+          87012184      instructions              #    2,07  insn per cycle         
+           7891902      branches                  #  653,578 M/sec                  
+             78660      branch-misses             #    1,00% of all branches        
+         199066545      slots                     #   16,486 G/sec                  
+          92117067      topdown-retiring          #     46,3% retiring              
+          10148490      topdown-bad-spec          #      5,1% bad speculation       
+          32006777      topdown-fe-bound          #     16,1% frontend bound        
+          64794208      topdown-be-bound          #     32,5% backend bound         
+
+       0,012418513 seconds time elapsed
+
+       0,008260000 seconds user
+       0,004130000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006435 sec 
+
+### Run 16 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,19 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   82,027 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  263,390 K/sec                  
+          42346791      cycles                    #    3,474 GHz                    
+          86930467      instructions              #    2,05  insn per cycle         
+           7877777      branches                  #  646,193 M/sec                  
+             77972      branch-misses             #    0,99% of all branches        
+         198532160      slots                     #   16,285 G/sec                  
+          91869783      topdown-retiring          #     46,3% retiring              
+          10121247      topdown-bad-spec          #      5,1% bad speculation       
+          32699414      topdown-fe-bound          #     16,5% frontend bound        
+          63841714      topdown-be-bound          #     32,2% backend bound         
+
+       0,012516690 seconds time elapsed
+
+       0,006259000 seconds user
+       0,006259000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006562 sec 
+
+### Run 17 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,16 msec task-clock                #    0,972 CPUs utilized          
+                 1      context-switches          #   82,246 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  264,256 K/sec                  
+          42296528      cycles                    #    3,479 GHz                    
+          87144280      instructions              #    2,06  insn per cycle         
+           7905382      branches                  #  650,184 M/sec                  
+             78300      branch-misses             #    0,99% of all branches        
+         206653415      slots                     #   16,996 G/sec                  
+          92386232      topdown-retiring          #     44,7% retiring              
+           9724866      topdown-bad-spec          #      4,7% bad speculation       
+          32416221      topdown-fe-bound          #     15,7% frontend bound        
+          72126093      topdown-be-bound          #     34,9% backend bound         
+
+       0,012507151 seconds time elapsed
+
+       0,003092000 seconds user
+       0,009277000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006377 sec 
+
+### Run 18 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,39 msec task-clock                #    0,979 CPUs utilized          
+                 1      context-switches          #   80,687 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  259,249 K/sec                  
+          43122918      cycles                    #    3,479 GHz                    
+          86953337      instructions              #    2,02  insn per cycle         
+           7885131      branches                  #  636,231 M/sec                  
+             77912      branch-misses             #    0,99% of all branches        
+         197901510      slots                     #   15,968 G/sec                  
+          91577953      topdown-retiring          #     46,3% retiring              
+          11641265      topdown-bad-spec          #      5,9% bad speculation       
+          31819458      topdown-fe-bound          #     16,1% frontend bound        
+          62862832      topdown-be-bound          #     31,8% backend bound         
+
+       0,012653857 seconds time elapsed
+
+       0,012646000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006684 sec 
+
+### Run 19 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,37 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   80,813 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  259,492 K/sec                  
+          43168556      cycles                    #    3,489 GHz                    
+          87107586      instructions              #    2,02  insn per cycle         
+           7902310      branches                  #  638,613 M/sec                  
+             78547      branch-misses             #    0,99% of all branches        
+         196153310      slots                     #   15,852 G/sec                  
+          92307440      topdown-retiring          #     47,1% retiring              
+          10769201      topdown-bad-spec          #      5,5% bad speculation       
+          32307604      topdown-fe-bound          #     16,5% frontend bound        
+          60769064      topdown-be-bound          #     31,0% backend bound         
+
+       0,012665005 seconds time elapsed
+
+       0,003162000 seconds user
+       0,009488000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006426 sec 
+
+### Run 20 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,03 msec task-clock                #    0,976 CPUs utilized          
+                 2      context-switches          #  166,281 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  267,130 K/sec                  
+          41734595      cycles                    #    3,470 GHz                    
+          86970455      instructions              #    2,08  insn per cycle         
+           7883390      branches                  #  655,427 M/sec                  
+             78171      branch-misses             #    0,99% of all branches        
+         199534645      slots                     #   16,589 G/sec                  
+          91551190      topdown-retiring          #     45,9% retiring              
+          12519820      topdown-bad-spec          #      6,3% bad speculation       
+          32082040      topdown-fe-bound          #     16,1% frontend bound        
+          63381593      topdown-be-bound          #     31,8% backend bound         
+
+       0,012321112 seconds time elapsed
+
+       0,008197000 seconds user
+       0,004098000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006477 sec 
+
+### Run 21 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,05 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,529 K/sec                  
+          41937621      cycles                    #    3,480 GHz                    
+          86972781      instructions              #    2,07  insn per cycle         
+           7886029      branches                  #  654,376 M/sec                  
+             77696      branch-misses             #    0,99% of all branches        
+         197273290      slots                     #   16,370 G/sec                  
+          92060868      topdown-retiring          #     46,7% retiring              
+          10057069      topdown-bad-spec          #      5,1% bad speculation       
+          32492071      topdown-fe-bound          #     16,5% frontend bound        
+          62663280      topdown-be-bound          #     31,8% backend bound         
+
+       0,012325355 seconds time elapsed
+
+       0,008215000 seconds user
+       0,004107000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006477 sec 
+
+### Run 22 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,86 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  270,935 K/sec                  
+          41180658      cycles                    #    3,474 GHz                    
+          86961999      instructions              #    2,11  insn per cycle         
+           7882773      branches                  #  664,919 M/sec                  
+             77376      branch-misses             #    0,98% of all branches        
+         202533690      slots                     #   17,084 G/sec                  
+          92132972      topdown-retiring          #     45,5% retiring              
+          10325246      topdown-bad-spec          #      5,1% bad speculation       
+          32564240      topdown-fe-bound          #     16,1% frontend bound        
+          67511230      topdown-be-bound          #     33,3% backend bound         
+
+       0,012104189 seconds time elapsed
+
+       0,008083000 seconds user
+       0,004041000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006428 sec 
+
+### Run 23 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,06 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  266,176 K/sec                  
+          41918573      cycles                    #    3,475 GHz                    
+          87057124      instructions              #    2,08  insn per cycle         
+           7894528      branches                  #  654,417 M/sec                  
+             78124      branch-misses             #    0,99% of all branches        
+         202762955      slots                     #   16,808 G/sec                  
+          92237265      topdown-retiring          #     45,5% retiring              
+          10336934      topdown-bad-spec          #      5,1% bad speculation       
+          32601102      topdown-fe-bound          #     16,1% frontend bound        
+          67587651      topdown-be-bound          #     33,3% backend bound         
+
+       0,012352737 seconds time elapsed
+
+       0,008248000 seconds user
+       0,004124000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006514 sec 
+
+### Run 24 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,52 msec task-clock                #    0,979 CPUs utilized          
+                 1      context-switches          #   79,842 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  256,532 K/sec                  
+          43618643      cycles                    #    3,483 GHz                    
+          86960320      instructions              #    1,99  insn per cycle         
+           7883013      branches                  #  629,395 M/sec                  
+             78383      branch-misses             #    0,99% of all branches        
+         195701005      slots                     #   15,625 G/sec                  
+          91646291      topdown-retiring          #     46,6% retiring              
+          11511823      topdown-bad-spec          #      5,9% bad speculation       
+          32233106      topdown-fe-bound          #     16,4% frontend bound        
+          61097527      topdown-be-bound          #     31,1% backend bound         
+
+       0,012797330 seconds time elapsed
+
+       0,006384000 seconds user
+       0,006384000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006831 sec 
+
+### Run 25 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,02 msec task-clock                #    0,980 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  267,302 K/sec                  
+          41783883      cycles                    #    3,477 GHz                    
+          86952033      instructions              #    2,08  insn per cycle         
+           7880152      branches                  #  655,785 M/sec                  
+             77711      branch-misses             #    0,99% of all branches        
+         204087435      slots                     #   16,984 G/sec                  
+          92039431      topdown-retiring          #     45,1% retiring              
+          10404457      topdown-bad-spec          #      5,1% bad speculation       
+          32013715      topdown-fe-bound          #     15,7% frontend bound        
+          69629830      topdown-be-bound          #     34,1% backend bound         
+
+       0,012260544 seconds time elapsed
+
+       0,008213000 seconds user
+       0,004106000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006378 sec 
+
+### Run 26 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,93 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   83,857 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  269,350 K/sec                  
+          41442485      cycles                    #    3,475 GHz                    
+          86953238      instructions              #    2,10  insn per cycle         
+           7879591      branches                  #  660,761 M/sec                  
+             77737      branch-misses             #    0,99% of all branches        
+         204265665      slots                     #   17,129 G/sec                  
+          92119809      topdown-retiring          #     45,1% retiring              
+          10413543      topdown-bad-spec          #      5,1% bad speculation       
+          32842714      topdown-fe-bound          #     16,1% frontend bound        
+          68889596      topdown-be-bound          #     33,7% backend bound         
+
+       0,012225950 seconds time elapsed
+
+       0,008139000 seconds user
+       0,004069000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006330 sec 
+
+### Run 27 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,17 msec task-clock                #    0,981 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  263,946 K/sec                  
+          42371269      cycles                    #    3,483 GHz                    
+          86926909      instructions              #    2,05  insn per cycle         
+           7876075      branches                  #  647,417 M/sec                  
+             77266      branch-misses             #    0,98% of all branches        
+         201265515      slots                     #   16,544 G/sec                  
+          92345353      topdown-retiring          #     45,9% retiring              
+           9471318      topdown-bad-spec          #      4,7% bad speculation       
+          33149614      topdown-fe-bound          #     16,5% frontend bound        
+          66299228      topdown-be-bound          #     32,9% backend bound         
+
+       0,012397067 seconds time elapsed
+
+       0,012449000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006558 sec 
+
+### Run 28 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,17 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   82,187 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  264,149 K/sec                  
+          42290589      cycles                    #    3,476 GHz                    
+          87000935      instructions              #    2,06  insn per cycle         
+           7890497      branches                  #  648,497 M/sec                  
+             78166      branch-misses             #    0,99% of all branches        
+         201300245      slots                     #   16,544 G/sec                  
+          92361288      topdown-retiring          #     45,9% retiring              
+          10262365      topdown-bad-spec          #      5,1% bad speculation       
+          32365921      topdown-fe-bound          #     16,1% frontend bound        
+          66310668      topdown-be-bound          #     32,9% backend bound         
+
+       0,012453391 seconds time elapsed
+
+       0,006227000 seconds user
+       0,006227000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006244 sec 
+
+### Run 29 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,08 msec task-clock                #    0,980 CPUs utilized          
+                 1      context-switches          #   82,756 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  265,979 K/sec                  
+          42029250      cycles                    #    3,478 GHz                    
+          87039102      instructions              #    2,07  insn per cycle         
+           7898463      branches                  #  653,649 M/sec                  
+             77964      branch-misses             #    0,99% of all branches        
+         205405970      slots                     #   16,999 G/sec                  
+          91828551      topdown-retiring          #     44,7% retiring              
+          10471676      topdown-bad-spec          #      5,1% bad speculation       
+          32220544      topdown-fe-bound          #     15,7% frontend bound        
+          70885197      topdown-be-bound          #     34,5% backend bound         
+
+       0,012324050 seconds time elapsed
+
+       0,008244000 seconds user
+       0,004122000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006416 sec 
+
+### Run 30 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,03 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,930 K/sec                  
+          41725159      cycles                    #    3,468 GHz                    
+          86951426      instructions              #    2,08  insn per cycle         
+           7880607      branches                  #  654,909 M/sec                  
+             77629      branch-misses             #    0,99% of all branches        
+         204888090      slots                     #   17,027 G/sec                  
+          92400511      topdown-retiring          #     45,1% retiring              
+           9641792      topdown-bad-spec          #      4,7% bad speculation       
+          32942790      topdown-fe-bound          #     16,1% frontend bound        
+          69902995      topdown-be-bound          #     34,1% backend bound         
+
+       0,012289492 seconds time elapsed
+
+       0,008201000 seconds user
+       0,004100000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006327 sec 
+
+### Run 31 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,14 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  264,467 K/sec                  
+          42261914      cycles                    #    3,481 GHz                    
+          86994910      instructions              #    2,06  insn per cycle         
+           7888680      branches                  #  649,735 M/sec                  
+             77663      branch-misses             #    0,98% of all branches        
+         206111100      slots                     #   16,976 G/sec                  
+          92143785      topdown-retiring          #     44,7% retiring              
+           9699345      topdown-bad-spec          #      4,7% bad speculation       
+          33139431      topdown-fe-bound          #     16,1% frontend bound        
+          71128536      topdown-be-bound          #     34,5% backend bound         
+
+       0,012406621 seconds time elapsed
+
+       0,008276000 seconds user
+       0,004138000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006417 sec 
+
+### Run 32 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,01 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  267,577 K/sec                  
+          41741488      cycles                    #    3,476 GHz                    
+          86970662      instructions              #    2,08  insn per cycle         
+           7887227      branches                  #  656,844 M/sec                  
+             77557      branch-misses             #    0,98% of all branches        
+         206776345      slots                     #   17,220 G/sec                  
+          92441189      topdown-retiring          #     44,7% retiring              
+           9730651      topdown-bad-spec          #      4,7% bad speculation       
+          32435505      topdown-fe-bound          #     15,7% frontend bound        
+          72168998      topdown-be-bound          #     34,9% backend bound         
+
+       0,012267178 seconds time elapsed
+
+       0,008216000 seconds user
+       0,004108000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006329 sec 
+
+### Run 33 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,24 msec task-clock                #    0,980 CPUs utilized          
+                 1      context-switches          #   81,722 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  262,329 K/sec                  
+          42591277      cycles                    #    3,481 GHz                    
+          87002886      instructions              #    2,04  insn per cycle         
+           7889574      branches                  #  644,754 M/sec                  
+             77741      branch-misses             #    0,99% of all branches        
+         205067055      slots                     #   16,759 G/sec                  
+          92481220      topdown-retiring          #     45,1% retiring              
+          10454398      topdown-bad-spec          #      5,1% bad speculation       
+          32167381      topdown-fe-bound          #     15,7% frontend bound        
+          69964054      topdown-be-bound          #     34,1% backend bound         
+
+       0,012490324 seconds time elapsed
+
+       0,008333000 seconds user
+       0,004166000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006467 sec 
+
+### Run 34 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,36 msec task-clock                #    0,979 CPUs utilized          
+                 1      context-switches          #   80,883 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  259,876 K/sec                  
+          42776717      cycles                    #    3,460 GHz                    
+          86956898      instructions              #    2,03  insn per cycle         
+           7881210      branches                  #  637,453 M/sec                  
+             77942      branch-misses             #    0,99% of all branches        
+         203237585      slots                     #   16,438 G/sec                  
+          92453175      topdown-retiring          #     45,5% retiring              
+           9564121      topdown-bad-spec          #      4,7% bad speculation       
+          32677415      topdown-fe-bound          #     16,1% frontend bound        
+          68542871      topdown-be-bound          #     33,7% backend bound         
+
+       0,012623781 seconds time elapsed
+
+       0,003159000 seconds user
+       0,009478000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006643 sec 
+
+### Run 35 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,29 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   81,356 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  261,316 K/sec                  
+          42682515      cycles                    #    3,472 GHz                    
+          86976121      instructions              #    2,04  insn per cycle         
+           7887764      branches                  #  641,719 M/sec                  
+             78070      branch-misses             #    0,99% of all branches        
+         204198645      slots                     #   16,613 G/sec                  
+          92089585      topdown-retiring          #     45,1% retiring              
+          10410127      topdown-bad-spec          #      5,1% bad speculation       
+          32831939      topdown-fe-bound          #     16,1% frontend bound        
+          68866994      topdown-be-bound          #     33,7% backend bound         
+
+       0,012577660 seconds time elapsed
+
+       0,008397000 seconds user
+       0,004198000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006558 sec 
+
+### Run 36 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,31 msec task-clock                #    0,980 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  260,909 K/sec                  
+          42739615      cycles                    #    3,473 GHz                    
+          86951563      instructions              #    2,03  insn per cycle         
+           7881125      branches                  #  640,379 M/sec                  
+             77850      branch-misses             #    0,99% of all branches        
+         202056305      slots                     #   16,418 G/sec                  
+          91915809      topdown-retiring          #     45,5% retiring              
+          10300909      topdown-bad-spec          #      5,1% bad speculation       
+          32487484      topdown-fe-bound          #     16,1% frontend bound        
+          67352101      topdown-be-bound          #     33,3% backend bound         
+
+       0,012564060 seconds time elapsed
+
+       0,008428000 seconds user
+       0,004214000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006564 sec 
+
+### Run 37 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,28 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   81,405 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  261,312 K/sec                  
+          42785050      cycles                    #    3,483 GHz                    
+          87086460      instructions              #    2,04  insn per cycle         
+           7898879      branches                  #  643,012 M/sec                  
+             78333      branch-misses             #    0,99% of all branches        
+         206060765      slots                     #   16,774 G/sec                  
+          92121283      topdown-retiring          #     44,7% retiring              
+          10505058      topdown-bad-spec          #      5,1% bad speculation       
+          33131338      topdown-fe-bound          #     16,1% frontend bound        
+          70303084      topdown-be-bound          #     34,1% backend bound         
+
+       0,012573852 seconds time elapsed
+
+       0,008377000 seconds user
+       0,004188000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006514 sec 
+
+### Run 38 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,51 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  256,670 K/sec                  
+          43514882      cycles                    #    3,479 GHz                    
+          86953232      instructions              #    2,00  insn per cycle         
+           7883310      branches                  #  630,346 M/sec                  
+             77804      branch-misses             #    0,99% of all branches        
+         196401920      slots                     #   15,704 G/sec                  
+          92424432      topdown-retiring          #     47,1% retiring              
+           9242443      topdown-bad-spec          #      4,7% bad speculation       
+          33118755      topdown-fe-bound          #     16,9% frontend bound        
+          61616288      topdown-be-bound          #     31,4% backend bound         
+
+       0,012780863 seconds time elapsed
+
+       0,008555000 seconds user
+       0,004277000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006606 sec 
+
+### Run 39 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,56 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   79,635 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  255,946 K/sec                  
+          43496123      cycles                    #    3,464 GHz                    
+          87421142      instructions              #    2,01  insn per cycle         
+           7944314      branches                  #  632,643 M/sec                  
+             78447      branch-misses             #    0,99% of all branches        
+         207838080      slots                     #   16,551 G/sec                  
+          92915847      topdown-retiring          #     44,7% retiring              
+          10595666      topdown-bad-spec          #      5,1% bad speculation       
+          32602051      topdown-fe-bound          #     15,7% frontend bound        
+          71724513      topdown-be-bound          #     34,5% backend bound         
+
+       0,012887974 seconds time elapsed
+
+       0,004292000 seconds user
+       0,008585000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006449 sec 
+
+### Run 40 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,89 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  269,869 K/sec                  
+          41435050      cycles                    #    3,484 GHz                    
+          87360553      instructions              #    2,11  insn per cycle         
+           7933321      branches                  #  666,966 M/sec                  
+             77365      branch-misses             #    0,98% of all branches        
+         206682940      slots                     #   17,376 G/sec                  
+          92399432      topdown-retiring          #     44,7% retiring              
+          10536777      topdown-bad-spec          #      5,1% bad speculation       
+          32420853      topdown-fe-bound          #     15,7% frontend bound        
+          71325877      topdown-be-bound          #     34,5% backend bound         
+
+       0,012178108 seconds time elapsed
+
+       0,008139000 seconds user
+       0,004069000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006193 sec 
+
+### Run 41 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,23 msec task-clock                #    0,976 CPUs utilized          
+                 1      context-switches          #   81,734 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  262,448 K/sec                  
+          42411174      cycles                    #    3,466 GHz                    
+          87083920      instructions              #    2,05  insn per cycle         
+           7899810      branches                  #  645,684 M/sec                  
+             78325      branch-misses             #    0,99% of all branches        
+         197344245      slots                     #   16,130 G/sec                  
+          91320082      topdown-retiring          #     46,3% retiring              
+          12382384      topdown-bad-spec          #      6,3% bad speculation       
+          30955960      topdown-fe-bound          #     15,7% frontend bound        
+          62685819      topdown-be-bound          #     31,8% backend bound         
+
+       0,012534257 seconds time elapsed
+
+       0,012674000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006428 sec 
+
+### Run 42 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,04 msec task-clock                #    0,965 CPUs utilized          
+                 4      context-switches          #  332,275 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  266,734 K/sec                  
+          41824921      cycles                    #    3,474 GHz                    
+          86959786      instructions              #    2,08  insn per cycle         
+           7883162      branches                  #  654,845 M/sec                  
+             78224      branch-misses             #    0,99% of all branches        
+         196644485      slots                     #   16,335 G/sec                  
+          90996271      topdown-retiring          #     46,3% retiring              
+          13109632      topdown-bad-spec          #      6,7% bad speculation       
+          31617348      topdown-fe-bound          #     16,1% frontend bound        
+          60921232      topdown-be-bound          #     31,0% backend bound         
+
+       0,012476610 seconds time elapsed
+
+       0,008233000 seconds user
+       0,004116000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006458 sec 
+
+### Run 43 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,06 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,337 K/sec                  
+          41896057      cycles                    #    3,474 GHz                    
+          87389314      instructions              #    2,09  insn per cycle         
+           7936626      branches                  #  658,101 M/sec                  
+             78128      branch-misses             #    0,98% of all branches        
+         203650120      slots                     #   16,887 G/sec                  
+          92640838      topdown-retiring          #     45,5% retiring              
+          10382162      topdown-bad-spec          #      5,1% bad speculation       
+          31945116      topdown-fe-bound          #     15,7% frontend bound        
+          68682001      topdown-be-bound          #     33,7% backend bound         
+
+       0,012317668 seconds time elapsed
+
+       0,008246000 seconds user
+       0,004123000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006300 sec 
+
+### Run 44 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,29 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  261,296 K/sec                  
+          42771093      cycles                    #    3,479 GHz                    
+          87001532      instructions              #    2,03  insn per cycle         
+           7891579      branches                  #  641,979 M/sec                  
+             78034      branch-misses             #    0,99% of all branches        
+         196208405      slots                     #   15,962 G/sec                  
+          92333367      topdown-retiring          #     47,1% retiring              
+          10002781      topdown-bad-spec          #      5,1% bad speculation       
+          33086123      topdown-fe-bound          #     16,9% frontend bound        
+          60786133      topdown-be-bound          #     31,0% backend bound         
+
+       0,012561123 seconds time elapsed
+
+       0,008426000 seconds user
+       0,004213000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006384 sec 
+
+### Run 45 on Τετ 04 Ιουν 2025 05:00:42 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,38 msec task-clock                #    0,970 CPUs utilized          
+                 1      context-switches          #   80,776 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  259,453 K/sec                  
+          43063127      cycles                    #    3,478 GHz                    
+          87038863      instructions              #    2,02  insn per cycle         
+           7894704      branches                  #  637,705 M/sec                  
+             77622      branch-misses             #    0,98% of all branches        
+         203331680      slots                     #   16,424 G/sec                  
+          92495979      topdown-retiring          #     45,5% retiring              
+          10365928      topdown-bad-spec          #      5,1% bad speculation       
+          32692544      topdown-fe-bound          #     16,1% frontend bound        
+          67777226      topdown-be-bound          #     33,3% backend bound         
+
+       0,012765616 seconds time elapsed
+
+       0,008412000 seconds user
+       0,004206000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006583 sec 
+
+### Run 46 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,45 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  257,918 K/sec                  
+          43338418      cycles                    #    3,481 GHz                    
+          87324578      instructions              #    2,01  insn per cycle         
+           7930416      branches                  #  636,997 M/sec                  
+             78339      branch-misses             #    0,99% of all branches        
+         199742620      slots                     #   16,044 G/sec                  
+          92429918      topdown-retiring          #     46,3% retiring              
+           9399652      topdown-bad-spec          #      4,7% bad speculation       
+          32898784      topdown-fe-bound          #     16,5% frontend bound        
+          65014264      topdown-be-bound          #     32,5% backend bound         
+
+       0,012719412 seconds time elapsed
+
+       0,008513000 seconds user
+       0,004256000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006609 sec 
+
+### Run 47 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,19 msec task-clock                #    0,972 CPUs utilized          
+                 1      context-switches          #   82,024 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  263,544 K/sec                  
+          41556957      cycles                    #    3,409 GHz                    
+          86958856      instructions              #    2,09  insn per cycle         
+           7882768      branches                  #  646,579 M/sec                  
+             77272      branch-misses             #    0,98% of all branches        
+         200323510      slots                     #   16,431 G/sec                  
+          91913139      topdown-retiring          #     45,9% retiring              
+          10998153      topdown-bad-spec          #      5,5% bad speculation       
+          32208878      topdown-fe-bound          #     16,1% frontend bound        
+          65203338      topdown-be-bound          #     32,5% backend bound         
+
+       0,012546045 seconds time elapsed
+
+       0,003115000 seconds user
+       0,009345000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006394 sec 
+
+### Run 48 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,25 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  262,032 K/sec                  
+          42670920      cycles                    #    3,482 GHz                    
+          87173873      instructions              #    2,04  insn per cycle         
+           7915340      branches                  #  645,927 M/sec                  
+             77880      branch-misses             #    0,98% of all branches        
+         200691725      slots                     #   16,377 G/sec                  
+          92082085      topdown-retiring          #     45,9% retiring              
+           9444316      topdown-bad-spec          #      4,7% bad speculation       
+          32268081      topdown-fe-bound          #     16,1% frontend bound        
+          66897241      topdown-be-bound          #     33,3% backend bound         
+
+       0,012551057 seconds time elapsed
+
+       0,006291000 seconds user
+       0,006291000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006200 sec 
+
+### Run 49 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,85 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  271,193 K/sec                  
+          41149957      cycles                    #    3,473 GHz                    
+          87124536      instructions              #    2,12  insn per cycle         
+           7905571      branches                  #  667,269 M/sec                  
+             77981      branch-misses             #    0,99% of all branches        
+         199038215      slots                     #   16,800 G/sec                  
+          92103958      topdown-retiring          #     46,3% retiring              
+          10147046      topdown-bad-spec          #      5,1% bad speculation       
+          31221680      topdown-fe-bound          #     15,7% frontend bound        
+          65565529      topdown-be-bound          #     32,9% backend bound         
+
+       0,012123388 seconds time elapsed
+
+       0,004060000 seconds user
+       0,008121000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006314 sec 
+
+### Run 50 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,62 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  276,508 K/sec                  
+          40327091      cycles                    #    3,471 GHz                    
+          86975590      instructions              #    2,16  insn per cycle         
+           7884077      branches                  #  678,497 M/sec                  
+             77658      branch-misses             #    0,98% of all branches        
+         194663715      slots                     #   16,753 G/sec                  
+          92369841      topdown-retiring          #     47,5% retiring              
+           9924032      topdown-bad-spec          #      5,1% bad speculation       
+          31298871      topdown-fe-bound          #     16,1% frontend bound        
+          61070969      topdown-be-bound          #     31,4% backend bound         
+
+       0,011923854 seconds time elapsed
+
+       0,003968000 seconds user
+       0,007936000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006293 sec 
+
+### Run 51 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,75 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  273,284 K/sec                  
+          40945420      cycles                    #    3,484 GHz                    
+          87244623      instructions              #    2,13  insn per cycle         
+           7922228      branches                  #  674,042 M/sec                  
+             77752      branch-misses             #    0,98% of all branches        
+         203869120      slots                     #   17,346 G/sec                  
+          92740462      topdown-retiring          #     45,5% retiring              
+          10393327      topdown-bad-spec          #      5,1% bad speculation       
+          31179983      topdown-fe-bound          #     15,3% frontend bound        
+          69555346      topdown-be-bound          #     34,1% backend bound         
+
+       0,012054038 seconds time elapsed
+
+       0,004036000 seconds user
+       0,008073000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006144 sec 
+
+### Run 52 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,47 msec task-clock                #    0,969 CPUs utilized          
+                 1      context-switches          #   87,149 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  280,009 K/sec                  
+          40545131      cycles                    #    3,533 GHz                    
+          86953571      instructions              #    2,14  insn per cycle         
+           7879545      branches                  #  686,692 M/sec                  
+             77677      branch-misses             #    0,99% of all branches        
+         201606840      slots                     #   17,570 G/sec                  
+          92501961      topdown-retiring          #     45,9% retiring              
+          10277995      topdown-bad-spec          #      5,1% bad speculation       
+          31624602      topdown-fe-bound          #     15,7% frontend bound        
+          67202280      topdown-be-bound          #     33,3% backend bound         
+
+       0,011847629 seconds time elapsed
+
+       0,007902000 seconds user
+       0,003951000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006011 sec 
+
+### Run 53 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,07 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   82,875 /sec                   
+                 1      cpu-migrations            #   82,875 /sec                   
+              3212      page-faults               #  266,195 K/sec                  
+          41846241      cycles                    #    3,468 GHz                    
+          87779203      instructions              #    2,10  insn per cycle         
+           7983878      branches                  #  661,666 M/sec                  
+             78795      branch-misses             #    0,99% of all branches        
+         207727905      slots                     #   17,216 G/sec                  
+          92866592      topdown-retiring          #     44,7% retiring              
+          10590050      topdown-bad-spec          #      5,1% bad speculation       
+          30955530      topdown-fe-bound          #     14,9% frontend bound        
+          73315731      topdown-be-bound          #     35,3% backend bound         
+
+       0,012333038 seconds time elapsed
+
+       0,008261000 seconds user
+       0,004130000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006195 sec 
+
+### Run 54 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,66 msec task-clock                #    0,973 CPUs utilized          
+                 1      context-switches          #   85,776 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  275,427 K/sec                  
+          40583450      cycles                    #    3,481 GHz                    
+          86989578      instructions              #    2,14  insn per cycle         
+           7888177      branches                  #  676,616 M/sec                  
+             77898      branch-misses             #    0,99% of all branches        
+         200517350      slots                     #   17,200 G/sec                  
+          92002078      topdown-retiring          #     45,9% retiring              
+          11008795      topdown-bad-spec          #      5,5% bad speculation       
+          30667359      topdown-fe-bound          #     15,3% frontend bound        
+          66839116      topdown-be-bound          #     33,3% backend bound         
+
+       0,011985637 seconds time elapsed
+
+       0,007980000 seconds user
+       0,003990000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006194 sec 
+
+### Run 55 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,24 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  262,426 K/sec                  
+          42440150      cycles                    #    3,469 GHz                    
+          87139717      instructions              #    2,05  insn per cycle         
+           7906666      branches                  #  646,189 M/sec                  
+             78293      branch-misses             #    0,99% of all branches        
+         194669115      slots                     #   15,910 G/sec                  
+          92372403      topdown-retiring          #     47,5% retiring              
+           9924307      topdown-bad-spec          #      5,1% bad speculation       
+          31299740      topdown-fe-bound          #     16,1% frontend bound        
+          61072663      topdown-be-bound          #     31,4% backend bound         
+
+       0,012530946 seconds time elapsed
+
+       0,008399000 seconds user
+       0,004199000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006535 sec 
+
+### Run 56 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,83 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  271,405 K/sec                  
+          40361718      cycles                    #    3,412 GHz                    
+          86932636      instructions              #    2,15  insn per cycle         
+           7878263      branches                  #  665,898 M/sec                  
+             77629      branch-misses             #    0,99% of all branches        
+         200080065      slots                     #   16,911 G/sec                  
+          91801441      topdown-retiring          #     45,9% retiring              
+          10200160      topdown-bad-spec          #      5,1% bad speculation       
+          31385108      topdown-fe-bound          #     15,7% frontend bound        
+          66693355      topdown-be-bound          #     33,3% backend bound         
+
+       0,012119553 seconds time elapsed
+
+       0,008109000 seconds user
+       0,004054000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006264 sec 
+
+### Run 57 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,93 msec task-clock                #    0,979 CPUs utilized          
+                 1      context-switches          #   83,797 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  269,156 K/sec                  
+          41595875      cycles                    #    3,486 GHz                    
+          87101891      instructions              #    2,09  insn per cycle         
+           7903467      branches                  #  662,286 M/sec                  
+             78081      branch-misses             #    0,99% of all branches        
+         195358550      slots                     #   16,370 G/sec                  
+          91933435      topdown-retiring          #     47,1% retiring              
+           9959455      topdown-bad-spec          #      5,1% bad speculation       
+          31410590      topdown-fe-bound          #     16,1% frontend bound        
+          62055068      topdown-be-bound          #     31,8% backend bound         
+
+       0,012189712 seconds time elapsed
+
+       0,008179000 seconds user
+       0,004089000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006382 sec 
+
+### Run 58 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,77 msec task-clock                #    0,982 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  273,004 K/sec                  
+          40883923      cycles                    #    3,474 GHz                    
+          86962207      instructions              #    2,13  insn per cycle         
+           7881024      branches                  #  669,638 M/sec                  
+             77703      branch-misses             #    0,99% of all branches        
+         191911085      slots                     #   16,306 G/sec                  
+          91816283      topdown-retiring          #     47,8% retiring              
+           9783702      topdown-bad-spec          #      5,1% bad speculation       
+          30856292      topdown-fe-bound          #     16,1% frontend bound        
+          59454806      topdown-be-bound          #     31,0% backend bound         
+
+       0,011986171 seconds time elapsed
+
+       0,008047000 seconds user
+       0,004023000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006320 sec 
+
+### Run 59 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,92 msec task-clock                #    0,976 CPUs utilized          
+                 1      context-switches          #   83,860 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  269,190 K/sec                  
+          41419794      cycles                    #    3,473 GHz                    
+          87088159      instructions              #    2,10  insn per cycle         
+           7898207      branches                  #  662,342 M/sec                  
+             77860      branch-misses             #    0,99% of all branches        
+         204280290      slots                     #   17,131 G/sec                  
+          92126405      topdown-retiring          #     45,1% retiring              
+          10414289      topdown-bad-spec          #      5,1% bad speculation       
+          31242867      topdown-fe-bound          #     15,3% frontend bound        
+          70496727      topdown-be-bound          #     34,5% backend bound         
+
+       0,012220508 seconds time elapsed
+
+       0,004069000 seconds user
+       0,008138000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006255 sec 
+
+### Run 60 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,76 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  273,104 K/sec                  
+          40836098      cycles                    #    3,472 GHz                    
+          87114724      instructions              #    2,13  insn per cycle         
+           7900674      branches                  #  671,764 M/sec                  
+             76736      branch-misses             #    0,97% of all branches        
+         196464655      slots                     #   16,705 G/sec                  
+          92453955      topdown-retiring          #     47,1% retiring              
+           9245395      topdown-bad-spec          #      4,7% bad speculation       
+          31588434      topdown-fe-bound          #     16,1% frontend bound        
+          63176869      topdown-be-bound          #     32,2% backend bound         
+
+       0,012030669 seconds time elapsed
+
+       0,004012000 seconds user
+       0,008024000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006355 sec 
+
+### Run 61 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,70 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  274,805 K/sec                  
+          40662700      cycles                    #    3,477 GHz                    
+          86966375      instructions              #    2,14  insn per cycle         
+           7884456      branches                  #  674,141 M/sec                  
+             77638      branch-misses             #    0,98% of all branches        
+         196388835      slots                     #   16,792 G/sec                  
+          92418275      topdown-retiring          #     47,1% retiring              
+           9241827      topdown-bad-spec          #      4,7% bad speculation       
+          31576244      topdown-fe-bound          #     16,1% frontend bound        
+          63152488      topdown-be-bound          #     32,2% backend bound         
+
+       0,011942964 seconds time elapsed
+
+       0,011968000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006279 sec 
+
+### Run 62 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,49 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  279,529 K/sec                  
+          39998756      cycles                    #    3,481 GHz                    
+          86939093      instructions              #    2,17  insn per cycle         
+           7877232      branches                  #  685,528 M/sec                  
+             76892      branch-misses             #    0,98% of all branches        
+         198347625      slots                     #   17,262 G/sec                  
+          91784391      topdown-retiring          #     46,3% retiring              
+          10889673      topdown-bad-spec          #      5,5% bad speculation       
+          31113352      topdown-fe-bound          #     15,7% frontend bound        
+          64560207      topdown-be-bound          #     32,5% backend bound         
+
+       0,011744168 seconds time elapsed
+
+       0,007855000 seconds user
+       0,003927000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006164 sec 
+
+### Run 63 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,40 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   87,753 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  281,776 K/sec                  
+          39638265      cycles                    #    3,478 GHz                    
+          86960195      instructions              #    2,19  insn per cycle         
+           7882686      branches                  #  691,731 M/sec                  
+             77685      branch-misses             #    0,99% of all branches        
+         197740745      slots                     #   17,352 G/sec                  
+          92279014      topdown-retiring          #     46,7% retiring              
+          10080900      topdown-bad-spec          #      5,1% bad speculation       
+          31018156      topdown-fe-bound          #     15,7% frontend bound        
+          64362673      topdown-be-bound          #     32,5% backend bound         
+
+       0,011699778 seconds time elapsed
+
+       0,007793000 seconds user
+       0,003896000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006108 sec 
+
+### Run 64 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,55 msec task-clock                #    0,973 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  278,129 K/sec                  
+          40146567      cycles                    #    3,476 GHz                    
+          86942571      instructions              #    2,17  insn per cycle         
+           7878854      branches                  #  682,234 M/sec                  
+             77635      branch-misses             #    0,99% of all branches        
+         199637090      slots                     #   17,287 G/sec                  
+          92381084      topdown-retiring          #     46,3% retiring              
+          10177577      topdown-bad-spec          #      5,1% bad speculation       
+          31315621      topdown-fe-bound          #     15,7% frontend bound        
+          65762806      topdown-be-bound          #     32,9% backend bound         
+
+       0,011870348 seconds time elapsed
+
+       0,003979000 seconds user
+       0,007959000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006164 sec 
+
+### Run 65 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             13,29 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  241,799 K/sec                  
+          46288825      cycles                    #    3,484 GHz                    
+          87020755      instructions              #    1,88  insn per cycle         
+           7892656      branches                  #  593,973 M/sec                  
+             78314      branch-misses             #    0,99% of all branches        
+         177487660      slots                     #   13,357 G/sec                  
+          92571995      topdown-retiring          #     52,2% retiring              
+           7656330      topdown-bad-spec          #      4,3% bad speculation       
+          32017381      topdown-fe-bound          #     18,0% frontend bound        
+          45241952      topdown-be-bound          #     25,5% backend bound         
+
+       0,013573182 seconds time elapsed
+
+       0,013588000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006923 sec 
+
+### Run 66 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,96 msec task-clock                #    0,974 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  268,664 K/sec                  
+          41253306      cycles                    #    3,450 GHz                    
+          87097332      instructions              #    2,11  insn per cycle         
+           7899897      branches                  #  660,572 M/sec                  
+             78146      branch-misses             #    0,99% of all branches        
+         198017290      slots                     #   16,558 G/sec                  
+          92408068      topdown-retiring          #     46,7% retiring              
+          10094999      topdown-bad-spec          #      5,1% bad speculation       
+          31838074      topdown-fe-bound          #     16,1% frontend bound        
+          63676148      topdown-be-bound          #     32,2% backend bound         
+
+       0,012279917 seconds time elapsed
+
+       0,008204000 seconds user
+       0,004102000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006126 sec 
+
+### Run 67 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,14 msec task-clock                #    0,976 CPUs utilized          
+                 2      context-switches          #  164,733 /sec                   
+                 2      cpu-migrations            #  164,733 /sec                   
+              3210      page-faults               #  264,397 K/sec                  
+          41981029      cycles                    #    3,458 GHz                    
+          87069137      instructions              #    2,07  insn per cycle         
+           7898622      branches                  #  650,583 M/sec                  
+             78292      branch-misses             #    0,99% of all branches        
+         201047310      slots                     #   16,560 G/sec                  
+          91456815      topdown-retiring          #     45,5% retiring              
+          11826312      topdown-bad-spec          #      5,9% bad speculation       
+          31536832      topdown-fe-bound          #     15,7% frontend bound        
+          66227349      topdown-be-bound          #     32,9% backend bound         
+
+       0,012439135 seconds time elapsed
+
+       0,008301000 seconds user
+       0,004150000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006510 sec 
+
+### Run 68 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,89 msec task-clock                #    0,980 CPUs utilized          
+                 1      context-switches          #   84,104 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  270,057 K/sec                  
+          41349043      cycles                    #    3,478 GHz                    
+          87005234      instructions              #    2,10  insn per cycle         
+           7888626      branches                  #  663,463 M/sec                  
+             77997      branch-misses             #    0,99% of all branches        
+         203356685      slots                     #   17,103 G/sec                  
+          92507354      topdown-retiring          #     45,5% retiring              
+          11164680      topdown-bad-spec          #      5,5% bad speculation       
+          31899087      topdown-fe-bound          #     15,7% frontend bound        
+          67785561      topdown-be-bound          #     33,3% backend bound         
+
+       0,012136799 seconds time elapsed
+
+       0,008102000 seconds user
+       0,004051000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006254 sec 
+
+### Run 69 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,23 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   81,779 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  262,756 K/sec                  
+          42019750      cycles                    #    3,436 GHz                    
+          87168374      instructions              #    2,07  insn per cycle         
+           7912311      branches                  #  647,061 M/sec                  
+             78051      branch-misses             #    0,99% of all branches        
+         200212375      slots                     #   16,373 G/sec                  
+          92647295      topdown-retiring          #     46,3% retiring              
+          10206905      topdown-bad-spec          #      5,1% bad speculation       
+          31405862      topdown-fe-bound          #     15,7% frontend bound        
+          65952311      topdown-be-bound          #     32,9% backend bound         
+
+       0,012508371 seconds time elapsed
+
+       0,008319000 seconds user
+       0,004159000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006527 sec 
+
+### Run 70 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,99 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   83,387 /sec                   
+                 1      cpu-migrations            #   83,387 /sec                   
+              3210      page-faults               #  267,672 K/sec                  
+          41695756      cycles                    #    3,477 GHz                    
+          87130118      instructions              #    2,09  insn per cycle         
+           7900664      branches                  #  658,812 M/sec                  
+             77973      branch-misses             #    0,99% of all branches        
+         201241660      slots                     #   16,781 G/sec                  
+          92334408      topdown-retiring          #     45,9% retiring              
+          10259378      topdown-bad-spec          #      5,1% bad speculation       
+          31567319      topdown-fe-bound          #     15,7% frontend bound        
+          67080553      topdown-be-bound          #     33,3% backend bound         
+
+       0,012276820 seconds time elapsed
+
+       0,008148000 seconds user
+       0,004074000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006496 sec 
+
+### Run 71 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,68 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   85,590 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  274,916 K/sec                  
+          40285521      cycles                    #    3,448 GHz                    
+          87118196      instructions              #    2,16  insn per cycle         
+           7904083      branches                  #  676,513 M/sec                  
+             77885      branch-misses             #    0,99% of all branches        
+         196797180      slots                     #   16,844 G/sec                  
+          91838684      topdown-retiring          #     46,7% retiring              
+          10804551      topdown-bad-spec          #      5,5% bad speculation       
+          31641899      topdown-fe-bound          #     16,1% frontend bound        
+          62512045      topdown-be-bound          #     31,8% backend bound         
+
+       0,011964591 seconds time elapsed
+
+       0,007970000 seconds user
+       0,003985000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006281 sec 
+
+### Run 72 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,64 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  275,866 K/sec                  
+          40195717      cycles                    #    3,452 GHz                    
+          86933167      instructions              #    2,16  insn per cycle         
+           7875693      branches                  #  676,412 M/sec                  
+             77470      branch-misses             #    0,98% of all branches        
+         193490760      slots                     #   16,618 G/sec                  
+          91813262      topdown-retiring          #     47,5% retiring              
+          10623022      topdown-bad-spec          #      5,5% bad speculation       
+          31110279      topdown-fe-bound          #     16,1% frontend bound        
+          59944196      topdown-be-bound          #     31,0% backend bound         
+
+       0,011924541 seconds time elapsed
+
+       0,002987000 seconds user
+       0,008962000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006334 sec 
+
+### Run 73 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,79 msec task-clock                #    0,981 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  272,342 K/sec                  
+          41090311      cycles                    #    3,486 GHz                    
+          87085398      instructions              #    2,12  insn per cycle         
+           7894659      branches                  #  669,796 M/sec                  
+             77903      branch-misses             #    0,99% of all branches        
+         196809025      slots                     #   16,698 G/sec                  
+          92616011      topdown-retiring          #     47,1% retiring              
+           9261601      topdown-bad-spec          #      4,7% bad speculation       
+          30872003      topdown-fe-bound          #     15,7% frontend bound        
+          64059408      topdown-be-bound          #     32,5% backend bound         
+
+       0,012013661 seconds time elapsed
+
+       0,004009000 seconds user
+       0,008019000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006282 sec 
+
+### Run 74 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,96 msec task-clock                #    0,982 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  268,537 K/sec                  
+          41513202      cycles                    #    3,471 GHz                    
+          87244779      instructions              #    2,10  insn per cycle         
+           7925027      branches                  #  662,566 M/sec                  
+             77961      branch-misses             #    0,98% of all branches        
+         203779580      slots                     #   17,037 G/sec                  
+          92699730      topdown-retiring          #     45,5% retiring              
+          10388762      topdown-bad-spec          #      5,1% bad speculation       
+          31166288      topdown-fe-bound          #     15,3% frontend bound        
+          69524797      topdown-be-bound          #     34,1% backend bound         
+
+       0,012180826 seconds time elapsed
+
+       0,012234000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006235 sec 
+
+### Run 75 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,03 msec task-clock                #    0,982 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,989 K/sec                  
+          41230844      cycles                    #    3,427 GHz                    
+          87090952      instructions              #    2,11  insn per cycle         
+           7897158      branches                  #  656,430 M/sec                  
+             77733      branch-misses             #    0,98% of all branches        
+         199438675      slots                     #   16,578 G/sec                  
+          92289269      topdown-retiring          #     46,3% retiring              
+          10167461      topdown-bad-spec          #      5,1% bad speculation       
+          31284498      topdown-fe-bound          #     15,7% frontend bound        
+          65697445      topdown-be-bound          #     32,9% backend bound         
+
+       0,012253769 seconds time elapsed
+
+       0,008190000 seconds user
+       0,004095000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006465 sec 
+
+### Run 76 on Τετ 04 Ιουν 2025 05:00:43 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,69 msec task-clock                #    0,980 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  274,774 K/sec                  
+          40609220      cycles                    #    3,473 GHz                    
+          86942213      instructions              #    2,14  insn per cycle         
+           7877600      branches                  #  673,688 M/sec                  
+             77467      branch-misses             #    0,98% of all branches        
+         198493355      slots                     #   16,975 G/sec                  
+          91851827      topdown-retiring          #     46,3% retiring              
+          10119269      topdown-bad-spec          #      5,1% bad speculation       
+          31136212      topdown-fe-bound          #     15,7% frontend bound        
+          65386046      topdown-be-bound          #     32,9% backend bound         
+
+       0,011934425 seconds time elapsed
+
+       0,011999000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006292 sec 
+
+### Run 77 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,58 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  277,335 K/sec                  
+          40939944      cycles                    #    3,536 GHz                    
+          87517642      instructions              #    2,14  insn per cycle         
+           7956152      branches                  #  687,175 M/sec                  
+             78168      branch-misses             #    0,98% of all branches        
+         203531060      slots                     #   17,579 G/sec                  
+          92586678      topdown-retiring          #     45,5% retiring              
+          10376093      topdown-bad-spec          #      5,1% bad speculation       
+          31128279      topdown-fe-bound          #     15,3% frontend bound        
+          69440008      topdown-be-bound          #     34,1% backend bound         
+
+       0,011871199 seconds time elapsed
+
+       0,007926000 seconds user
+       0,003963000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006042 sec 
+
+### Run 78 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,67 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   85,725 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  275,349 K/sec                  
+          40413594      cycles                    #    3,464 GHz                    
+          86970510      instructions              #    2,15  insn per cycle         
+           7887863      branches                  #  676,187 M/sec                  
+             77842      branch-misses             #    0,99% of all branches        
+         193771320      slots                     #   16,611 G/sec                  
+          91946391      topdown-retiring          #     47,5% retiring              
+           9878537      topdown-bad-spec          #      5,1% bad speculation       
+          31155388      topdown-fe-bound          #     16,1% frontend bound        
+          60791002      topdown-be-bound          #     31,4% backend bound         
+
+       0,011965868 seconds time elapsed
+
+       0,007963000 seconds user
+       0,003981000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006288 sec 
+
+### Run 79 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,19 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   82,041 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  263,515 K/sec                  
+          42077911      cycles                    #    3,452 GHz                    
+          87475648      instructions              #    2,08  insn per cycle         
+           7948462      branches                  #  652,099 M/sec                  
+             78225      branch-misses             #    0,98% of all branches        
+         204181185      slots                     #   16,751 G/sec                  
+          92882421      topdown-retiring          #     45,5% retiring              
+           9608526      topdown-bad-spec          #      4,7% bad speculation       
+          32028421      topdown-fe-bound          #     15,7% frontend bound        
+          69661816      topdown-be-bound          #     34,1% backend bound         
+
+       0,012502350 seconds time elapsed
+
+       0,008346000 seconds user
+       0,004173000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006466 sec 
+
+### Run 80 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,54 msec task-clock                #    0,969 CPUs utilized          
+                 5      context-switches          #  398,833 /sec                   
+                 1      cpu-migrations            #   79,767 /sec                   
+              3211      page-faults               #  256,130 K/sec                  
+          43588962      cycles                    #    3,477 GHz                    
+          87741140      instructions              #    2,01  insn per cycle         
+           7985257      branches                  #  636,956 M/sec                  
+             78665      branch-misses             #    0,99% of all branches        
+         215044080      slots                     #   17,153 G/sec                  
+          91589228      topdown-retiring          #     42,4% retiring              
+          15179582      topdown-bad-spec          #      7,0% bad speculation       
+          30359164      topdown-fe-bound          #     14,1% frontend bound        
+          78941441      topdown-be-bound          #     36,5% backend bound         
+
+       0,012932039 seconds time elapsed
+
+       0,004260000 seconds user
+       0,008520000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006437 sec 
+
+### Run 81 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,92 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   83,871 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  269,477 K/sec                  
+          41338121      cycles                    #    3,467 GHz                    
+          87417139      instructions              #    2,11  insn per cycle         
+           7946280      branches                  #  666,461 M/sec                  
+             78246      branch-misses             #    0,98% of all branches        
+         205611370      slots                     #   17,245 G/sec                  
+          91920377      topdown-retiring          #     44,7% retiring              
+          11288467      topdown-bad-spec          #      5,5% bad speculation       
+          31446444      topdown-fe-bound          #     15,3% frontend bound        
+          70956080      topdown-be-bound          #     34,5% backend bound         
+
+       0,012237122 seconds time elapsed
+
+       0,004065000 seconds user
+       0,008130000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006360 sec 
+
+### Run 82 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,56 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  255,846 K/sec                  
+          43762234      cycles                    #    3,485 GHz                    
+          86968998      instructions              #    1,99  insn per cycle         
+           7884277      branches                  #  627,812 M/sec                  
+             78072      branch-misses             #    0,99% of all branches        
+         192474775      slots                     #   15,326 G/sec                  
+          92085970      topdown-retiring          #     47,8% retiring              
+           9057636      topdown-bad-spec          #      4,7% bad speculation       
+          31701727      topdown-fe-bound          #     16,5% frontend bound        
+          59629440      topdown-be-bound          #     31,0% backend bound         
+
+       0,012826398 seconds time elapsed
+
+       0,003226000 seconds user
+       0,009679000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006488 sec 
+
+### Run 83 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,23 msec task-clock                #    0,976 CPUs utilized          
+                 1      context-switches          #   81,779 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  262,756 K/sec                  
+          42286657      cycles                    #    3,458 GHz                    
+          87096467      instructions              #    2,06  insn per cycle         
+           7900685      branches                  #  646,111 M/sec                  
+             77875      branch-misses             #    0,99% of all branches        
+         202720455      slots                     #   16,578 G/sec                  
+          92217932      topdown-retiring          #     45,5% retiring              
+          10334768      topdown-bad-spec          #      5,1% bad speculation       
+          31004304      topdown-fe-bound          #     15,3% frontend bound        
+          69163449      topdown-be-bound          #     34,1% backend bound         
+
+       0,012534326 seconds time elapsed
+
+       0,008333000 seconds user
+       0,004166000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006406 sec 
+
+### Run 84 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,02 msec task-clock                #    0,974 CPUs utilized          
+                 2      context-switches          #  166,352 /sec                   
+                 1      cpu-migrations            #   83,176 /sec                   
+              3214      page-faults               #  267,327 K/sec                  
+          42710825      cycles                    #    3,553 GHz                    
+          87681124      instructions              #    2,05  insn per cycle         
+           7979716      branches                  #  663,720 M/sec                  
+             78538      branch-misses             #    0,98% of all branches        
+         206415480      slots                     #   17,169 G/sec                  
+          92279861      topdown-retiring          #     44,7% retiring              
+          11332614      topdown-bad-spec          #      5,5% bad speculation       
+          31569426      topdown-fe-bound          #     15,3% frontend bound        
+          71233577      topdown-be-bound          #     34,5% backend bound         
+
+       0,012339815 seconds time elapsed
+
+       0,008203000 seconds user
+       0,004101000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006120 sec 
+
+### Run 85 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,42 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  258,589 K/sec                  
+          42533472      cycles                    #    3,425 GHz                    
+          87228646      instructions              #    2,05  insn per cycle         
+           7914058      branches                  #  637,338 M/sec                  
+             78136      branch-misses             #    0,99% of all branches        
+         204631745      slots                     #   16,479 G/sec                  
+          92284904      topdown-retiring          #     45,1% retiring              
+          11234684      topdown-bad-spec          #      5,5% bad speculation       
+          31296619      topdown-fe-bound          #     15,3% frontend bound        
+          69815536      topdown-be-bound          #     34,1% backend bound         
+
+       0,012687370 seconds time elapsed
+
+       0,008481000 seconds user
+       0,004240000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006606 sec 
+
+### Run 86 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,01 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  267,636 K/sec                  
+          41342792      cycles                    #    3,444 GHz                    
+          86957865      instructions              #    2,10  insn per cycle         
+           7880857      branches                  #  656,459 M/sec                  
+             77794      branch-misses             #    0,99% of all branches        
+         204183355      slots                     #   17,008 G/sec                  
+          92082689      topdown-retiring          #     45,1% retiring              
+          10409347      topdown-bad-spec          #      5,1% bad speculation       
+          32028761      topdown-fe-bound          #     15,7% frontend bound        
+          69662556      topdown-be-bound          #     34,1% backend bound         
+
+       0,012267654 seconds time elapsed
+
+       0,008216000 seconds user
+       0,004108000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006476 sec 
+
+### Run 87 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,08 msec task-clock                #    0,976 CPUs utilized          
+                 1      context-switches          #   82,806 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  265,808 K/sec                  
+          41326271      cycles                    #    3,422 GHz                    
+          86942092      instructions              #    2,10  insn per cycle         
+           7879428      branches                  #  652,466 M/sec                  
+             78129      branch-misses             #    0,99% of all branches        
+         200142080      slots                     #   16,573 G/sec                  
+          91829895      topdown-retiring          #     45,9% retiring              
+          10988192      topdown-bad-spec          #      5,5% bad speculation       
+          32179706      topdown-fe-bound          #     16,1% frontend bound        
+          65144284      topdown-be-bound          #     32,5% backend bound         
+
+       0,012373834 seconds time elapsed
+
+       0,008281000 seconds user
+       0,004140000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006485 sec 
+
+### Run 88 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,32 msec task-clock                #    0,968 CPUs utilized          
+                 2      context-switches          #  162,344 /sec                   
+                 1      cpu-migrations            #   81,172 /sec                   
+              3214      page-faults               #  260,886 K/sec                  
+          42043785      cycles                    #    3,413 GHz                    
+          87061306      instructions              #    2,07  insn per cycle         
+           7898551      branches                  #  641,140 M/sec                  
+             78034      branch-misses             #    0,99% of all branches        
+         203810315      slots                     #   16,544 G/sec                  
+          91914455      topdown-retiring          #     45,1% retiring              
+          11189585      topdown-bad-spec          #      5,5% bad speculation       
+          31970245      topdown-fe-bound          #     15,7% frontend bound        
+          68736027      topdown-be-bound          #     33,7% backend bound         
+
+       0,012728079 seconds time elapsed
+
+       0,008365000 seconds user
+       0,004182000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006263 sec 
+
+### Run 89 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,15 msec task-clock                #    0,981 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  264,386 K/sec                  
+          41646008      cycles                    #    3,427 GHz                    
+          87131391      instructions              #    2,09  insn per cycle         
+           7908276      branches                  #  650,744 M/sec                  
+             78104      branch-misses             #    0,99% of all branches        
+         200430380      slots                     #   16,493 G/sec                  
+          91962174      topdown-retiring          #     45,9% retiring              
+          10218019      topdown-bad-spec          #      5,1% bad speculation       
+          31440059      topdown-fe-bound          #     15,7% frontend bound        
+          66810126      topdown-be-bound          #     33,3% backend bound         
+
+       0,012389761 seconds time elapsed
+
+       0,008290000 seconds user
+       0,004145000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006385 sec 
+
+### Run 90 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,97 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  268,342 K/sec                  
+          41449022      cycles                    #    3,463 GHz                    
+          87383193      instructions              #    2,11  insn per cycle         
+           7939773      branches                  #  663,318 M/sec                  
+             78083      branch-misses             #    0,98% of all branches        
+         203673115      slots                     #   17,016 G/sec                  
+          92651299      topdown-retiring          #     45,5% retiring              
+          10383335      topdown-bad-spec          #      5,1% bad speculation       
+          31150005      topdown-fe-bound          #     15,3% frontend bound        
+          69488474      topdown-be-bound          #     34,1% backend bound         
+
+       0,012225130 seconds time elapsed
+
+       0,004084000 seconds user
+       0,008169000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006482 sec 
+
+### Run 91 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,14 msec task-clock                #    0,976 CPUs utilized          
+                 2      context-switches          #  164,788 /sec                   
+                 1      cpu-migrations            #   82,394 /sec                   
+              3213      page-faults               #  264,731 K/sec                  
+          43028126      cycles                    #    3,545 GHz                    
+          87575432      instructions              #    2,04  insn per cycle         
+           7966870      branches                  #  656,420 M/sec                  
+             78297      branch-misses             #    0,98% of all branches        
+         207659415      slots                     #   17,110 G/sec                  
+          92021623      topdown-retiring          #     44,3% retiring              
+          11400909      topdown-bad-spec          #      5,5% bad speculation       
+          31759675      topdown-fe-bound          #     15,3% frontend bound        
+          72477207      topdown-be-bound          #     34,9% backend bound         
+
+       0,012436111 seconds time elapsed
+
+       0,008270000 seconds user
+       0,004135000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006349 sec 
+
+### Run 92 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,41 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  281,211 K/sec                  
+          40286879      cycles                    #    3,529 GHz                    
+          86941306      instructions              #    2,16  insn per cycle         
+           7875979      branches                  #  689,973 M/sec                  
+             77456      branch-misses             #    0,98% of all branches        
+         198953345      slots                     #   17,429 G/sec                  
+          92064685      topdown-retiring          #     46,3% retiring              
+          10142719      topdown-bad-spec          #      5,1% bad speculation       
+          31208367      topdown-fe-bound          #     15,7% frontend bound        
+          65537572      topdown-be-bound          #     32,9% backend bound         
+
+       0,011698004 seconds time elapsed
+
+       0,007775000 seconds user
+       0,003887000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006085 sec 
+
+### Run 93 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,30 msec task-clock                #    0,974 CPUs utilized          
+                 2      context-switches          #  162,613 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  261,237 K/sec                  
+          42350383      cycles                    #    3,443 GHz                    
+          87553643      instructions              #    2,07  insn per cycle         
+           7964326      branches                  #  647,550 M/sec                  
+             78547      branch-misses             #    0,99% of all branches        
+         207097200      slots                     #   16,838 G/sec                  
+          92584630      topdown-retiring          #     44,7% retiring              
+          10557896      topdown-bad-spec          #      5,1% bad speculation       
+          31673689      topdown-fe-bound          #     15,3% frontend bound        
+          72280983      topdown-be-bound          #     34,9% backend bound         
+
+       0,012631861 seconds time elapsed
+
+       0,008409000 seconds user
+       0,004204000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006515 sec 
+
+### Run 94 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,38 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   80,768 /sec                   
+                 1      cpu-migrations            #   80,768 /sec                   
+              3213      page-faults               #  259,508 K/sec                  
+          42331278      cycles                    #    3,419 GHz                    
+          87800162      instructions              #    2,07  insn per cycle         
+           7991584      branches                  #  645,466 M/sec                  
+             78425      branch-misses             #    0,98% of all branches        
+         204764670      slots                     #   16,538 G/sec                  
+          93147849      topdown-retiring          #     45,5% retiring              
+          10438983      topdown-bad-spec          #      5,1% bad speculation       
+          31316949      topdown-fe-bound          #     15,3% frontend bound        
+          69860887      topdown-be-bound          #     34,1% backend bound         
+
+       0,012658584 seconds time elapsed
+
+       0,008468000 seconds user
+       0,004234000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006387 sec 
+
+### Run 95 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,91 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  269,659 K/sec                  
+          41064624      cycles                    #    3,448 GHz                    
+          87248929      instructions              #    2,12  insn per cycle         
+           7921759      branches                  #  665,061 M/sec                  
+             77783      branch-misses             #    0,98% of all branches        
+         204640890      slots                     #   17,180 G/sec                  
+          92289028      topdown-retiring          #     45,1% retiring              
+          10432672      topdown-bad-spec          #      5,1% bad speculation       
+          31298018      topdown-fe-bound          #     15,3% frontend bound        
+          70621169      topdown-be-bound          #     34,5% backend bound         
+
+       0,012174371 seconds time elapsed
+
+       0,008143000 seconds user
+       0,004071000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006317 sec 
+
+### Run 96 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             12,21 msec task-clock                #    0,974 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  263,015 K/sec                  
+          41805249      cycles                    #    3,424 GHz                    
+          86970568      instructions              #    2,08  insn per cycle         
+           7883877      branches                  #  645,774 M/sec                  
+             77552      branch-misses             #    0,98% of all branches        
+         202047595      slots                     #   16,550 G/sec                  
+          91911847      topdown-retiring          #     45,5% retiring              
+          10300465      topdown-bad-spec          #      5,1% bad speculation       
+          31693740      topdown-fe-bound          #     15,7% frontend bound        
+          68141541      topdown-be-bound          #     33,7% backend bound         
+
+       0,012531535 seconds time elapsed
+
+       0,008404000 seconds user
+       0,004202000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006547 sec 
+
+### Run 97 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,75 msec task-clock                #    0,970 CPUs utilized          
+                 2      context-switches          #  170,142 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  273,248 K/sec                  
+          40873085      cycles                    #    3,477 GHz                    
+          87319417      instructions              #    2,14  insn per cycle         
+           7932495      branches                  #  674,826 M/sec                  
+             78475      branch-misses             #    0,99% of all branches        
+         202892190      slots                     #   17,260 G/sec                  
+          91500399      topdown-retiring          #     45,1% retiring              
+          12730490      topdown-bad-spec          #      6,3% bad speculation       
+          31030570      topdown-fe-bound          #     15,3% frontend bound        
+          67630730      topdown-be-bound          #     33,3% backend bound         
+
+       0,012114457 seconds time elapsed
+
+       0,003997000 seconds user
+       0,007994000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006208 sec 
+
+### Run 98 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,72 msec task-clock                #    0,974 CPUs utilized          
+                 2      context-switches          #  170,672 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  274,099 K/sec                  
+          41590774      cycles                    #    3,549 GHz                    
+          87435285      instructions              #    2,10  insn per cycle         
+           7948441      branches                  #  678,287 M/sec                  
+             78256      branch-misses             #    0,98% of all branches        
+         203649060      slots                     #   17,379 G/sec                  
+          92334537      topdown-retiring          #     45,1% retiring              
+          11979356      topdown-bad-spec          #      5,9% bad speculation       
+          31146326      topdown-fe-bound          #     15,2% frontend bound        
+          69184439      topdown-be-bound          #     33,8% backend bound         
+
+       0,012035963 seconds time elapsed
+
+       0,003995000 seconds user
+       0,007991000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006106 sec 
+
+### Run 99 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,59 msec task-clock                #    0,973 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  277,084 K/sec                  
+          40091286      cycles                    #    3,458 GHz                    
+          86946039      instructions              #    2,17  insn per cycle         
+           7878607      branches                  #  679,649 M/sec                  
+             77627      branch-misses             #    0,99% of all branches        
+         199163140      slots                     #   17,181 G/sec                  
+          92161766      topdown-retiring          #     46,3% retiring              
+          10153414      topdown-bad-spec          #      5,1% bad speculation       
+          31241276      topdown-fe-bound          #     15,7% frontend bound        
+          65606681      topdown-be-bound          #     32,9% backend bound         
+
+       0,011913785 seconds time elapsed
+
+       0,007937000 seconds user
+       0,003968000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006308 sec 
+
+### Run 100 on Τετ 04 Ιουν 2025 05:00:44 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/3-nw-first 32 65536':
+
+             11,74 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  273,583 K/sec                  
+          40852288      cycles                    #    3,480 GHz                    
+          86939275      instructions              #    2,13  insn per cycle         
+           7880346      branches                  #  671,210 M/sec                  
+             77672      branch-misses             #    0,99% of all branches        
+         201048675      slots                     #   17,124 G/sec                  
+          92245862      topdown-retiring          #     45,9% retiring              
+          10249540      topdown-bad-spec          #      5,1% bad speculation       
+          31537047      topdown-fe-bound          #     15,7% frontend bound        
+          67016225      topdown-be-bound          #     33,3% backend bound         
+
+       0,012042093 seconds time elapsed
+
+       0,008018000 seconds user
+       0,004009000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006363 sec 

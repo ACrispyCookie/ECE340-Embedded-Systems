@@ -1,0 +1,2600 @@
+
+### Run 1 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,99 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  267,799 K/sec                  
+          41635171      cycles                    #    3,471 GHz                    
+         108555024      instructions              #    2,61  insn per cycle         
+           7952558      branches                  #  663,041 M/sec                  
+             77376      branch-misses             #    0,97% of all branches        
+         203394005      slots                     #   16,958 G/sec                  
+         113262543      topdown-retiring          #     55,7% retiring              
+          11964353      topdown-bad-spec          #      5,9% bad speculation       
+          33500189      topdown-fe-bound          #     16,5% frontend bound        
+          44666918      topdown-be-bound          #     22,0% backend bound         
+
+       0,012282480 seconds time elapsed
+
+       0,004117000 seconds user
+       0,008234000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006598 sec 
+
+### Run 2 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,10 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  265,447 K/sec                  
+          42006275      cycles                    #    3,471 GHz                    
+         108504687      instructions              #    2,58  insn per cycle         
+           7942771      branches                  #  656,409 M/sec                  
+             77757      branch-misses             #    0,98% of all branches        
+         204264555      slots                     #   16,881 G/sec                  
+         113747320      topdown-retiring          #     55,7% retiring              
+          11214524      topdown-bad-spec          #      5,5% bad speculation       
+          33643573      topdown-fe-bound          #     16,5% frontend bound        
+          45659135      topdown-be-bound          #     22,4% backend bound         
+
+       0,012358195 seconds time elapsed
+
+       0,008236000 seconds user
+       0,004118000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006756 sec 
+
+### Run 3 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             13,13 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  244,614 K/sec                  
+          45660052      cycles                    #    3,477 GHz                    
+         108533688      instructions              #    2,38  insn per cycle         
+           7948717      branches                  #  605,346 M/sec                  
+             77603      branch-misses             #    0,98% of all branches        
+         200876970      slots                     #   15,298 G/sec                  
+         113436406      topdown-retiring          #     56,5% retiring              
+          11028539      topdown-bad-spec          #      5,5% bad speculation       
+          35448877      topdown-fe-bound          #     17,6% frontend bound        
+          40963146      topdown-be-bound          #     20,4% backend bound         
+
+       0,013469408 seconds time elapsed
+
+       0,003371000 seconds user
+       0,010115000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007200 sec 
+
+### Run 4 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,77 msec task-clock                #    0,982 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  251,589 K/sec                  
+          44356563      cycles                    #    3,473 GHz                    
+         108893694      instructions              #    2,45  insn per cycle         
+           7998726      branches                  #  626,328 M/sec                  
+             78129      branch-misses             #    0,98% of all branches        
+         215454160      slots                     #   16,871 G/sec                  
+         114063967      topdown-retiring          #     52,9% retiring              
+          10983937      topdown-bad-spec          #      5,1% bad speculation       
+          34641649      topdown-fe-bound          #     16,1% frontend bound        
+          55764606      topdown-be-bound          #     25,9% backend bound         
+
+       0,012999779 seconds time elapsed
+
+       0,004339000 seconds user
+       0,008679000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006771 sec 
+
+### Run 5 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,54 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  256,301 K/sec                  
+          43555583      cycles                    #    3,474 GHz                    
+         108616012      instructions              #    2,49  insn per cycle         
+           7962672      branches                  #  635,182 M/sec                  
+             78099      branch-misses             #    0,98% of all branches        
+         204439590      slots                     #   16,308 G/sec                  
+         113844791      topdown-retiring          #     55,7% retiring              
+          11224134      topdown-bad-spec          #      5,5% bad speculation       
+          34474126      topdown-fe-bound          #     16,9% frontend bound        
+          44896537      topdown-be-bound          #     22,0% backend bound         
+
+       0,012850895 seconds time elapsed
+
+       0,006425000 seconds user
+       0,006425000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006867 sec 
+
+### Run 6 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,37 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   80,823 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  259,603 K/sec                  
+          42977305      cycles                    #    3,474 GHz                    
+         108599430      instructions              #    2,53  insn per cycle         
+           7963115      branches                  #  643,602 M/sec                  
+             78300      branch-misses             #    0,98% of all branches        
+         207988015      slots                     #   16,810 G/sec                  
+         113373859      topdown-retiring          #     54,5% retiring              
+          12234589      topdown-bad-spec          #      5,9% bad speculation       
+          34256849      topdown-fe-bound          #     16,5% frontend bound        
+          48122717      topdown-be-bound          #     23,1% backend bound         
+
+       0,012655567 seconds time elapsed
+
+       0,008443000 seconds user
+       0,004221000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006789 sec 
+
+### Run 7 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,43 msec task-clock                #    0,978 CPUs utilized          
+                 2      context-switches          #  160,941 /sec                   
+                 1      cpu-migrations            #   80,471 /sec                   
+              3210      page-faults               #  258,311 K/sec                  
+          43161440      cycles                    #    3,473 GHz                    
+         109013140      instructions              #    2,53  insn per cycle         
+           8011903      branches                  #  644,723 M/sec                  
+             78563      branch-misses             #    0,98% of all branches        
+         211529580      slots                     #   17,022 G/sec                  
+         113645303      topdown-retiring          #     53,7% retiring              
+          12442916      topdown-bad-spec          #      5,9% bad speculation       
+          34010638      topdown-fe-bound          #     16,1% frontend bound        
+          51430721      topdown-be-bound          #     24,3% backend bound         
+
+       0,012700172 seconds time elapsed
+
+       0,008499000 seconds user
+       0,004249000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006738 sec 
+
+### Run 8 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,36 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   80,920 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  259,995 K/sec                  
+          42893076      cycles                    #    3,471 GHz                    
+         108563641      instructions              #    2,53  insn per cycle         
+           7954843      branches                  #  643,703 M/sec                  
+             78145      branch-misses             #    0,98% of all branches        
+         203487780      slots                     #   16,466 G/sec                  
+         113314763      topdown-retiring          #     55,7% retiring              
+          11969869      topdown-bad-spec          #      5,9% bad speculation       
+          34313625      topdown-fe-bound          #     16,9% frontend bound        
+          43889521      topdown-be-bound          #     21,6% backend bound         
+
+       0,012631389 seconds time elapsed
+
+       0,008425000 seconds user
+       0,004212000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006798 sec 
+
+### Run 9 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,42 msec task-clock                #    0,983 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  258,481 K/sec                  
+          43141376      cycles                    #    3,474 GHz                    
+         108504825      instructions              #    2,52  insn per cycle         
+           7942722      branches                  #  639,576 M/sec                  
+             77999      branch-misses             #    0,98% of all branches        
+         201089135      slots                     #   16,192 G/sec                  
+         113556217      topdown-retiring          #     56,5% retiring              
+          11828772      topdown-bad-spec          #      5,9% bad speculation       
+          33120563      topdown-fe-bound          #     16,5% frontend bound        
+          42583581      topdown-be-bound          #     21,2% backend bound         
+
+       0,012636220 seconds time elapsed
+
+       0,008444000 seconds user
+       0,004222000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006742 sec 
+
+### Run 10 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,72 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   78,645 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  252,606 K/sec                  
+          44081630      cycles                    #    3,467 GHz                    
+         108922871      instructions              #    2,47  insn per cycle         
+           7997939      branches                  #  628,994 M/sec                  
+             78609      branch-misses             #    0,98% of all branches        
+         201464605      slots                     #   15,844 G/sec                  
+         113768247      topdown-retiring          #     56,5% retiring              
+          12640916      topdown-bad-spec          #      6,3% bad speculation       
+          33182405      topdown-fe-bound          #     16,5% frontend bound        
+          41873035      topdown-be-bound          #     20,8% backend bound         
+
+       0,012995547 seconds time elapsed
+
+       0,006487000 seconds user
+       0,006487000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006667 sec 
+
+### Run 11 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,77 msec task-clock                #    0,979 CPUs utilized          
+                 5      context-switches          #  391,508 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  251,504 K/sec                  
+          44394916      cycles                    #    3,476 GHz                    
+         108680018      instructions              #    2,45  insn per cycle         
+           7977061      branches                  #  624,616 M/sec                  
+             77830      branch-misses             #    0,98% of all branches        
+         209442605      slots                     #   16,400 G/sec                  
+         113126224      topdown-retiring          #     53,9% retiring              
+          15605527      topdown-bad-spec          #      7,4% bad speculation       
+          33675085      topdown-fe-bound          #     16,0% frontend bound        
+          47637925      topdown-be-bound          #     22,7% backend bound         
+
+       0,013048771 seconds time elapsed
+
+       0,008639000 seconds user
+       0,004319000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006504 sec 
+
+### Run 12 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             14,13 msec task-clock                #    0,882 CPUs utilized          
+                 1      context-switches          #   70,749 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  227,247 K/sec                  
+          49250409      cycles                    #    3,484 GHz                    
+         109068176      instructions              #    2,21  insn per cycle         
+           8018042      branches                  #  567,270 M/sec                  
+             78245      branch-misses             #    0,98% of all branches        
+         208911075      slots                     #   14,780 G/sec                  
+         113877017      topdown-retiring          #     54,5% retiring              
+          10650368      topdown-bad-spec          #      5,1% bad speculation       
+          36047401      topdown-fe-bound          #     17,3% frontend bound        
+          48336287      topdown-be-bound          #     23,1% backend bound         
+
+       0,016020164 seconds time elapsed
+
+       0,009589000 seconds user
+       0,004794000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007264 sec 
+
+### Run 13 on Τετ 04 Ιουν 2025 05:00:57 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             15,58 msec task-clock                #    0,944 CPUs utilized          
+                 3      context-switches          #  192,502 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  206,106 K/sec                  
+          54319635      cycles                    #    3,486 GHz                    
+         109097275      instructions              #    2,01  insn per cycle         
+           8030961      branches                  #  515,327 M/sec                  
+             79281      branch-misses             #    0,99% of all branches        
+         192795395      slots                     #   12,371 G/sec                  
+         114165116      topdown-retiring          #     59,2% retiring              
+          12096965      topdown-bad-spec          #      6,3% bad speculation       
+          36290897      topdown-fe-bound          #     18,8% frontend bound        
+          30242414      topdown-be-bound          #     15,7% backend bound         
+
+       0,016511378 seconds time elapsed
+
+       0,011923000 seconds user
+       0,003974000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007915 sec 
+
+### Run 14 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,98 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  247,520 K/sec                  
+          45087566      cycles                    #    3,473 GHz                    
+         108525847      instructions              #    2,41  insn per cycle         
+           7948088      branches                  #  612,298 M/sec                  
+             77954      branch-misses             #    0,98% of all branches        
+         212821790      slots                     #   16,395 G/sec                  
+         113504954      topdown-retiring          #     53,3% retiring              
+          10849738      topdown-bad-spec          #      5,1% bad speculation       
+          35887595      topdown-fe-bound          #     16,9% frontend bound        
+          52579501      topdown-be-bound          #     24,7% backend bound         
+
+       0,013264917 seconds time elapsed
+
+       0,006640000 seconds user
+       0,006640000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006930 sec 
+
+### Run 15 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             13,08 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  245,558 K/sec                  
+          45430845      cycles                    #    3,474 GHz                    
+         108656870      instructions              #    2,39  insn per cycle         
+           7964959      branches                  #  609,112 M/sec                  
+             78117      branch-misses             #    0,98% of all branches        
+         210144520      slots                     #   16,071 G/sec                  
+         113725269      topdown-retiring          #     54,1% retiring              
+          10713250      topdown-bad-spec          #      5,1% bad speculation       
+          35436134      topdown-fe-bound          #     16,9% frontend bound        
+          50269865      topdown-be-bound          #     23,9% backend bound         
+
+       0,013369510 seconds time elapsed
+
+       0,008911000 seconds user
+       0,004455000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007296 sec 
+
+### Run 16 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             13,13 msec task-clock                #    0,980 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  244,603 K/sec                  
+          45702305      cycles                    #    3,480 GHz                    
+         108562340      instructions              #    2,38  insn per cycle         
+           7955840      branches                  #  605,860 M/sec                  
+             77981      branch-misses             #    0,98% of all branches        
+         208019600      slots                     #   15,841 G/sec                  
+         113391076      topdown-retiring          #     54,5% retiring              
+          11420683      topdown-bad-spec          #      5,5% bad speculation       
+          34262051      topdown-fe-bound          #     16,5% frontend bound        
+          48945788      topdown-be-bound          #     23,5% backend bound         
+
+       0,013394048 seconds time elapsed
+
+       0,013421000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007228 sec 
+
+### Run 17 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             14,17 msec task-clock                #    0,984 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  226,657 K/sec                  
+          49307934      cycles                    #    3,479 GHz                    
+         108545241      instructions              #    2,20  insn per cycle         
+           7955687      branches                  #  561,398 M/sec                  
+             77944      branch-misses             #    0,98% of all branches        
+         202552150      slots                     #   14,293 G/sec                  
+         113588068      topdown-retiring          #     56,1% retiring              
+          10326188      topdown-bad-spec          #      5,1% bad speculation       
+          34950174      topdown-fe-bound          #     17,3% frontend bound        
+          43687718      topdown-be-bound          #     21,6% backend bound         
+
+       0,014404924 seconds time elapsed
+
+       0,007236000 seconds user
+       0,007236000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.008165 sec 
+
+### Run 18 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,97 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  247,445 K/sec                  
+          44944143      cycles                    #    3,465 GHz                    
+         108503095      instructions              #    2,41  insn per cycle         
+           7943410      branches                  #  612,322 M/sec                  
+             77853      branch-misses             #    0,98% of all branches        
+         205909530      slots                     #   15,873 G/sec                  
+         113855857      topdown-retiring          #     55,3% retiring              
+          12112325      topdown-bad-spec          #      5,9% bad speculation       
+          34721999      topdown-fe-bound          #     16,9% frontend bound        
+          45219347      topdown-be-bound          #     22,0% backend bound         
+
+       0,013261218 seconds time elapsed
+
+       0,004427000 seconds user
+       0,008854000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006698 sec 
+
+### Run 19 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,74 msec task-clock                #    0,957 CPUs utilized          
+                 2      context-switches          #  156,998 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  252,217 K/sec                  
+          44649171      cycles                    #    3,505 GHz                    
+         108543311      instructions              #    2,43  insn per cycle         
+           7950455      branches                  #  624,103 M/sec                  
+             77793      branch-misses             #    0,98% of all branches        
+         202315840      slots                     #   15,882 G/sec                  
+         113455549      topdown-retiring          #     56,1% retiring              
+          13487722      topdown-bad-spec          #      6,7% bad speculation       
+          33322608      topdown-fe-bound          #     16,5% frontend bound        
+          42049958      topdown-be-bound          #     20,8% backend bound         
+
+       0,013309968 seconds time elapsed
+
+       0,008784000 seconds user
+       0,004392000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006475 sec 
+
+### Run 20 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,41 msec task-clock                #    0,980 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  259,076 K/sec                  
+          43234503      cycles                    #    3,485 GHz                    
+         108535296      instructions              #    2,51  insn per cycle         
+           7951027      branches                  #  640,920 M/sec                  
+             78327      branch-misses             #    0,99% of all branches        
+         209377820      slots                     #   16,878 G/sec                  
+         113310349      topdown-retiring          #     54,1% retiring              
+          12316342      topdown-bad-spec          #      5,9% bad speculation       
+          34485758      topdown-fe-bound          #     16,5% frontend bound        
+          49265369      topdown-be-bound          #     23,5% backend bound         
+
+       0,012659488 seconds time elapsed
+
+       0,009552000 seconds user
+       0,003184000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006509 sec 
+
+### Run 21 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,81 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  250,667 K/sec                  
+          44503034      cycles                    #    3,473 GHz                    
+         109027283      instructions              #    2,45  insn per cycle         
+           8015076      branches                  #  625,504 M/sec                  
+             77960      branch-misses             #    0,97% of all branches        
+         216619765      slots                     #   16,905 G/sec                  
+         113831562      topdown-retiring          #     52,5% retiring              
+          11892849      topdown-bad-spec          #      5,5% bad speculation       
+          35678549      topdown-fe-bound          #     16,5% frontend bound        
+          55216802      topdown-be-bound          #     25,5% backend bound         
+
+       0,013083235 seconds time elapsed
+
+       0,003280000 seconds user
+       0,009841000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006689 sec 
+
+### Run 22 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,42 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  258,623 K/sec                  
+          43221167      cycles                    #    3,479 GHz                    
+         108562431      instructions              #    2,51  insn per cycle         
+           7953142      branches                  #  640,170 M/sec                  
+             77837      branch-misses             #    0,98% of all branches        
+         208085040      slots                     #   16,749 G/sec                  
+         113426747      topdown-retiring          #     54,5% retiring              
+          12240296      topdown-bad-spec          #      5,9% bad speculation       
+          34272830      topdown-fe-bound          #     16,5% frontend bound        
+          48145166      topdown-be-bound          #     23,1% backend bound         
+
+       0,012706097 seconds time elapsed
+
+       0,012757000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006702 sec 
+
+### Run 23 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             13,07 msec task-clock                #    0,981 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  245,667 K/sec                  
+          45198790      cycles                    #    3,458 GHz                    
+         108826835      instructions              #    2,41  insn per cycle         
+           7989446      branches                  #  611,256 M/sec                  
+             78484      branch-misses             #    0,98% of all branches        
+         215942300      slots                     #   16,521 G/sec                  
+         113475561      topdown-retiring          #     52,5% retiring              
+          11855655      topdown-bad-spec          #      5,5% bad speculation       
+          34720134      topdown-fe-bound          #     16,1% frontend bound        
+          55890948      topdown-be-bound          #     25,9% backend bound         
+
+       0,013325665 seconds time elapsed
+
+       0,008889000 seconds user
+       0,004444000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007234 sec 
+
+### Run 24 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,08 msec task-clock                #    0,970 CPUs utilized          
+                 6      context-switches          #  496,770 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  265,772 K/sec                  
+          42480360      cycles                    #    3,517 GHz                    
+         108560991      instructions              #    2,56  insn per cycle         
+           7956797      branches                  #  658,783 M/sec                  
+             77722      branch-misses             #    0,98% of all branches        
+         209472625      slots                     #   17,343 G/sec                  
+         112156097      topdown-retiring          #     53,3% retiring              
+          14786302      topdown-bad-spec          #      7,0% bad speculation       
+          33679912      topdown-fe-bound          #     16,0% frontend bound        
+          49691066      topdown-be-bound          #     23,6% backend bound         
+
+       0,012448450 seconds time elapsed
+
+       0,008272000 seconds user
+       0,004136000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006480 sec 
+
+### Run 25 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,15 msec task-clock                #    0,964 CPUs utilized          
+                 4      context-switches          #  329,142 /sec                   
+                 2      cpu-migrations            #  164,571 /sec                   
+              3212      page-faults               #  264,301 K/sec                  
+          42365933      cycles                    #    3,486 GHz                    
+         108555957      instructions              #    2,56  insn per cycle         
+           7957322      branches                  #  654,772 M/sec                  
+             78108      branch-misses             #    0,98% of all branches        
+         209422760      slots                     #   17,232 G/sec                  
+         113334670      topdown-retiring          #     54,1% retiring              
+          13961517      topdown-bad-spec          #      6,7% bad speculation       
+          32850629      topdown-fe-bound          #     15,7% frontend bound        
+          49275943      topdown-be-bound          #     23,5% backend bound         
+
+       0,012604411 seconds time elapsed
+
+       0,008351000 seconds user
+       0,004175000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006680 sec 
+
+### Run 26 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,58 msec task-clock                #    0,974 CPUs utilized          
+                 3      context-switches          #  238,525 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  255,460 K/sec                  
+          43519551      cycles                    #    3,460 GHz                    
+         108520911      instructions              #    2,49  insn per cycle         
+           7946899      branches                  #  631,843 M/sec                  
+             78272      branch-misses             #    0,98% of all branches        
+         211396780      slots                     #   16,808 G/sec                  
+         111915942      topdown-retiring          #     52,9% retiring              
+          14093118      topdown-bad-spec          #      6,7% bad speculation       
+          33989286      topdown-fe-bound          #     16,1% frontend bound        
+          51398432      topdown-be-bound          #     24,3% backend bound         
+
+       0,012915827 seconds time elapsed
+
+       0,008595000 seconds user
+       0,004297000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006946 sec 
+
+### Run 27 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,82 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  250,540 K/sec                  
+          44578727      cycles                    #    3,476 GHz                    
+         108547849      instructions              #    2,43  insn per cycle         
+           7950736      branches                  #  619,975 M/sec                  
+             78143      branch-misses             #    0,98% of all branches        
+         215437015      slots                     #   16,799 G/sec                  
+         113210039      topdown-retiring          #     52,5% retiring              
+          12672765      topdown-bad-spec          #      5,9% bad speculation       
+          36328594      topdown-fe-bound          #     16,9% frontend bound        
+          53225615      topdown-be-bound          #     24,7% backend bound         
+
+       0,013118074 seconds time elapsed
+
+       0,006562000 seconds user
+       0,006562000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006966 sec 
+
+### Run 28 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,21 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  263,145 K/sec                  
+          42504748      cycles                    #    3,481 GHz                    
+         108535112      instructions              #    2,55  insn per cycle         
+           7950076      branches                  #  651,111 M/sec                  
+             77542      branch-misses             #    0,98% of all branches        
+         211522905      slots                     #   17,324 G/sec                  
+         113641717      topdown-retiring          #     53,7% retiring              
+          10783520      topdown-bad-spec          #      5,1% bad speculation       
+          34839066      topdown-fe-bound          #     16,5% frontend bound        
+          52258600      topdown-be-bound          #     24,7% backend bound         
+
+       0,012497659 seconds time elapsed
+
+       0,008353000 seconds user
+       0,004176000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006646 sec 
+
+### Run 29 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,53 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   79,799 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  256,395 K/sec                  
+          43870767      cycles                    #    3,501 GHz                    
+         108741018      instructions              #    2,48  insn per cycle         
+           7975451      branches                  #  636,434 M/sec                  
+             77931      branch-misses             #    0,98% of all branches        
+         218097030      slots                     #   17,404 G/sec                  
+         113752568      topdown-retiring          #     52,2% retiring              
+          11118672      topdown-bad-spec          #      5,1% bad speculation       
+          35066581      topdown-fe-bound          #     16,1% frontend bound        
+          58159208      topdown-be-bound          #     26,7% backend bound         
+
+       0,012816726 seconds time elapsed
+
+       0,003208000 seconds user
+       0,009625000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006804 sec 
+
+### Run 30 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,49 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  257,136 K/sec                  
+          43454767      cycles                    #    3,480 GHz                    
+         108659158      instructions              #    2,50  insn per cycle         
+           7965890      branches                  #  637,905 M/sec                  
+             77817      branch-misses             #    0,98% of all branches        
+         213705525      slots                     #   17,113 G/sec                  
+         113976280      topdown-retiring          #     53,3% retiring              
+          10894791      topdown-bad-spec          #      5,1% bad speculation       
+          34360496      topdown-fe-bound          #     16,1% frontend bound        
+          54473957      topdown-be-bound          #     25,5% backend bound         
+
+       0,012772032 seconds time elapsed
+
+       0,012820000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006914 sec 
+
+### Run 31 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             22,64 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  141,873 K/sec                  
+          43241379      cycles                    #    1,910 GHz                    
+         108524243      instructions              #    2,51  insn per cycle         
+           7948361      branches                  #  351,077 M/sec                  
+             78172      branch-misses             #    0,98% of all branches        
+         202750080      slots                     #    8,955 G/sec                  
+         113699064      topdown-retiring          #     56,1% retiring              
+          11926475      topdown-bad-spec          #      5,9% bad speculation       
+          34984327      topdown-fe-bound          #     17,3% frontend bound        
+          42140212      topdown-be-bound          #     20,8% backend bound         
+
+       0,023185225 seconds time elapsed
+
+       0,009301000 seconds user
+       0,013951000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.008960 sec 
+
+### Run 32 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,64 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   79,084 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  254,096 K/sec                  
+          44685480      cycles                    #    3,534 GHz                    
+         108588531      instructions              #    2,43  insn per cycle         
+           7956199      branches                  #  629,206 M/sec                  
+             78158      branch-misses             #    0,98% of all branches        
+         214235720      slots                     #   16,943 G/sec                  
+         113418910      topdown-retiring          #     52,9% retiring              
+          12602101      topdown-bad-spec          #      5,9% bad speculation       
+          34445743      topdown-fe-bound          #     16,1% frontend bound        
+          53768965      topdown-be-bound          #     25,1% backend bound         
+
+       0,012934117 seconds time elapsed
+
+       0,008622000 seconds user
+       0,004311000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006414 sec 
+
+### Run 33 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,39 msec task-clock                #    0,976 CPUs utilized          
+                 1      context-switches          #   80,713 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  259,087 K/sec                  
+          44249930      cycles                    #    3,572 GHz                    
+         108667812      instructions              #    2,46  insn per cycle         
+           7969080      branches                  #  643,205 M/sec                  
+             78158      branch-misses             #    0,98% of all branches        
+         211749270      slots                     #   17,091 G/sec                  
+         113763333      topdown-retiring          #     53,7% retiring              
+          11625450      topdown-bad-spec          #      5,5% bad speculation       
+          34876350      topdown-fe-bound          #     16,5% frontend bound        
+          51484136      topdown-be-bound          #     24,3% backend bound         
+
+       0,012690366 seconds time elapsed
+
+       0,003170000 seconds user
+       0,009512000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006312 sec 
+
+### Run 34 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,41 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   80,596 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  259,035 K/sec                  
+          44043070      cycles                    #    3,550 GHz                    
+         108519037      instructions              #    2,46  insn per cycle         
+           7946198      branches                  #  640,431 M/sec                  
+             77940      branch-misses             #    0,98% of all branches        
+         213207030      slots                     #   17,184 G/sec                  
+         112874310      topdown-retiring          #     52,9% retiring              
+          13377696      topdown-bad-spec          #      6,3% bad speculation       
+          35116452      topdown-fe-bound          #     16,5% frontend bound        
+          51838572      topdown-be-bound          #     24,3% backend bound         
+
+       0,012700320 seconds time elapsed
+
+       0,012708000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006371 sec 
+
+### Run 35 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,41 msec task-clock                #    0,971 CPUs utilized          
+                 1      context-switches          #   80,551 /sec                   
+                 1      cpu-migrations            #   80,551 /sec                   
+              3213      page-faults               #  258,809 K/sec                  
+          44324062      cycles                    #    3,570 GHz                    
+         109303348      instructions              #    2,47  insn per cycle         
+           8045160      branches                  #  648,043 M/sec                  
+             77527      branch-misses             #    0,96% of all branches        
+         220346590      slots                     #   17,749 G/sec                  
+         114061764      topdown-retiring          #     51,8% retiring              
+          12097459      topdown-bad-spec          #      5,5% bad speculation       
+          34564170      topdown-fe-bound          #     15,7% frontend bound        
+          59623194      topdown-be-bound          #     27,1% backend bound         
+
+       0,012789903 seconds time elapsed
+
+       0,008492000 seconds user
+       0,004246000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006284 sec 
+
+### Run 36 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,52 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  256,637 K/sec                  
+          44107120      cycles                    #    3,522 GHz                    
+         108840530      instructions              #    2,47  insn per cycle         
+           7987929      branches                  #  637,834 M/sec                  
+             77764      branch-misses             #    0,97% of all branches        
+         212917440      slots                     #   17,001 G/sec                  
+         113555968      topdown-retiring          #     53,3% retiring              
+          12524555      topdown-bad-spec          #      5,9% bad speculation       
+          35068754      topdown-fe-bound          #     16,5% frontend bound        
+          51768161      topdown-be-bound          #     24,3% backend bound         
+
+       0,012798720 seconds time elapsed
+
+       0,004277000 seconds user
+       0,008554000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006346 sec 
+
+### Run 37 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,34 msec task-clock                #    0,983 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  260,274 K/sec                  
+          43616991      cycles                    #    3,533 GHz                    
+         108743286      instructions              #    2,49  insn per cycle         
+           7983771      branches                  #  646,739 M/sec                  
+             76797      branch-misses             #    0,96% of all branches        
+         217344090      slots                     #   17,606 G/sec                  
+         113359858      topdown-retiring          #     52,2% retiring              
+          11932616      topdown-bad-spec          #      5,5% bad speculation       
+          34945520      topdown-fe-bound          #     16,1% frontend bound        
+          57106094      topdown-be-bound          #     26,3% backend bound         
+
+       0,012562851 seconds time elapsed
+
+       0,008407000 seconds user
+       0,004203000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006333 sec 
+
+### Run 38 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,16 msec task-clock                #    0,965 CPUs utilized          
+                 1      context-switches          #   82,250 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  264,104 K/sec                  
+          43549915      cycles                    #    3,582 GHz                    
+         108706737      instructions              #    2,50  insn per cycle         
+           7972117      branches                  #  655,704 M/sec                  
+             78417      branch-misses             #    0,98% of all branches        
+         213473910      slots                     #   17,558 G/sec                  
+         113852752      topdown-retiring          #     53,3% retiring              
+          12557288      topdown-bad-spec          #      5,9% bad speculation       
+          35997561      topdown-fe-bound          #     16,9% frontend bound        
+          51066307      topdown-be-bound          #     23,9% backend bound         
+
+       0,012595309 seconds time elapsed
+
+       0,008360000 seconds user
+       0,004180000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006174 sec 
+
+### Run 39 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,11 msec task-clock                #    0,972 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  265,284 K/sec                  
+          42944096      cycles                    #    3,546 GHz                    
+         108521846      instructions              #    2,53  insn per cycle         
+           7949525      branches                  #  656,359 M/sec                  
+             78260      branch-misses             #    0,98% of all branches        
+         207783800      slots                     #   17,156 G/sec                  
+         113262541      topdown-retiring          #     54,5% retiring              
+          12222576      topdown-bad-spec          #      5,9% bad speculation       
+          35038052      topdown-fe-bound          #     16,9% frontend bound        
+          47260629      topdown-be-bound          #     22,7% backend bound         
+
+       0,012456354 seconds time elapsed
+
+       0,008288000 seconds user
+       0,004144000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006309 sec 
+
+### Run 40 on Τετ 04 Ιουν 2025 05:00:58 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,65 msec task-clock                #    0,970 CPUs utilized          
+                 4      context-switches          #  316,279 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  254,051 K/sec                  
+          44460363      cycles                    #    3,515 GHz                    
+         108676450      instructions              #    2,44  insn per cycle         
+           7974942      branches                  #  630,577 M/sec                  
+             78313      branch-misses             #    0,98% of all branches        
+         205691110      slots                     #   16,264 G/sec                  
+         112657418      topdown-retiring          #     54,5% retiring              
+          16132636      topdown-bad-spec          #      7,8% bad speculation       
+          34228937      topdown-fe-bound          #     16,5% frontend bound        
+          43848196      topdown-be-bound          #     21,2% backend bound         
+
+       0,013034257 seconds time elapsed
+
+       0,008638000 seconds user
+       0,004319000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006453 sec 
+
+### Run 41 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,82 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  271,608 K/sec                  
+          42705959      cycles                    #    3,613 GHz                    
+         108487938      instructions              #    2,54  insn per cycle         
+           7942938      branches                  #  672,077 M/sec                  
+             77732      branch-misses             #    0,98% of all branches        
+         211496020      slots                     #   17,895 G/sec                  
+         113627273      topdown-retiring          #     53,7% retiring              
+          11611546      topdown-bad-spec          #      5,5% bad speculation       
+          35664034      topdown-fe-bound          #     16,9% frontend bound        
+          50593165      topdown-be-bound          #     23,9% backend bound         
+
+       0,012090058 seconds time elapsed
+
+       0,008095000 seconds user
+       0,004047000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006040 sec 
+
+### Run 42 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,75 msec task-clock                #    0,958 CPUs utilized          
+                 1      context-switches          #   85,122 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  273,496 K/sec                  
+          42772887      cycles                    #    3,641 GHz                    
+         108579493      instructions              #    2,54  insn per cycle         
+           7958515      branches                  #  677,442 M/sec                  
+             78145      branch-misses             #    0,98% of all branches        
+         212037370      slots                     #   18,049 G/sec                  
+         113086597      topdown-retiring          #     53,3% retiring              
+          12472786      topdown-bad-spec          #      5,9% bad speculation       
+          35755321      topdown-fe-bound          #     16,9% frontend bound        
+          50722664      topdown-be-bound          #     23,9% backend bound         
+
+       0,012256568 seconds time elapsed
+
+       0,004062000 seconds user
+       0,008125000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006053 sec 
+
+### Run 43 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,22 msec task-clock                #    0,973 CPUs utilized          
+                 4      context-switches          #  327,260 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  262,790 K/sec                  
+          42050149      cycles                    #    3,440 GHz                    
+         108513757      instructions              #    2,58  insn per cycle         
+           7948842      branches                  #  650,334 M/sec                  
+             78039      branch-misses             #    0,98% of all branches        
+         209389625      slots                     #   17,131 G/sec                  
+         112495602      topdown-retiring          #     53,7% retiring              
+          14780444      topdown-bad-spec          #      7,1% bad speculation       
+          33666567      topdown-fe-bound          #     16,1% frontend bound        
+          48447011      topdown-be-bound          #     23,1% backend bound         
+
+       0,012565571 seconds time elapsed
+
+       0,012588000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006712 sec 
+
+### Run 44 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,06 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  266,256 K/sec                  
+          41994910      cycles                    #    3,481 GHz                    
+         108656932      instructions              #    2,59  insn per cycle         
+           7965201      branches                  #  660,269 M/sec                  
+             77654      branch-misses             #    0,97% of all branches        
+         209268035      slots                     #   17,347 G/sec                  
+         113250936      topdown-retiring          #     54,1% retiring              
+          12309884      topdown-bad-spec          #      5,9% bad speculation       
+          34467676      topdown-fe-bound          #     16,5% frontend bound        
+          49239537      topdown-be-bound          #     23,5% backend bound         
+
+       0,012351656 seconds time elapsed
+
+       0,012384000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006493 sec 
+
+### Run 45 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,12 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   82,503 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  265,165 K/sec                  
+          41967723      cycles                    #    3,462 GHz                    
+         108527269      instructions              #    2,59  insn per cycle         
+           7949832      branches                  #  655,885 M/sec                  
+             77656      branch-misses             #    0,98% of all branches        
+         209389510      slots                     #   17,275 G/sec                  
+         113316676      topdown-retiring          #     54,1% retiring              
+          11495894      topdown-bad-spec          #      5,5% bad speculation       
+          34487684      topdown-fe-bound          #     16,5% frontend bound        
+          50089255      topdown-be-bound          #     23,9% backend bound         
+
+       0,012405263 seconds time elapsed
+
+       0,012432000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006623 sec 
+
+### Run 46 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,00 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  267,609 K/sec                  
+          42378701      cycles                    #    3,532 GHz                    
+         108497808      instructions              #    2,56  insn per cycle         
+           7944236      branches                  #  662,084 M/sec                  
+             77537      branch-misses             #    0,98% of all branches        
+         211342730      slots                     #   17,614 G/sec                  
+         113544917      topdown-retiring          #     53,7% retiring              
+          11603130      topdown-bad-spec          #      5,5% bad speculation       
+          33980595      topdown-fe-bound          #     16,1% frontend bound        
+          52214086      topdown-be-bound          #     24,7% backend bound         
+
+       0,012268388 seconds time elapsed
+
+       0,012336000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006597 sec 
+
+### Run 47 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,05 msec task-clock                #    0,971 CPUs utilized          
+                 6      context-switches          #  498,048 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  266,456 K/sec                  
+          42363915      cycles                    #    3,517 GHz                    
+         108566820      instructions              #    2,56  insn per cycle         
+           7958095      branches                  #  660,586 M/sec                  
+             78273      branch-misses             #    0,98% of all branches        
+         210428935      slots                     #   17,467 G/sec                  
+         112546637      topdown-retiring          #     53,3% retiring              
+          14853807      topdown-bad-spec          #      7,0% bad speculation       
+          33833671      topdown-fe-bound          #     16,0% frontend bound        
+          49991407      topdown-be-bound          #     23,7% backend bound         
+
+       0,012411129 seconds time elapsed
+
+       0,008242000 seconds user
+       0,004121000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006586 sec 
+
+### Run 48 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,52 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  256,568 K/sec                  
+          43099805      cycles                    #    3,443 GHz                    
+         108662414      instructions              #    2,52  insn per cycle         
+           7966675      branches                  #  636,363 M/sec                  
+             77592      branch-misses             #    0,97% of all branches        
+         211798955      slots                     #   16,918 G/sec                  
+         113790026      topdown-retiring          #     53,7% retiring              
+          11628177      topdown-bad-spec          #      5,5% bad speculation       
+          34053949      topdown-fe-bound          #     16,1% frontend bound        
+          52326800      topdown-be-bound          #     24,7% backend bound         
+
+       0,012799360 seconds time elapsed
+
+       0,008576000 seconds user
+       0,004288000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006800 sec 
+
+### Run 49 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,48 msec task-clock                #    0,981 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  257,251 K/sec                  
+          43220078      cycles                    #    3,463 GHz                    
+         108538243      instructions              #    2,51  insn per cycle         
+           7950556      branches                  #  636,963 M/sec                  
+             77505      branch-misses             #    0,97% of all branches        
+         211888050      slots                     #   16,976 G/sec                  
+         113837893      topdown-retiring          #     53,7% retiring              
+          11633069      topdown-bad-spec          #      5,5% bad speculation       
+          33237341      topdown-fe-bound          #     15,7% frontend bound        
+          53179745      topdown-be-bound          #     25,1% backend bound         
+
+       0,012721065 seconds time elapsed
+
+       0,008525000 seconds user
+       0,004262000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006892 sec 
+
+### Run 50 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,68 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  253,469 K/sec                  
+          44157076      cycles                    #    3,483 GHz                    
+         108836969      instructions              #    2,46  insn per cycle         
+           7987606      branches                  #  630,132 M/sec                  
+             77865      branch-misses             #    0,97% of all branches        
+         214861590      slots                     #   16,950 G/sec                  
+         113750253      topdown-retiring          #     52,9% retiring              
+          11796322      topdown-bad-spec          #      5,5% bad speculation       
+          33703778      topdown-fe-bound          #     15,7% frontend bound        
+          55611235      topdown-be-bound          #     25,9% backend bound         
+
+       0,012957315 seconds time elapsed
+
+       0,008674000 seconds user
+       0,004337000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006750 sec 
+
+### Run 51 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,37 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  259,549 K/sec                  
+          42907579      cycles                    #    3,469 GHz                    
+         108495686      instructions              #    2,53  insn per cycle         
+           7942005      branches                  #  642,161 M/sec                  
+             77708      branch-misses             #    0,98% of all branches        
+         210800930      slots                     #   17,045 G/sec                  
+         113253832      topdown-retiring          #     53,7% retiring              
+          11573384      topdown-bad-spec          #      5,5% bad speculation       
+          34720153      topdown-fe-bound          #     16,5% frontend bound        
+          51253559      topdown-be-bound          #     24,3% backend bound         
+
+       0,012636860 seconds time elapsed
+
+       0,008443000 seconds user
+       0,004221000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006829 sec 
+
+### Run 52 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,92 msec task-clock                #    0,973 CPUs utilized          
+                 1      context-switches          #   83,895 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  269,470 K/sec                  
+          41843797      cycles                    #    3,510 GHz                    
+         108520635      instructions              #    2,59  insn per cycle         
+           7950533      branches                  #  667,008 M/sec                  
+             77818      branch-misses             #    0,98% of all branches        
+         208738500      slots                     #   17,512 G/sec                  
+         113782947      topdown-retiring          #     54,5% retiring              
+          11460152      topdown-bad-spec          #      5,5% bad speculation       
+          34380458      topdown-fe-bound          #     16,5% frontend bound        
+          49114941      topdown-be-bound          #     23,5% backend bound         
+
+       0,012247416 seconds time elapsed
+
+       0,008173000 seconds user
+       0,004086000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006455 sec 
+
+### Run 53 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,67 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  253,670 K/sec                  
+          43907070      cycles                    #    3,467 GHz                    
+         108671693      instructions              #    2,48  insn per cycle         
+           7969994      branches                  #  629,240 M/sec                  
+             77932      branch-misses             #    0,98% of all branches        
+         213674715      slots                     #   16,870 G/sec                  
+         113959848      topdown-retiring          #     53,3% retiring              
+          11731160      topdown-bad-spec          #      5,5% bad speculation       
+          34355542      topdown-fe-bound          #     16,1% frontend bound        
+          53628163      topdown-be-bound          #     25,1% backend bound         
+
+       0,012969394 seconds time elapsed
+
+       0,008697000 seconds user
+       0,004348000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006840 sec 
+
+### Run 54 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,72 msec task-clock                #    0,973 CPUs utilized          
+                 5      context-switches          #  393,057 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  252,579 K/sec                  
+          43966749      cycles                    #    3,456 GHz                    
+         108674473      instructions              #    2,47  insn per cycle         
+           7973687      branches                  #  626,823 M/sec                  
+             78692      branch-misses             #    0,99% of all branches        
+         214437290      slots                     #   16,857 G/sec                  
+         112684693      topdown-retiring          #     52,5% retiring              
+          14295819      topdown-bad-spec          #      6,7% bad speculation       
+          34478152      topdown-fe-bound          #     16,1% frontend bound        
+          52978624      topdown-be-bound          #     24,7% backend bound         
+
+       0,013076200 seconds time elapsed
+
+       0,008652000 seconds user
+       0,004326000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007054 sec 
+
+### Run 55 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,08 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  265,793 K/sec                  
+          42176187      cycles                    #    3,490 GHz                    
+         108497929      instructions              #    2,57  insn per cycle         
+           7943979      branches                  #  657,365 M/sec                  
+             77437      branch-misses             #    0,97% of all branches        
+         209866835      slots                     #   17,367 G/sec                  
+         113574993      topdown-retiring          #     54,1% retiring              
+          11522100      topdown-bad-spec          #      5,5% bad speculation       
+          34566302      topdown-fe-bound          #     16,5% frontend bound        
+          50203438      topdown-be-bound          #     23,9% backend bound         
+
+       0,012365019 seconds time elapsed
+
+       0,008280000 seconds user
+       0,004140000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006597 sec 
+
+### Run 56 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,98 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  267,922 K/sec                  
+          42584257      cycles                    #    3,553 GHz                    
+         108466734      instructions              #    2,55  insn per cycle         
+           7937211      branches                  #  662,271 M/sec                  
+             77532      branch-misses             #    0,98% of all branches        
+         212541710      slots                     #   17,734 G/sec                  
+         113355578      topdown-retiring          #     53,3% retiring              
+          11668956      topdown-bad-spec          #      5,5% bad speculation       
+          33339876      topdown-fe-bound          #     15,7% frontend bound        
+          54177298      topdown-be-bound          #     25,5% backend bound         
+
+       0,012239632 seconds time elapsed
+
+       0,008179000 seconds user
+       0,004089000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006592 sec 
+
+### Run 57 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,38 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  259,506 K/sec                  
+          43837190      cycles                    #    3,541 GHz                    
+         108499613      instructions              #    2,48  insn per cycle         
+           7941988      branches                  #  641,456 M/sec                  
+             77579      branch-misses             #    0,98% of all branches        
+         217960100      slots                     #   17,604 G/sec                  
+         113681150      topdown-retiring          #     52,2% retiring              
+          11966436      topdown-bad-spec          #      5,5% bad speculation       
+          33335074      topdown-fe-bound          #     15,3% frontend bound        
+          58977438      topdown-be-bound          #     27,1% backend bound         
+
+       0,012689087 seconds time elapsed
+
+       0,008460000 seconds user
+       0,004230000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006572 sec 
+
+### Run 58 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,88 msec task-clock                #    0,985 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  270,437 K/sec                  
+          42879434      cycles                    #    3,609 GHz                    
+         108520000      instructions              #    2,53  insn per cycle         
+           7947937      branches                  #  668,976 M/sec                  
+             77530      branch-misses             #    0,98% of all branches        
+         213946445      slots                     #   18,008 G/sec                  
+         113265765      topdown-retiring          #     52,9% retiring              
+          11746079      topdown-bad-spec          #      5,5% bad speculation       
+          33560226      topdown-fe-bound          #     15,7% frontend bound        
+          55374374      topdown-be-bound          #     25,9% backend bound         
+
+       0,012067175 seconds time elapsed
+
+       0,008098000 seconds user
+       0,004049000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006207 sec 
+
+### Run 59 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,12 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  265,125 K/sec                  
+          42912019      cycles                    #    3,542 GHz                    
+         108515723      instructions              #    2,53  insn per cycle         
+           7950633      branches                  #  656,261 M/sec                  
+             77441      branch-misses             #    0,97% of all branches        
+         213546275      slots                     #   17,627 G/sec                  
+         113053910      topdown-retiring          #     52,9% retiring              
+          11724109      topdown-bad-spec          #      5,5% bad speculation       
+          33497454      topdown-fe-bound          #     15,7% frontend bound        
+          55270800      topdown-be-bound          #     25,9% backend bound         
+
+       0,012397314 seconds time elapsed
+
+       0,008282000 seconds user
+       0,004141000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006544 sec 
+
+### Run 60 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,04 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  266,697 K/sec                  
+          42127992      cycles                    #    3,499 GHz                    
+         108471912      instructions              #    2,57  insn per cycle         
+           7938405      branches                  #  659,344 M/sec                  
+             77498      branch-misses             #    0,98% of all branches        
+         208703605      slots                     #   17,334 G/sec                  
+         113763925      topdown-retiring          #     54,5% retiring              
+          11458237      topdown-bad-spec          #      5,5% bad speculation       
+          33556265      topdown-fe-bound          #     16,1% frontend bound        
+          49925176      topdown-be-bound          #     23,9% backend bound         
+
+       0,012316639 seconds time elapsed
+
+       0,012374000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006550 sec 
+
+### Run 61 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,89 msec task-clock                #    0,976 CPUs utilized          
+                 1      context-switches          #   84,127 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  270,300 K/sec                  
+          42494210      cycles                    #    3,575 GHz                    
+         108521304      instructions              #    2,55  insn per cycle         
+           7946170      branches                  #  668,488 M/sec                  
+             77847      branch-misses             #    0,98% of all branches        
+         211951835      slots                     #   17,831 G/sec                  
+         113040978      topdown-retiring          #     53,3% retiring              
+          12467755      topdown-bad-spec          #      5,9% bad speculation       
+          33247346      topdown-fe-bound          #     15,7% frontend bound        
+          53195754      topdown-be-bound          #     25,1% backend bound         
+
+       0,012177021 seconds time elapsed
+
+       0,004072000 seconds user
+       0,008144000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006252 sec 
+
+### Run 62 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             21,97 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  146,238 K/sec                  
+          40500301      cycles                    #    1,843 GHz                    
+         108577881      instructions              #    2,68  insn per cycle         
+           7955770      branches                  #  362,103 M/sec                  
+             77805      branch-misses             #    0,98% of all branches        
+         201367045      slots                     #    9,165 G/sec                  
+         113713154      topdown-retiring          #     56,5% retiring              
+          11845120      topdown-bad-spec          #      5,9% bad speculation       
+          33166336      topdown-fe-bound          #     16,5% frontend bound        
+          42642433      topdown-be-bound          #     21,2% backend bound         
+
+       0,022528098 seconds time elapsed
+
+       0,013518000 seconds user
+       0,009012000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.010043 sec 
+
+### Run 63 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,89 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   84,090 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  270,265 K/sec                  
+          41864169      cycles                    #    3,520 GHz                    
+         108535132      instructions              #    2,59  insn per cycle         
+           7950705      branches                  #  668,575 M/sec                  
+             77988      branch-misses             #    0,98% of all branches        
+         208117205      slots                     #   17,501 G/sec                  
+         113444280      topdown-retiring          #     54,5% retiring              
+          13058334      topdown-bad-spec          #      6,3% bad speculation       
+          32645836      topdown-fe-bound          #     15,7% frontend bound        
+          48968754      topdown-be-bound          #     23,5% backend bound         
+
+       0,012196092 seconds time elapsed
+
+       0,008109000 seconds user
+       0,004054000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006601 sec 
+
+### Run 64 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             13,10 msec task-clock                #    0,970 CPUs utilized          
+                 2      context-switches          #  152,703 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  245,165 K/sec                  
+          43255044      cycles                    #    3,303 GHz                    
+         108516378      instructions              #    2,51  insn per cycle         
+           7945400      branches                  #  606,645 M/sec                  
+             77865      branch-misses             #    0,98% of all branches        
+         214423520      slots                     #   16,372 G/sec                  
+         112677457      topdown-retiring          #     52,5% retiring              
+          12613148      topdown-bad-spec          #      5,9% bad speculation       
+          32794185      topdown-fe-bound          #     15,3% frontend bound        
+          56338728      topdown-be-bound          #     26,3% backend bound         
+
+       0,013504634 seconds time elapsed
+
+       0,008911000 seconds user
+       0,004455000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007584 sec 
+
+### Run 65 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,66 msec task-clock                #    0,970 CPUs utilized          
+                 1      context-switches          #   78,976 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  253,828 K/sec                  
+          42839269      cycles                    #    3,383 GHz                    
+         108538894      instructions              #    2,53  insn per cycle         
+           7952087      branches                  #  628,022 M/sec                  
+             77797      branch-misses             #    0,98% of all branches        
+         211998840      slots                     #   16,743 G/sec                  
+         113066048      topdown-retiring          #     53,3% retiring              
+          12470520      topdown-bad-spec          #      5,9% bad speculation       
+          33254720      topdown-fe-bound          #     15,7% frontend bound        
+          53207552      topdown-be-bound          #     25,1% backend bound         
+
+       0,013058776 seconds time elapsed
+
+       0,003230000 seconds user
+       0,009691000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006880 sec 
+
+### Run 66 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,73 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   78,554 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  252,316 K/sec                  
+          42538162      cycles                    #    3,342 GHz                    
+         108527722      instructions              #    2,55  insn per cycle         
+           7949494      branches                  #  624,465 M/sec                  
+             77962      branch-misses             #    0,98% of all branches        
+         211517705      slots                     #   16,616 G/sec                  
+         113638923      topdown-retiring          #     53,7% retiring              
+          12442217      topdown-bad-spec          #      5,9% bad speculation       
+          33179247      topdown-fe-bound          #     15,7% frontend bound        
+          52257315      topdown-be-bound          #     24,7% backend bound         
+
+       0,013024004 seconds time elapsed
+
+       0,003250000 seconds user
+       0,009751000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006831 sec 
+
+### Run 67 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,81 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   78,040 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  250,507 K/sec                  
+          42192584      cycles                    #    3,293 GHz                    
+         108571920      instructions              #    2,57  insn per cycle         
+           7955849      branches                  #  620,871 M/sec                  
+             77856      branch-misses             #    0,98% of all branches        
+         209995930      slots                     #   16,388 G/sec                  
+         113644856      topdown-retiring          #     54,1% retiring              
+          12352701      topdown-bad-spec          #      5,9% bad speculation       
+          32940538      topdown-fe-bound          #     15,7% frontend bound        
+          51057833      topdown-be-bound          #     24,3% backend bound         
+
+       0,013116818 seconds time elapsed
+
+       0,008741000 seconds user
+       0,004370000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007236 sec 
+
+### Run 68 on Τετ 04 Ιουν 2025 05:00:59 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,43 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  258,300 K/sec                  
+          42306758      cycles                    #    3,403 GHz                    
+         108493245      instructions              #    2,56  insn per cycle         
+           7940739      branches                  #  638,770 M/sec                  
+             77530      branch-misses             #    0,98% of all branches        
+         210207035      slots                     #   16,910 G/sec                  
+         113759101      topdown-retiring          #     54,1% retiring              
+          11540778      topdown-bad-spec          #      5,5% bad speculation       
+          32973652      topdown-fe-bound          #     15,7% frontend bound        
+          51933502      topdown-be-bound          #     24,7% backend bound         
+
+       0,012719967 seconds time elapsed
+
+       0,012752000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006929 sec 
+
+### Run 69 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,20 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   81,952 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  263,229 K/sec                  
+          41617509      cycles                    #    3,411 GHz                    
+         108588548      instructions              #    2,61  insn per cycle         
+           7959346      branches                  #  652,281 M/sec                  
+             77816      branch-misses             #    0,98% of all branches        
+         207574170      slots                     #   17,011 G/sec                  
+         113148273      topdown-retiring          #     54,5% retiring              
+          12210245      topdown-bad-spec          #      5,9% bad speculation       
+          33374670      topdown-fe-bound          #     16,1% frontend bound        
+          48840981      topdown-be-bound          #     23,5% backend bound         
+
+       0,012509797 seconds time elapsed
+
+       0,003125000 seconds user
+       0,009377000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006753 sec 
+
+### Run 70 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,86 msec task-clock                #    0,970 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  270,873 K/sec                  
+          41813638      cycles                    #    3,526 GHz                    
+         108544936      instructions              #    2,60  insn per cycle         
+           7948317      branches                  #  670,294 M/sec                  
+             77761      branch-misses             #    0,98% of all branches        
+         208512280      slots                     #   17,584 G/sec                  
+         113659634      topdown-retiring          #     54,5% retiring              
+          11447733      topdown-bad-spec          #      5,5% bad speculation       
+          33525503      topdown-fe-bound          #     16,1% frontend bound        
+          49879408      topdown-be-bound          #     23,9% backend bound         
+
+       0,012227309 seconds time elapsed
+
+       0,008133000 seconds user
+       0,004066000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006357 sec 
+
+### Run 71 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,27 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  261,673 K/sec                  
+          42703012      cycles                    #    3,479 GHz                    
+         108553677      instructions              #    2,54  insn per cycle         
+           7952243      branches                  #  647,848 M/sec                  
+             77927      branch-misses             #    0,98% of all branches        
+         211753670      slots                     #   17,251 G/sec                  
+         113765697      topdown-retiring          #     53,7% retiring              
+          11625691      topdown-bad-spec          #      5,5% bad speculation       
+          33216261      topdown-fe-bound          #     15,7% frontend bound        
+          53146019      topdown-be-bound          #     25,1% backend bound         
+
+       0,012538663 seconds time elapsed
+
+       0,012548000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006795 sec 
+
+### Run 72 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,05 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   83,016 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  266,731 K/sec                  
+          42506647      cycles                    #    3,529 GHz                    
+         108544772      instructions              #    2,55  insn per cycle         
+           7951400      branches                  #  660,094 M/sec                  
+             78069      branch-misses             #    0,98% of all branches        
+         210354250      slots                     #   17,463 G/sec                  
+         113013851      topdown-retiring          #     53,7% retiring              
+          12373779      topdown-bad-spec          #      5,9% bad speculation       
+          32996745      topdown-fe-bound          #     15,7% frontend bound        
+          51969873      topdown-be-bound          #     24,7% backend bound         
+
+       0,012358303 seconds time elapsed
+
+       0,003081000 seconds user
+       0,009243000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006523 sec 
+
+### Run 73 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,40 msec task-clock                #    0,972 CPUs utilized          
+                 2      context-switches          #  161,267 /sec                   
+                 1      cpu-migrations            #   80,633 /sec                   
+              3210      page-faults               #  258,833 K/sec                  
+          43138647      cycles                    #    3,478 GHz                    
+         109239781      instructions              #    2,53  insn per cycle         
+           8035788      branches                  #  647,952 M/sec                  
+             77484      branch-misses             #    0,96% of all branches        
+         214575340      slots                     #   17,302 G/sec                  
+         113598709      topdown-retiring          #     52,9% retiring              
+          13463550      topdown-bad-spec          #      6,3% bad speculation       
+          31134461      topdown-fe-bound          #     14,5% frontend bound        
+          56378618      topdown-be-bound          #     26,3% backend bound         
+
+       0,012754402 seconds time elapsed
+
+       0,008454000 seconds user
+       0,004227000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006488 sec 
+
+### Run 74 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,04 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   83,060 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  266,623 K/sec                  
+          41947351      cycles                    #    3,484 GHz                    
+         108503697      instructions              #    2,59  insn per cycle         
+           7943791      branches                  #  659,812 M/sec                  
+             77985      branch-misses             #    0,98% of all branches        
+         209146970      slots                     #   17,372 G/sec                  
+         113185419      topdown-retiring          #     54,1% retiring              
+          11482578      topdown-bad-spec          #      5,5% bad speculation       
+          33627552      topdown-fe-bound          #     16,1% frontend bound        
+          50851420      topdown-be-bound          #     24,3% backend bound         
+
+       0,012311090 seconds time elapsed
+
+       0,012300000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006628 sec 
+
+### Run 75 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,96 msec task-clock                #    0,977 CPUs utilized          
+                 1      context-switches          #   83,616 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  268,742 K/sec                  
+          41785909      cycles                    #    3,494 GHz                    
+         108539812      instructions              #    2,60  insn per cycle         
+           7951353      branches                  #  664,862 M/sec                  
+             77808      branch-misses             #    0,98% of all branches        
+         208547215      slots                     #   17,438 G/sec                  
+         113678677      topdown-retiring          #     54,5% retiring              
+          11449651      topdown-bad-spec          #      5,5% bad speculation       
+          31895456      topdown-fe-bound          #     15,3% frontend bound        
+          51523429      topdown-be-bound          #     24,7% backend bound         
+
+       0,012241687 seconds time elapsed
+
+       0,008123000 seconds user
+       0,004061000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006515 sec 
+
+### Run 76 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,25 msec task-clock                #    0,970 CPUs utilized          
+                 2      context-switches          #  163,292 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  262,247 K/sec                  
+          42966143      cycles                    #    3,508 GHz                    
+         108541417      instructions              #    2,53  insn per cycle         
+           7953874      branches                  #  649,402 M/sec                  
+             78125      branch-misses             #    0,98% of all branches        
+         214422100      slots                     #   17,507 G/sec                  
+         113517582      topdown-retiring          #     52,9% retiring              
+          13453935      topdown-bad-spec          #      6,3% bad speculation       
+          32793968      topdown-fe-bound          #     15,3% frontend bound        
+          54656613      topdown-be-bound          #     25,5% backend bound         
+
+       0,012630279 seconds time elapsed
+
+       0,008324000 seconds user
+       0,004162000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006698 sec 
+
+### Run 77 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,97 msec task-clock                #    0,975 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3210      page-faults               #  268,124 K/sec                  
+          41928258      cycles                    #    3,502 GHz                    
+         108480308      instructions              #    2,59  insn per cycle         
+           7940117      branches                  #  663,221 M/sec                  
+             77546      branch-misses             #    0,98% of all branches        
+         209101240      slots                     #   17,466 G/sec                  
+         113160671      topdown-retiring          #     54,1% retiring              
+          11480068      topdown-bad-spec          #      5,5% bad speculation       
+          33620199      topdown-fe-bound          #     16,1% frontend bound        
+          50840301      topdown-be-bound          #     24,3% backend bound         
+
+       0,012273590 seconds time elapsed
+
+       0,008209000 seconds user
+       0,004104000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006698 sec 
+
+### Run 78 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,83 msec task-clock                #    0,971 CPUs utilized          
+                 1      context-switches          #   77,951 /sec                   
+                 1      cpu-migrations            #   77,951 /sec                   
+              3211      page-faults               #  250,301 K/sec                  
+          45024325      cycles                    #    3,510 GHz                    
+         109240773      instructions              #    2,43  insn per cycle         
+           8034663      branches                  #  626,310 M/sec                  
+             78109      branch-misses             #    0,97% of all branches        
+         224878285      slots                     #   17,529 G/sec                  
+         113761955      topdown-retiring          #     50,6% retiring              
+          12346258      topdown-bad-spec          #      5,5% bad speculation       
+          33511273      topdown-fe-bound          #     14,9% frontend bound        
+          65258796      topdown-be-bound          #     29,0% backend bound         
+
+       0,013207624 seconds time elapsed
+
+       0,004381000 seconds user
+       0,008763000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006465 sec 
+
+### Run 79 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,00 msec task-clock                #    0,982 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  267,721 K/sec                  
+          43219106      cycles                    #    3,601 GHz                    
+         108689207      instructions              #    2,51  insn per cycle         
+           7971102      branches                  #  664,188 M/sec                  
+             77663      branch-misses             #    0,97% of all branches        
+         215403185      slots                     #   17,948 G/sec                  
+         114036980      topdown-retiring          #     52,9% retiring              
+          11826057      topdown-bad-spec          #      5,5% bad speculation       
+          32944016      topdown-fe-bound          #     15,3% frontend bound        
+          56596130      topdown-be-bound          #     26,3% backend bound         
+
+       0,012218920 seconds time elapsed
+
+       0,003070000 seconds user
+       0,009211000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006347 sec 
+
+### Run 80 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,29 msec task-clock                #    0,974 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  261,407 K/sec                  
+          42093350      cycles                    #    3,425 GHz                    
+         108558908      instructions              #    2,58  insn per cycle         
+           7954519      branches                  #  647,173 M/sec                  
+             77563      branch-misses             #    0,98% of all branches        
+         210129085      slots                     #   17,096 G/sec                  
+         113716916      topdown-retiring          #     54,1% retiring              
+          10712463      topdown-bad-spec          #      5,1% bad speculation       
+          33785460      topdown-fe-bound          #     16,1% frontend bound        
+          51914244      topdown-be-bound          #     24,7% backend bound         
+
+       0,012613087 seconds time elapsed
+
+       0,012624000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006997 sec 
+
+### Run 81 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,60 msec task-clock                #    0,975 CPUs utilized          
+                 2      context-switches          #  158,671 /sec                   
+                 1      cpu-migrations            #   79,335 /sec                   
+              3211      page-faults               #  254,746 K/sec                  
+          42991559      cycles                    #    3,411 GHz                    
+         108814735      instructions              #    2,53  insn per cycle         
+           7986537      branches                  #  633,614 M/sec                  
+             78370      branch-misses             #    0,98% of all branches        
+         212456100      slots                     #   16,855 G/sec                  
+         113309920      topdown-retiring          #     53,3% retiring              
+          12497417      topdown-bad-spec          #      5,9% bad speculation       
+          33326447      topdown-fe-bound          #     15,7% frontend bound        
+          53322315      topdown-be-bound          #     25,1% backend bound         
+
+       0,012922601 seconds time elapsed
+
+       0,008615000 seconds user
+       0,004307000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007105 sec 
+
+### Run 82 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,19 msec task-clock                #    0,974 CPUs utilized          
+                 3      context-switches          #  246,068 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  263,457 K/sec                  
+          43249079      cycles                    #    3,547 GHz                    
+         108731950      instructions              #    2,51  insn per cycle         
+           7983872      branches                  #  654,858 M/sec                  
+             78494      branch-misses             #    0,98% of all branches        
+         215821425      slots                     #   17,702 G/sec                  
+         113412042      topdown-retiring          #     52,5% retiring              
+          13541736      topdown-bad-spec          #      6,3% bad speculation       
+          33007982      topdown-fe-bound          #     15,3% frontend bound        
+          56205295      topdown-be-bound          #     26,0% backend bound         
+
+       0,012511944 seconds time elapsed
+
+       0,008307000 seconds user
+       0,004153000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006441 sec 
+
+### Run 83 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,35 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   80,972 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  260,082 K/sec                  
+          42887698      cycles                    #    3,473 GHz                    
+         108953532      instructions              #    2,54  insn per cycle         
+           8004651      branches                  #  648,154 M/sec                  
+             77997      branch-misses             #    0,97% of all branches        
+         213598830      slots                     #   17,296 G/sec                  
+         113919376      topdown-retiring          #     53,3% retiring              
+          11726994      topdown-bad-spec          #      5,5% bad speculation       
+          33505698      topdown-fe-bound          #     15,7% frontend bound        
+          54446760      topdown-be-bound          #     25,5% backend bound         
+
+       0,012663541 seconds time elapsed
+
+       0,008439000 seconds user
+       0,004219000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006585 sec 
+
+### Run 84 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,18 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  263,852 K/sec                  
+          41839026      cycles                    #    3,436 GHz                    
+         108522282      instructions              #    2,59  insn per cycle         
+           7948533      branches                  #  652,735 M/sec                  
+             77687      branch-misses             #    0,98% of all branches        
+         208074640      slots                     #   17,087 G/sec                  
+         113421078      topdown-retiring          #     54,5% retiring              
+          11423705      topdown-bad-spec          #      5,5% bad speculation       
+          32639159      topdown-fe-bound          #     15,7% frontend bound        
+          50590696      topdown-be-bound          #     24,3% backend bound         
+
+       0,012458007 seconds time elapsed
+
+       0,008311000 seconds user
+       0,004155000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006629 sec 
+
+### Run 85 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,32 msec task-clock                #    0,970 CPUs utilized          
+                 1      context-switches          #   81,141 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  260,788 K/sec                  
+          41764717      cycles                    #    3,389 GHz                    
+         108519395      instructions              #    2,60  insn per cycle         
+           7947490      branches                  #  644,869 M/sec                  
+             77932      branch-misses             #    0,98% of all branches        
+         208392395      slots                     #   16,909 G/sec                  
+         113594285      topdown-retiring          #     54,5% retiring              
+          11441151      topdown-bad-spec          #      5,5% bad speculation       
+          33506228      topdown-fe-bound          #     16,1% frontend bound        
+          49850729      topdown-be-bound          #     23,9% backend bound         
+
+       0,012702115 seconds time elapsed
+
+       0,008413000 seconds user
+       0,004206000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006867 sec 
+
+### Run 86 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,27 msec task-clock                #    0,980 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  261,959 K/sec                  
+          42397348      cycles                    #    3,457 GHz                    
+         108528258      instructions              #    2,56  insn per cycle         
+           7948512      branches                  #  648,050 M/sec                  
+             77629      branch-misses             #    0,98% of all branches        
+         210503910      slots                     #   17,163 G/sec                  
+         113094257      topdown-retiring          #     53,7% retiring              
+          12382582      topdown-bad-spec          #      5,9% bad speculation       
+          33020221      topdown-fe-bound          #     15,7% frontend bound        
+          52006848      topdown-be-bound          #     24,7% backend bound         
+
+       0,012520618 seconds time elapsed
+
+       0,008387000 seconds user
+       0,004193000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006677 sec 
+
+### Run 87 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             13,05 msec task-clock                #    0,981 CPUs utilized          
+                 1      context-switches          #   76,606 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  246,057 K/sec                  
+          41548755      cycles                    #    3,183 GHz                    
+         108543294      instructions              #    2,61  insn per cycle         
+           7952840      branches                  #  609,233 M/sec                  
+             77809      branch-misses             #    0,98% of all branches        
+         206620755      slots                     #   15,828 G/sec                  
+         113438845      topdown-retiring          #     54,9% retiring              
+          12154162      topdown-bad-spec          #      5,9% bad speculation       
+          32411098      topdown-fe-bound          #     15,7% frontend bound        
+          48616648      topdown-be-bound          #     23,5% backend bound         
+
+       0,013303376 seconds time elapsed
+
+       0,009993000 seconds user
+       0,003331000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007459 sec 
+
+### Run 88 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,52 msec task-clock                #    0,979 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  256,580 K/sec                  
+          41929241      cycles                    #    3,349 GHz                    
+         108566120      instructions              #    2,59  insn per cycle         
+           7955933      branches                  #  635,533 M/sec                  
+             77679      branch-misses             #    0,98% of all branches        
+         209279675      slots                     #   16,718 G/sec                  
+         113257235      topdown-retiring          #     54,1% retiring              
+          11489864      topdown-bad-spec          #      5,5% bad speculation       
+          33648888      topdown-fe-bound          #     16,1% frontend bound        
+          50883685      topdown-be-bound          #     24,3% backend bound         
+
+       0,012788163 seconds time elapsed
+
+       0,012801000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006946 sec 
+
+### Run 89 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,37 msec task-clock                #    0,978 CPUs utilized          
+                 1      context-switches          #   80,818 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  259,667 K/sec                  
+          43293438      cycles                    #    3,499 GHz                    
+         108612215      instructions              #    2,51  insn per cycle         
+           7960100      branches                  #  643,316 M/sec                  
+             77934      branch-misses             #    0,98% of all branches        
+         212658560      slots                     #   17,187 G/sec                  
+         113417898      topdown-retiring          #     53,3% retiring              
+          12509327      topdown-bad-spec          #      5,9% bad speculation       
+          32524250      topdown-fe-bound          #     15,3% frontend bound        
+          54207083      topdown-be-bound          #     25,5% backend bound         
+
+       0,012656814 seconds time elapsed
+
+       0,008422000 seconds user
+       0,004211000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006841 sec 
+
+### Run 90 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,83 msec task-clock                #    0,974 CPUs utilized          
+                 1      context-switches          #   84,498 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  271,409 K/sec                  
+          41804727      cycles                    #    3,532 GHz                    
+         108524287      instructions              #    2,60  insn per cycle         
+           7946617      branches                  #  671,477 M/sec                  
+             77826      branch-misses             #    0,98% of all branches        
+         205543690      slots                     #   17,368 G/sec                  
+         113653569      topdown-retiring          #     55,3% retiring              
+          11284751      topdown-bad-spec          #      5,5% bad speculation       
+          32242147      topdown-fe-bound          #     15,7% frontend bound        
+          48363221      topdown-be-bound          #     23,5% backend bound         
+
+       0,012154527 seconds time elapsed
+
+       0,008127000 seconds user
+       0,004063000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006630 sec 
+
+### Run 91 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,19 msec task-clock                #    0,975 CPUs utilized          
+                 1      context-switches          #   82,064 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  263,506 K/sec                  
+          42497410      cycles                    #    3,487 GHz                    
+         108484986      instructions              #    2,55  insn per cycle         
+           7940795      branches                  #  651,651 M/sec                  
+             77651      branch-misses             #    0,98% of all branches        
+         208447355      slots                     #   17,106 G/sec                  
+         113624244      topdown-retiring          #     54,5% retiring              
+          11444168      topdown-bad-spec          #      5,5% bad speculation       
+          32697624      topdown-fe-bound          #     15,7% frontend bound        
+          50681317      topdown-be-bound          #     24,3% backend bound         
+
+       0,012498911 seconds time elapsed
+
+       0,008313000 seconds user
+       0,004156000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006716 sec 
+
+### Run 92 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,98 msec task-clock                #    0,977 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  247,439 K/sec                  
+          44718525      cycles                    #    3,446 GHz                    
+         108502078      instructions              #    2,43  insn per cycle         
+           7943367      branches                  #  612,115 M/sec                  
+             77700      branch-misses             #    0,98% of all branches        
+         206606780      slots                     #   15,921 G/sec                  
+         113431173      topdown-retiring          #     54,9% retiring              
+          10532894      topdown-bad-spec          #      5,1% bad speculation       
+          33219129      topdown-fe-bound          #     16,1% frontend bound        
+          49423582      topdown-be-bound          #     23,9% backend bound         
+
+       0,013288160 seconds time elapsed
+
+       0,008843000 seconds user
+       0,004421000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007365 sec 
+
+### Run 93 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,17 msec task-clock                #    0,981 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  263,933 K/sec                  
+          41224343      cycles                    #    3,387 GHz                    
+         108502317      instructions              #    2,63  insn per cycle         
+           7943869      branches                  #  652,755 M/sec                  
+             77623      branch-misses             #    0,98% of all branches        
+         205295090      slots                     #   16,869 G/sec                  
+         113516108      topdown-retiring          #     55,3% retiring              
+          11271102      topdown-bad-spec          #      5,5% bad speculation       
+          33008230      topdown-fe-bound          #     16,1% frontend bound        
+          47499648      topdown-be-bound          #     23,1% backend bound         
+
+       0,012399830 seconds time elapsed
+
+       0,012442000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006885 sec 
+
+### Run 94 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             21,83 msec task-clock                #    0,978 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3211      page-faults               #  147,108 K/sec                  
+          40261254      cycles                    #    1,845 GHz                    
+         108482765      instructions              #    2,69  insn per cycle         
+           7943257      branches                  #  363,911 M/sec                  
+             77656      branch-misses             #    0,98% of all branches        
+         199593850      slots                     #    9,144 G/sec                  
+         113494542      topdown-retiring          #     56,9% retiring              
+          10958093      topdown-bad-spec          #      5,5% bad speculation       
+          33657002      topdown-fe-bound          #     16,9% frontend bound        
+          41484211      topdown-be-bound          #     20,8% backend bound         
+
+       0,022319196 seconds time elapsed
+
+       0,013433000 seconds user
+       0,008955000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.010120 sec 
+
+### Run 95 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,86 msec task-clock                #    0,984 CPUs utilized          
+                 1      context-switches          #   77,786 /sec                   
+                 1      cpu-migrations            #   77,786 /sec                   
+              3212      page-faults               #  249,850 K/sec                  
+          43358555      cycles                    #    3,373 GHz                    
+         108713771      instructions              #    2,51  insn per cycle         
+           7970313      branches                  #  619,981 M/sec                  
+             78191      branch-misses             #    0,98% of all branches        
+         216289560      slots                     #   16,824 G/sec                  
+         113658043      topdown-retiring          #     52,5% retiring              
+          11874720      topdown-bad-spec          #      5,5% bad speculation       
+          33079579      topdown-fe-bound          #     15,3% frontend bound        
+          57677216      topdown-be-bound          #     26,7% backend bound         
+
+       0,013059525 seconds time elapsed
+
+       0,013144000 seconds user
+       0,000000000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007010 sec 
+
+### Run 96 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,60 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3214      page-faults               #  255,028 K/sec                  
+          42513315      cycles                    #    3,373 GHz                    
+         108579693      instructions              #    2,55  insn per cycle         
+           7957865      branches                  #  631,448 M/sec                  
+             77577      branch-misses             #    0,97% of all branches        
+         212014640      slots                     #   16,823 G/sec                  
+         113905904      topdown-retiring          #     53,7% retiring              
+          11640019      topdown-bad-spec          #      5,5% bad speculation       
+          32425768      topdown-fe-bound          #     15,3% frontend bound        
+          54042947      topdown-be-bound          #     25,5% backend bound         
+
+       0,012915367 seconds time elapsed
+
+       0,008627000 seconds user
+       0,004313000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.007116 sec 
+
+### Run 97 on Τετ 04 Ιουν 2025 05:01:00 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             12,15 msec task-clock                #    0,967 CPUs utilized          
+                 1      context-switches          #   82,309 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  264,376 K/sec                  
+          42441090      cycles                    #    3,493 GHz                    
+         108524679      instructions              #    2,56  insn per cycle         
+           7946452      branches                  #  654,063 M/sec                  
+             77777      branch-misses             #    0,98% of all branches        
+         211767740      slots                     #   17,430 G/sec                  
+         112942794      topdown-retiring          #     53,3% retiring              
+          13287387      topdown-bad-spec          #      6,3% bad speculation       
+          34048930      topdown-fe-bound          #     16,1% frontend bound        
+          51488626      topdown-be-bound          #     24,3% backend bound         
+
+       0,012566033 seconds time elapsed
+
+       0,008395000 seconds user
+       0,004197000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006723 sec 
+
+### Run 98 on Τετ 04 Ιουν 2025 05:01:01 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,81 msec task-clock                #    0,971 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3212      page-faults               #  271,942 K/sec                  
+          42202352      cycles                    #    3,573 GHz                    
+         108512474      instructions              #    2,57  insn per cycle         
+           7947207      branches                  #  672,845 M/sec                  
+             77281      branch-misses             #    0,97% of all branches        
+         210511915      slots                     #   17,823 G/sec                  
+         113098558      topdown-retiring          #     53,7% retiring              
+          12383053      topdown-bad-spec          #      5,9% bad speculation       
+          33847013      topdown-fe-bound          #     16,1% frontend bound        
+          51183289      topdown-be-bound          #     24,3% backend bound         
+
+       0,012158842 seconds time elapsed
+
+       0,008105000 seconds user
+       0,004052000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006477 sec 
+
+### Run 99 on Τετ 04 Ιουν 2025 05:01:01 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             14,53 msec task-clock                #    0,980 CPUs utilized          
+                 1      context-switches          #   68,809 /sec                   
+                 1      cpu-migrations            #   68,809 /sec                   
+              3212      page-faults               #  221,016 K/sec                  
+          42578057      cycles                    #    2,930 GHz                    
+         109322836      instructions              #    2,57  insn per cycle         
+           8047599      branches                  #  553,750 M/sec                  
+             78991      branch-misses             #    0,98% of all branches        
+         212509935      slots                     #   14,623 G/sec                  
+         114172004      topdown-retiring          #     53,7% retiring              
+          12500584      topdown-bad-spec          #      5,9% bad speculation       
+          32501519      topdown-fe-bound          #     15,3% frontend bound        
+          53335826      topdown-be-bound          #     25,1% backend bound         
+
+       0,014825352 seconds time elapsed
+
+       0,007418000 seconds user
+       0,007418000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.008427 sec 
+
+### Run 100 on Τετ 04 Ιουν 2025 05:01:01 μμ EEST with args: 32 65536
+
+ Performance counter stats for './target/6-openmp-diagonal 32 65536':
+
+             11,79 msec task-clock                #    0,976 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+              3213      page-faults               #  272,554 K/sec                  
+          42044286      cycles                    #    3,567 GHz                    
+         108522090      instructions              #    2,58  insn per cycle         
+           7951204      branches                  #  674,489 M/sec                  
+             77560      branch-misses             #    0,98% of all branches        
+         209784395      slots                     #   17,796 G/sec                  
+         113530378      topdown-retiring          #     54,1% retiring              
+          11517574      topdown-bad-spec          #      5,5% bad speculation       
+          33730039      topdown-fe-bound          #     16,1% frontend bound        
+          51006401      topdown-be-bound          #     24,3% backend bound         
+
+       0,012083449 seconds time elapsed
+
+       0,004023000 seconds user
+       0,008046000 seconds sys
+
+
+execution time of LSAL SW algorithm is 0.006283 sec 

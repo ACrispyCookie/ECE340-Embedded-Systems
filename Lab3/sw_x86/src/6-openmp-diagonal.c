@@ -11,7 +11,6 @@
 #include <unistd.h>
 #include <assert.h>
 #include <stdbool.h>
-#include <omp.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -191,6 +190,7 @@ void printDirectionMatrix(short *direction_matrix, const int N, const int M) {
 
 /* ******************************************************************/
 int main(int argc, char** argv) {
+    clock_t t1, t2;
 	if (argc != 3) {
 		printf("%s <Query Size N> <DataBase Size M>\n", argv[0]);
 		return EXIT_FAILURE;
@@ -216,10 +216,9 @@ int main(int argc, char** argv) {
 	memset(similarity_matrix, 0, sizeof(int) * ((N + 1) * (M + 1)));
 	memset(direction_matrix, 0, sizeof(short) * N * M);
 
-    double start, end;
-    start = omp_get_wtime();
+    t1 = clock();
 	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, N, M);
-	end = omp_get_wtime();
+	t2 = clock();
 
 #ifdef ENABLE_TEST_OUTPUT
 	printSimilarityMatrix(similarity_matrix, query, database, N, M);
@@ -227,7 +226,7 @@ int main(int argc, char** argv) {
 #endif
 
     printf("max index is in position (%ld, %ld) \n", max_index[0]/(N + 1), max_index[0]%(N+1));
-	printf("execution time of LSAL SW algorithm is %f sec \n", end - start);
+	printf("execution time of LSAL SW algorithm is %f sec \n", (double)(t2-t1) / CLOCKS_PER_SEC);
 	
 	free(similarity_matrix);
 	free(direction_matrix);
