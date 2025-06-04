@@ -15,8 +15,6 @@
 #include <sys/stat.h>
 
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
-// static long int cnt_ops=0;
-// static long int cnt_bytes=0;
 
 /************************************************************************/
 
@@ -110,18 +108,12 @@ void printDirectionMatrix(FILE *out, short *direction_matrix, const int N, const
 
 /* ******************************************************************/
 int main(int argc, char** argv) {
-    clock_t t1, t2;
     FILE *out;
-	if (argc != 3) {
-		printf("%s <Query Size N> <DataBase Size M>\n", argv[0]);
-		return EXIT_FAILURE;
-	}
-	fflush(stdout);
 
 	/* Typically, M >> N */
     out = fopen("out.dat","w");
-	long int N = atoi(argv[1]); 
-    long int M = atoi(argv[2]);
+	long int N = 256; 
+    long int M = 15000;
 
     char *query = (char*) malloc(sizeof(char) * N);//"TGTTACGGTAGTGTTACGGTAG";
 	char *database = (char*) malloc(sizeof(char) * M);//"GGTTGACTAGGTTGACTAGGTTGACTA";
@@ -136,9 +128,7 @@ int main(int argc, char** argv) {
 	memset(similarity_matrix, 0, sizeof(int) * ((N + 1) * (M + 1)));
 	memset(direction_matrix, 0, sizeof(short) * N * M);
 
-    t1 = clock();
 	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, N, M);
-	t2 = clock();
 
 	printSimilarityMatrix(out, similarity_matrix, query, database, N, M);
 	printDirectionMatrix(out, direction_matrix, N, M);
