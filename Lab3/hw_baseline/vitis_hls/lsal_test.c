@@ -104,8 +104,8 @@ void fillRandom(char* string, int dimension) {
 /* ******************************************************************/
 int main(int argc, char** argv) {
 	/* Typically, M >> N */
-	long int N = 256; 
-    long int M = 15000;
+	long int N = 32; 
+    long int M = 65536;
 	long int similarity_size = (N + 1) * (M + 1);
 	long int direction_size = N * M;
 

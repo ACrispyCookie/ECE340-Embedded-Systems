@@ -1,3 +1,0 @@
-compute_matrices_control_s_axi
-compute_matrices_gmem_m_axi
-compute_matrices
