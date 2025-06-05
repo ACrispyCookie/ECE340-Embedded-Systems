@@ -15,76 +15,7 @@
 #include <sys/stat.h>
 #include <CL/opencl.h>
 #include <CL/cl_ext.h>
-#define N 32
-#define M 32
-
-const short GAP_i = -1;
-const short GAP_d = -1;
-const short MATCH = 2;
-const short MISS_MATCH = -1;
-const short CENTER = 0;
-const short NORTH = 1;
-const short NORTH_WEST = 2;
-const short WEST = 3;
-
- /***************************************************************************************
-  * This is the golden code which runs in the CPU (and is the same code that you developed for x86 / Arm) 
-  * It will be used to verify the correct functionality of the HW implementation.  
-  * Its usefulness is mainly when you perform software emulation (sw_emu).
-  ***************************************************************************************/
-extern "C" {
-	void compute_matrices_sw (
-		char *string1, char *string2, int *max_index, 
-		int *similarity_matrix, short *direction_matrix
-	)
-	{
-		int i, j;
-		long int index = 0;
-		long int similarity_index = N + 2;
-
-		int north_value = 0;
-		int west_value = 0;
-		int northwest_value = 0;
-		int max_value = 0;
-
-		short match = 0;
-		short direction = 0;
-		*max_index = N + 1;
-
-		for (i = 0; i < M; i++, similarity_index++) {
-			northwest_value = 0;
-			west_value = 0;
-			for (j = 0; j < N; j++, index++, similarity_index++) {
-				match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
-
-				northwest_value += match;
-				north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
-
-				max_value = northwest_value;
-				direction = NORTH_WEST;
-
-				int cond_north = (north_value > max_value);
-				max_value = cond_north ? north_value : max_value;
-				direction = cond_north ? NORTH : direction;
-
-				int cond_west = (west_value > max_value);
-				max_value = cond_west ? west_value : max_value;
-				direction = cond_west ? WEST : direction;
-
-				int cond_zero = (0 >= max_value);
-				max_value = cond_zero ? 0 : max_value;
-				direction = cond_zero ? CENTER : direction;
-
-				similarity_matrix[similarity_index] = max_value;
-				direction_matrix[index] = direction;
-				
-				*max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
-				northwest_value = north_value - GAP_d;
-				west_value = max_value + GAP_i;
-			}
-		}
-	}
-}
+#include "lsal_gold.cpp"
 
 /*
  Given an event, this function returns the kernel execution time in ms
@@ -531,7 +462,7 @@ int main(int argc, char** argv) {
 	for(cl_uint i = 0; i < sim_size; i++){
 		similarity_matrix_sw[i] = 0;
 	}
-	compute_matrices_sw(query, database, max_index_sw, similarity_matrix_sw, direction_matrix_sw);
+	compute_matrices_gold(query, database, max_index_sw, similarity_matrix_sw, direction_matrix_sw);
 
 	printf("both ended\n");
 
@@ -550,9 +481,9 @@ int main(int argc, char** argv) {
 	 * Clean up everything and, then, shutdown 
 	 **************************************************************/
     
-   free(query);
-   free(database);
-   free(similarity_matrix);
+	free(query);
+	free(database);
+	free(similarity_matrix);
 	free(direction_matrix);
 	free(max_index);
 	free(similarity_matrix_sw);
