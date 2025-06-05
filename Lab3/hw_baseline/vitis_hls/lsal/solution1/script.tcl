@@ -6,13 +6,13 @@
 open_project lsal
 set_top compute_matrices
 add_files lsal.c
-add_files -tb correct_out
 add_files -tb lsal_test.c
 open_solution "solution1" -flow_target vitis
 set_part {xc7z020clg484-1}
 create_clock -period 10 -name default
-config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave
 config_rtl -register_reset_num 3
+config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave
+config_compile -pipeline_loops 0
 #source "./lsal/solution1/directives.tcl"
 csim_design
 csynth_design

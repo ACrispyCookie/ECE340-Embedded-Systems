@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'compute_matrices'" level="0">
-<item name = "Date">Wed Jun  4 21:17:18 2025
+<item name = "Date">Thu Jun  5 10:16:35 2025
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">lsal</item>
@@ -36,7 +36,7 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Row">?, ?, ?, -, -, ?, no</column>
-<column name=" + Column">?, ?, 292, 144, 1, ?, yes</column>
+<column name=" + Column">?, ?, 219 ~ 288, -, -, ?, no</column>
 </table>
 </item>
 </section>

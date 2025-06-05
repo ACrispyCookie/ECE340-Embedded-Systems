@@ -4,7 +4,6 @@
     <originFiles name="lsal.c" path="/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal.c"/>
   </source>
   <testbench>
-    <originFiles name="correct_out" path="/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/correct_out"/>
     <originFiles name="lsal_test.c" path="/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal_test.c"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

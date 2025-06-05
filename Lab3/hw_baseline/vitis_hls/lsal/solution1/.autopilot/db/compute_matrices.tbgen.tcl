@@ -201,7 +201,7 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	compute_matrices {
-		gmem {Type IO LastRead 368 FirstWrite 2}
+		gmem {Type IO LastRead 364 FirstWrite 2}
 		string1 {Type I LastRead 70 FirstWrite -1}
 		string2 {Type I LastRead 70 FirstWrite -1}
 		max_index {Type I LastRead 0 FirstWrite -1}
@@ -218,7 +218,6 @@ set PerformanceInfo {[
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 

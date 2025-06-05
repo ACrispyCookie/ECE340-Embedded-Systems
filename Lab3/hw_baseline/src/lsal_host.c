@@ -164,7 +164,7 @@ int main(int argc, char** argv) {
 	printf("starting HOST code \n");
 	fflush(stdout);
 	int err;                            // error code returned from api calls
-	cl_uint matrix_size;
+	cl_uint sim_size, direction_size;
 
     if (argc != 4) {
 		printf("%s <input xclbin file> <Query Size N> <DataBase Size M>\n", argv[0]);
@@ -178,12 +178,14 @@ int main(int argc, char** argv) {
 		return EXIT_FAILURE;
 	}
 
-    matrix_size = N*M;
+    sim_size = (N + 1) * (M + 1);
+	dir_size = N * M;
+
 
 	char *query = (char*) malloc(sizeof(char) * N);
 	char *database = (char*) malloc(sizeof(char) * M);
-	int *similarity_matrix = (int*) malloc(sizeof(int) * matrix_size);
-	short *direction_matrix = (short*) malloc(sizeof(short) * matrix_size);
+	int *similarity_matrix = (int*) malloc(sizeof(int) * sim_size);
+	short *direction_matrix = (short*) malloc(sizeof(short) * dir_size);
 	int *max_index = (int *) malloc(sizeof(int));
 
 	printf("array defined! \n");
@@ -208,8 +210,8 @@ int main(int argc, char** argv) {
 	fillRandom(query, N);
 	fillRandom(database, M);
 
-	memset(similarity_matrix, 0, sizeof(int) * matrix_size);
-	memset(direction_matrix, 0, sizeof(short) * matrix_size);
+	memset(similarity_matrix, 0, sizeof(int) * sim_size);
+	memset(direction_matrix, 0, sizeof(short) * dir_size);
 
 /**********************************************
  * 			Xilinx OpenCL Initialization
@@ -367,9 +369,9 @@ int main(int argc, char** argv) {
 	input_database = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(char) * M,
 	NULL, NULL);
 	output_similarity_matrix = clCreateBuffer(context, CL_MEM_READ_WRITE,
-			sizeof(int) * M * N, NULL, NULL);
+			sizeof(int) * sim_size, NULL, NULL);
 	output_direction_matrix = clCreateBuffer(context, CL_MEM_READ_WRITE,
-			sizeof(short) * M * N, NULL, NULL);
+			sizeof(short) * dir_size, NULL, NULL);
 	output_max_index = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof(int),
 	NULL, NULL);
 
@@ -400,7 +402,7 @@ int main(int argc, char** argv) {
 	}
 
 	err = clEnqueueWriteBuffer(commands, output_similarity_matrix, CL_TRUE, 0,
-			sizeof(int) * matrix_size, similarity_matrix, 0, NULL, NULL);
+			sizeof(int) * sim_size, similarity_matrix, 0, NULL, NULL);
 	if (err != CL_SUCCESS) {
 		printf("Error: Failed to write to source array a!\n");
 		printf("Test failed\n");
@@ -408,7 +410,7 @@ int main(int argc, char** argv) {
 	}
 
 	err = clEnqueueWriteBuffer(commands, output_direction_matrix, CL_TRUE, 0,
-				sizeof(short) * matrix_size, direction_matrix, 0, NULL, NULL);
+				sizeof(short) * dir_size, direction_matrix, 0, NULL, NULL);
 		if (err != CL_SUCCESS) {
 			printf("Error: Failed to write to source array a!\n");
 			printf("Test failed\n");
@@ -492,7 +494,7 @@ int main(int argc, char** argv) {
 	 **************************************************************/
 	cl_event readMax, readSimilarity, readDirections;
 	err = clEnqueueReadBuffer(commands, output_similarity_matrix, CL_TRUE, 0,
-			sizeof(int) * N * M, similarity_matrix, 0, NULL, &readSimilarity);
+			sizeof(int) * sim_size, similarity_matrix, 0, NULL, &readSimilarity);
 	if (err != CL_SUCCESS) {
 		printf("Error: Failed to read array! %d\n", err);
 		printf("Test failed\n");
@@ -500,7 +502,7 @@ int main(int argc, char** argv) {
 	}
 
 	err = clEnqueueReadBuffer(commands, output_direction_matrix, CL_TRUE, 0,
-			sizeof(short) * N * M, direction_matrix, 0, NULL,
+			sizeof(short) * dir_size, direction_matrix, 0, NULL,
 			&readDirections);
 	if (err != CL_SUCCESS) {
 		printf("Error: Failed to read array! %d\n", err);
@@ -535,13 +537,13 @@ int main(int argc, char** argv) {
  * Run the same algorithm in the Host Unit and compare for verification
  **************************************************************/
 	int * similarity_matrix_sw = ( int *) malloc(
-			sizeof( int) * matrix_size);
+			sizeof( int) * sim_size);
 	short * direction_matrix_sw = ( short*) malloc(
-			sizeof( short) * matrix_size);
+			sizeof( short) * dir_size);
 	int * max_index_sw = ( int *) malloc(
 				sizeof( int));
 
-	for(cl_uint i = 0; i < matrix_size; i++){
+	for(cl_uint i = 0; i < sim_size; i++){
 		similarity_matrix_sw[i] = 0;
 	}
 	compute_matrices_sw(query, database, max_index_sw, similarity_matrix_sw, direction_matrix_sw, N, M);
@@ -549,7 +551,7 @@ int main(int argc, char** argv) {
 	printf("both ended\n");
 
 	printf(" execution time is %lf ms \n", executionTime);
-	for (int i = 0; i < matrix_size; i++) {
+	for (int i = 0; i < dir_size; i++) {
 		if (direction_matrix_sw[i] != direction_matrix[i]) {
 			printf("Error, mismatch in the results, i + %d, SW: %d, HW %d \n",
 					i, direction_matrix_sw[i], direction_matrix[i]);

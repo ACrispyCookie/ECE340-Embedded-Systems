@@ -45,12 +45,12 @@ set TargetInfo xc7z020:-clg484:-1
 set SourceFiles {sc {} c ../../lsal.c}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal/solution1/solution1.directive
-set TBFiles {verilog {../../lsal_test.c ../../correct_out} bc {../../lsal_test.c ../../correct_out} sc {../../lsal_test.c ../../correct_out} vhdl {../../lsal_test.c ../../correct_out} c {} cas {../../lsal_test.c ../../correct_out}}
+set TBFiles {verilog ../../lsal_test.c bc ../../lsal_test.c vhdl ../../lsal_test.c sc ../../lsal_test.c cas ../../lsal_test.c c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
-set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}

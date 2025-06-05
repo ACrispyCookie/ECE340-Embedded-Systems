@@ -47,11 +47,6 @@
 			<location>/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal.c</location>
 		</link>
 		<link>
-			<name>testbench/correct_out</name>
-			<type>1</type>
-			<location>/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/correct_out</location>
-		</link>
-		<link>
 			<name>testbench/lsal_test.c</name>
 			<type>1</type>
 			<location>/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal_test.c</location>
