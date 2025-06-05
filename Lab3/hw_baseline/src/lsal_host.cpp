@@ -467,7 +467,7 @@ int main(int argc, char** argv) {
 	printf("both ended\n");
 
 	printf(" execution time is %lf ms \n", executionTime);
-	for (int i = 0; i < dir_size; i++) {
+	for (cl_uint i = 0; i < dir_size; i++) {
 		if (direction_matrix_sw[i] != direction_matrix[i]) {
 			printf("Error, mismatch in the results, i + %d, SW: %d, HW %d \n",
 					i, direction_matrix_sw[i], direction_matrix[i]);
