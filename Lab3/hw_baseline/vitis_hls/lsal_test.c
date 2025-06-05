@@ -15,10 +15,12 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_d -1
 #define MATCH 2
 #define MISS_MATCH -1
+#define N 32
+#define M 32
 
 void compute_matrices_gold(
 	const char *string1, const char *string2,
-	int *max_index, int *similarity_matrix, short *direction_matrix, const int N, const int M)
+	int *max_index, int *similarity_matrix, short *direction_matrix)
 {
     int i, j;
     long int index = 0;
@@ -104,8 +106,6 @@ void fillRandom(char* string, int dimension) {
 /* ******************************************************************/
 int main(int argc, char** argv) {
 	/* Typically, M >> N */
-	long int N = 32; 
-    long int M = 65536;
 	long int similarity_size = (N + 1) * (M + 1);
 	long int direction_size = N * M;
 
@@ -127,8 +127,8 @@ int main(int argc, char** argv) {
 	memset(direction_matrix, 0, sizeof(short) * N * M);
 	memset(direction_matrix_gold, 0, sizeof(short) * N * M);
 
-	compute_matrices_gold(query, database, max_index_gold, similarity_matrix_gold, direction_matrix_gold, N, M);
-	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix, N, M);
+	compute_matrices_gold(query, database, max_index_gold, similarity_matrix_gold, direction_matrix_gold);
+	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix);
     
     printf ("Comparing against gold version \n");
 	int fail_sim = 0, fail_dir = 0, fail_max = 0, i = 0;

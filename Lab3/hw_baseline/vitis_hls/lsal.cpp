@@ -4,7 +4,7 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define MATCH 2
 #define MISS_MATCH -1
 #define N 32
-#define M 65536
+#define M 32
 
 /**********************************************************************************************
  * LSAL algorithm
@@ -41,7 +41,7 @@ extern "C" {
 		// Scan the N*M array row-wise starting from the second row.
 
 		Row: for (i = 0; i < M; i++) {
-#pragma HLS PIPELINE II=1
+//#pragma HLS PIPELINE II=1
 			index = i * N;
 			similarity_index = index + N + i + 2;
 			Column: for (j = 0; j < N; j++, index++, similarity_index++) {
