@@ -1,0 +1,52 @@
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'jason' on host 'jason-XPS-13-7390-2-in-1' (Linux_x86_64 version 5.15.0-139-generic) on Thu Jun 05 11:20:11 EEST 2025
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls'
+Sourcing Tcl script '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal/solution1/csim.tcl'
+INFO: [HLS 200-1510] Running: open_project lsal 
+INFO: [HLS 200-10] Opening project '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal'.
+INFO: [HLS 200-1510] Running: set_top compute_matrices 
+INFO: [HLS 200-1510] Running: add_files lsal.cpp 
+INFO: [HLS 200-10] Adding design file 'lsal.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb lsal_test.c 
+INFO: [HLS 200-10] Adding test bench file 'lsal_test.c' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vitis 
+INFO: [HLS 200-10] Opening solution '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_offset=slave
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_compile -pipeline_loops=0
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
+INFO: [HLS 200-1510] Running: set_part xc7z020clg484-1 
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: config_compile -pipeline_loops 0 
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../lsal_test.c in debug mode
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'jason' on host 'jason-XPS-13-7390-2-in-1' (Linux_x86_64 version 5.15.0-139-generic) on Thu Jun 05 11:20:15 EEST 2025
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_jason/1382911749111615483182
+INFO: [APCC 202-1] APCC is done.
+   Compiling ../../../../lsal.cpp in debug mode
+   Generating csim.exe
+Comparing against gold version 
+*******************************************
+PASS: The output matches the golden output!
+*******************************************
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 9.64 seconds. CPU system time: 0.45 seconds. Elapsed time: 9.61 seconds; current allocated memory: 191.736 MB.
