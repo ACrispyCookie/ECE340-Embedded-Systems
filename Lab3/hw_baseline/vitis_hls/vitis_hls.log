@@ -1,0 +1,104 @@
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'jason' on host 'jason-XPS-13-7390-2-in-1' (Linux_x86_64 version 5.15.0-139-generic) on Wed Jun 04 21:17:10 EEST 2025
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls'
+Sourcing Tcl script '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: open_project lsal 
+INFO: [HLS 200-10] Opening project '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal'.
+INFO: [HLS 200-1510] Running: set_top compute_matrices 
+INFO: [HLS 200-1510] Running: add_files lsal.c 
+INFO: [HLS 200-10] Adding design file 'lsal.c' to the project
+INFO: [HLS 200-1510] Running: add_files -tb correct_out 
+INFO: [HLS 200-10] Adding test bench file 'correct_out' to the project
+INFO: [HLS 200-1510] Running: add_files -tb lsal_test.c 
+INFO: [HLS 200-10] Adding test bench file 'lsal_test.c' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vitis 
+INFO: [HLS 200-10] Opening solution '/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xc7z020clg484-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 191.622 MB.
+INFO: [HLS 200-10] Analyzing design file 'lsal.c' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.35 seconds. CPU system time: 0.12 seconds. Elapsed time: 0.23 seconds; current allocated memory: 191.953 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-115] Multiple burst reads of length 2 and bit width 32 has been inferred on port 'gmem' (lsal.c:49:22)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.13 seconds. CPU system time: 0.24 seconds. Elapsed time: 3.15 seconds; current allocated memory: 194.519 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 194.520 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 195.943 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 195.121 MB.
+INFO: [XFORM 203-510] Pipelining loop 'Column' (lsal.c:24) in function 'compute_matrices' automatically.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 215.822 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'Row' (lsal.c:25:9) in function 'compute_matrices' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 209.113 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'compute_matrices' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_matrices' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Column'.
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation ('empty_write_ln71', lsal.c:71) of variable 'trunc_ln71', lsal.c:71 on local variable 'empty' and 'load' operation ('p_load', lsal.c:70) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation ('empty_write_ln71', lsal.c:71) of variable 'trunc_ln71', lsal.c:71 on local variable 'empty' and 'load' operation ('p_load', lsal.c:70) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation ('empty_write_ln71', lsal.c:71) of variable 'trunc_ln71', lsal.c:71 on local variable 'empty' and 'load' operation ('p_load', lsal.c:70) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0) between 'store' operation ('empty_write_ln71', lsal.c:71) of variable 'trunc_ln71', lsal.c:71 on local variable 'empty' and 'load' operation ('p_load', lsal.c:70) on local variable 'empty'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1) between bus read on port 'gmem' (lsal.c:70) and bus request on port 'gmem' (lsal.c:68).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 137, distance = 1, offset = 1) between bus read on port 'gmem' (lsal.c:70) and bus request on port 'gmem' (lsal.c:68).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'compute_matrices' (loop 'Column'): Unable to enforce a carried dependence constraint (II = 141, distance = 1, offset = 1) between bus read on port 'gmem' (lsal.c:70) and bus request on port 'gmem' (lsal.c:68).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-885] Unable to schedule bus read on port 'gmem' (lsal.c:51) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 144, Depth = 292, loop 'Column'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.58 seconds. CPU system time: 0 seconds. Elapsed time: 0.59 seconds; current allocated memory: 211.009 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.48 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.49 seconds; current allocated memory: 214.010 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'compute_matrices' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/string1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/string2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/max_index' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/similarity_matrix' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/direction_matrix' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/N' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'compute_matrices/M' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'compute_matrices' to 's_axilite & ap_ctrl_chain'.
+INFO: [RTGEN 206-100] Bundling port 'string1', 'string2', 'max_index', 'similarity_matrix', 'direction_matrix', 'N', 'M' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_matrices'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.45 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.46 seconds; current allocated memory: 218.803 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.99 seconds. CPU system time: 0.05 seconds. Elapsed time: 2.05 seconds; current allocated memory: 231.439 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for compute_matrices.
+INFO: [VLOG 209-307] Generating Verilog RTL for compute_matrices.
+INFO: [HLS 200-1603] Design has MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 8.49 seconds. CPU system time: 0.45 seconds. Elapsed time: 8.49 seconds; current allocated memory: 231.995 MB.
+INFO: [HLS 200-112] Total CPU user time: 11.06 seconds. Total CPU system time: 0.9 seconds. Total elapsed time: 10.39 seconds; peak allocated memory: 231.439 MB.
