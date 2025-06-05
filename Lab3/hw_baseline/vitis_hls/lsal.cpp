@@ -40,10 +40,11 @@ extern "C" {
 		//Here the real computation starts. Place your code whenever is required. 
 		// Scan the N*M array row-wise starting from the second row.
 
-		for (i = 0; i < M; i++) {
+		Row: for (i = 0; i < M; i++) {
+#pragma HLS PIPELINE II=1
 			index = i * N;
 			similarity_index = index + N + i + 2;
-			for (j = 0; j < N; j++, index++, similarity_index++) {
+			Column: for (j = 0; j < N; j++, index++, similarity_index++) {
 				max_value = 0;
 				direction = CENTER;
 
