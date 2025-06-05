@@ -6,8 +6,8 @@
         <DownStreamTool name="vivado"/>
     </downStreamTool>
     <config>
-        <config_compile pipeline_loops="0" complex-mul-dsp="0"/>
-        <config_interface m_axi_latency="64" m_axi_alignment_byte_size="64" m_axi_max_widen_bitwidth="512" default_interface="kernel" m_axi_offset="slave"/>
+        <config_compile complex-mul-dsp="0" pipeline_loops="0"/>
+        <config_interface default_interface="kernel" m_axi_alignment_byte_size="64" m_axi_latency="64" m_axi_max_widen_bitwidth="512" m_axi_offset="slave"/>
         <config_rtl register_reset_num="3"/>
     </config>
     <UIConfigurations>

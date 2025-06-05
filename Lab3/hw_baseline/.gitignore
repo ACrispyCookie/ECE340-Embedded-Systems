@@ -1,0 +1,9 @@
+_x*/
+.Xil/
+build_dir.sw_emu.zedboard_202020_1/
+package.sw_emu/
+vitis_hls/lsal/solution1/.*/
+lsal
+lsal.xclbin
+lsal.xclbin.package_summary
+*.log

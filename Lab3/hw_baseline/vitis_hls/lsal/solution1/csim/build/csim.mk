@@ -20,7 +20,7 @@ HLS_SOURCES = ../../../../lsal_test.c ../../../../lsal.cpp
 
 override TARGET := csim.exe
 
-AUTOPILOT_ROOT := /tools/Xilinx/Vitis_HLS/2020.2
+AUTOPILOT_ROOT := /opt/Xilinx/Vitis_HLS/2020.2
 AUTOPILOT_MACH := lnx64
 ifdef AP_GCC_M32
   AUTOPILOT_MACH := Linux_x86
@@ -28,7 +28,7 @@ ifdef AP_GCC_M32
 endif
 IFLAG += -fPIC
 ifndef AP_GCC_PATH
-  AP_GCC_PATH := /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/bin
+  AP_GCC_PATH := /opt/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/bin
 endif
 AUTOPILOT_TOOL := ${AUTOPILOT_ROOT}/${AUTOPILOT_MACH}/tools
 AP_CLANG_PATH := ${AUTOPILOT_TOOL}/clang-3.9/bin
@@ -42,7 +42,6 @@ IFLAG += -I "${AUTOPILOT_TECH}/generic/SystemC"
 IFLAG += -I "${AUTOPILOT_TECH}/generic/SystemC/AESL_FP_comp"
 IFLAG += -I "${AUTOPILOT_TECH}/generic/SystemC/AESL_comp"
 IFLAG += -I "${AUTOPILOT_TOOL}/auto_cc/include"
-IFLAG += -I "/usr/include/x86_64-linux-gnu"
 IFLAG += -D__VITIS_HLS__
 
 IFLAG += -D__SIM_FPO__

@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="compute_matrices" name="lsal">
+<project xmlns="com.autoesl.autopilot.project" name="lsal" top="compute_matrices">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
