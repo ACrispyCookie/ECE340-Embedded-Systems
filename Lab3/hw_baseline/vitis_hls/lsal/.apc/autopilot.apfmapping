@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="lsal.cpp" path="/home/inf2022/ptsogkas/Desktop/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal.cpp"/>
+    <originFiles name="lsal.cpp" path="/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal.cpp"/>
   </source>
   <testbench>
-    <originFiles name="lsal_test.c" path="/home/inf2022/ptsogkas/Desktop/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal_test.c"/>
+    <originFiles name="lsal_test.c" path="/home/jason/ownCloud/ECE-Uth/University-shared/ECE340/Lab3/hw_baseline/vitis_hls/lsal_test.c"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>
