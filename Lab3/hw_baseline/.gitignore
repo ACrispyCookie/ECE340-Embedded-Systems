@@ -8,4 +8,5 @@ vitis_hls/lsal/
 lsal
 lsal.xclbin
 lsal.xclbin.package_summary
+run_app.sh
 *.log
