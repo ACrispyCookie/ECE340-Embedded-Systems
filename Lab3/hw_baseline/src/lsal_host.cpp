@@ -15,9 +15,8 @@
 #include <sys/stat.h>
 #include <CL/opencl.h>
 #include <CL/cl_ext.h>
-
-// #define N 256
-// #define M 2048
+#define N 32
+#define M 32
 
 const short GAP_i = -1;
 const short GAP_d = -1;
@@ -34,9 +33,10 @@ const short WEST = 3;
   * Its usefulness is mainly when you perform software emulation (sw_emu).
   ***************************************************************************************/
 extern "C" {
-	void compute_matrices_sw(
-		char *string1, char *string2,
-		int *max_index, int *similarity_matrix, short *direction_matrix, int N, int M)
+	void compute_matrices_sw (
+		char *string1, char *string2, int *max_index, 
+		int *similarity_matrix, short *direction_matrix
+	)
 	{
 		int i, j;
 		long int index = 0;
@@ -173,8 +173,8 @@ int main(int argc, char** argv) {
 		return EXIT_FAILURE;
 	}
 	
-    cl_uint N = atoi(argv[2]); 
-    cl_uint M = atoi(argv[3]);
+    // cl_uint N = atoi(argv[2]); 
+    // cl_uint M = atoi(argv[3]);
     if (N <= 0 || M <= 0) {
     	printf("N and M should be positive numbers. \n");
 		return EXIT_FAILURE;
@@ -459,23 +459,6 @@ int main(int argc, char** argv) {
 		printf("Test failed\n");
 		return EXIT_FAILURE;
 	}
-	printf("set arg 5 \n");
-	err |= clSetKernelArg(kernel, 5, sizeof(cl_uint),
-			&N);
-	if (err != CL_SUCCESS) {
-		printf("Error: Failed to set kernel arguments 5! %d\n", err);
-		printf("Test failed\n");
-		return EXIT_FAILURE;
-	}
-	printf("set arg 6 \n");
-	err |= clSetKernelArg(kernel, 6, sizeof(cl_uint),
-			&M);
-	if (err != CL_SUCCESS) {
-		printf("Error: Failed to set kernel arguments 6! %d\n", err);
-		printf("Test failed\n");
-		return EXIT_FAILURE;
-	}
-
 	
 	/**************************************************************
 	 * Step 10: Place the Kernel in the Queue for Execution
@@ -548,7 +531,7 @@ int main(int argc, char** argv) {
 	for(cl_uint i = 0; i < sim_size; i++){
 		similarity_matrix_sw[i] = 0;
 	}
-	compute_matrices_sw(query, database, max_index_sw, similarity_matrix_sw, direction_matrix_sw, N, M);
+	compute_matrices_sw(query, database, max_index_sw, similarity_matrix_sw, direction_matrix_sw);
 
 	printf("both ended\n");
 

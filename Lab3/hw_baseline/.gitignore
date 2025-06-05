@@ -1,5 +1,7 @@
 _x*/
+.ipcache/
 .Xil/
+build_dir.hw.zedboard_202020_1/
 build_dir.sw_emu.zedboard_202020_1/
 package.sw_emu/
 vitis_hls/lsal/
