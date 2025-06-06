@@ -1,4 +1,5 @@
 #include "lsal.h"
+#include <string.h>
 
 /**********************************************************************************************
  * LSAL algorithm
@@ -15,40 +16,40 @@ void compute_matrices(
 	const char *string1, const char *string2,
 	int *max_index, short *direction_matrix)
 {
-	int i, j, k;
+	int diag, row, k;
 	int max_index_temp = 0;
-	int max_index_buf = 0;
+	int max_index_buf = 0, new_val = 0;
 	int cond_north, cond_west, cond_zero;
+	int diagNum = M + MAX_DIAG_LEN;
 
 	// These are offsets for the diagonals these will round robin.
-	int prev_prev_idx = 0, prev_idx = max_diag_length + 2, cur_idx = (max_diag_length << 1) + 3;
+	int prev_prev_idx = 1, swap_idx = 0, prev_idx = MAX_DIAG_LEN + 2, cur_idx = (MAX_DIAG_LEN << 1) + 3;
 
 	// This needs complete partitioning
-	int diagonals[3 * (MAX_DIAG_LEN + 1)];
-	int diag_max_val_buf[MAX_DIAG_LEN];
-	int database_offset = 0;
+	int diagonals[3 * MAX_DIAG_LEN + 3];
+	int diag_max_val_buf[MAX_DIAG_LEN] = {0};
+	short direction_buf[MAX_DIAG_LEN];
 
-	char query_buf[MEMCPY_CHAR_BW];
-	char database_buf[MEMCPY_CHAR_BW];
+	// char query_buf[MEMCPY_CHAR_BW];
+	// char database_buf[MEMCPY_CHAR_BW];
 
     int north_value = 0, west_value = 0, northwest_value = 0;
 	int max_value = 0;
 
 	short match = 0, direction = 0;
-	*max_index = N + 1;
+	*max_index = 0;
 
-	// THESE FOR LOOPS ARE DOGSHIT WE NEED THE DIAGONAL ONES + PADDING ACCOUNTED FOR
-	for (i = 0; i < M + MAX_DIAG_LEN; i++) {
+	// memcpy(database_buf, &string2[MAX_DIAG_LEN - i*], MIN(MEMCPY_CHAR_BW >> 1, M)); // TODO string need padding.
+	// memcpy(query_buf, string1, MEMCPY_CHAR_BW >> 1);
+
+	for (diag = 0; diag < diagNum + 1; ++diag) {
 		// The BW >> 1 allows for II = 1. Else we need more AXI channels.
-		// memcpy(database_buf, &string2[MAX_DIAG_LEN - i*], MIN(MEMCPY_CHAR_BW >> 1, M)); // TODO string need padding.
-		for (j = 0; j < N; j++) {
-			//memcpy(query_buf, string1, MEMCPY_CHAR_BW >> 1);
+		for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
+			match = (string1[row] == string2[diag]) ? MATCH : MISS_MATCH;
 
-			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
-
-			west_value = diagonals[prev_idx + j] + GAP_i;
-			north_value = diagonals[prev_idx + j + 1] + GAP_d;
-			northwest_value = diagonals[prev_prev_idx + j] + match;
+			north_value = diagonals[prev_idx + row] + GAP_i;
+			west_value = diagonals[prev_idx + row + 1] + GAP_d;
+			northwest_value = diagonals[prev_prev_idx + row] + match;
 
 			max_value = northwest_value;
 			direction = NORTH_WEST;
@@ -65,18 +66,33 @@ void compute_matrices(
 			max_value = cond_zero ? 0 : max_value;
 			direction = cond_zero ? CENTER : direction;
 
-			diagonals[cur_idx + j] = max_value;
-			diag_max_val_buf[j] = (i - MAX_DIAG_LEN) + j * N;
+			diagonals[cur_idx + row] = max_value;
+			
+			diag_max_val_buf[row] = diag + row * MAX_DIAG_LEN;
+			direction_buf[row] = direction;
 		}
-		max_index_temp = -1;
-		for (k = 0; k < MAX_DIAG_LEN; k++) {
+
+		// Find new max index
+		for (k = 0, max_index_temp = -1; k < MAX_DIAG_LEN; k++) {
 			new_val = diag_max_val_buf[k];
 			if (max_value < new_val) {
 				max_value = new_val;
 				max_index_temp = k;
 			}
 		}
-		// if (max_index_temp != -1) max_index_buf = ...;
+
+		// if might be better here because of *
+		if (max_index_temp != -1) *max_index = (diag - max_index_temp) + max_index_temp * MAX_DIAG_LEN;
+
+		// Move diagonal indexes sequence.
+		swap_idx = prev_prev_idx;
+		prev_prev_idx = prev_idx;
+		prev_idx = cur_idx;
+		cur_idx = swap_idx;
+
+		// Set directional matrix (in RAM)
+		// This need reshaping maybe
+		memcpy(&direction_matrix[diag * MAX_DIAG_LEN], direction_buf, MAX_DIAG_LEN);
 	}
 }
 
