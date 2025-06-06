@@ -10,63 +10,73 @@
  *           max_index is the location of the highest similiarity score 
  *           similarity and direction matrices. Note that these two matrices are initialized with zeros.
  **********************************************************************************************/
-extern "C" {
-	void compute_matrices(
-		const char *string1, const char *string2,
-		int *max_index, int *similarity_matrix, short *direction_matrix)
-	{
 
-		int index = 0;
-		int similarity_index = 0;
-		int i = 0;
-		int j = 0;
+void compute_matrices(
+	const char *string1, const char *string2,
+	int *max_index, short *direction_matrix)
+{
+	int i, j, k;
+	int max_index_temp = 0;
+	int max_index_buf = 0;
+	int cond_north, cond_west, cond_zero;
 
-		// Following values are used for the N, W, and NW values wrt. similarity_matrix[i]
-		int north_value = 0;
-		int west_value = 0;
-		int northwest_value = 0;
-		int max_value = 0;
+	// These are offsets for the diagonals these will round robin.
+	int prev_prev_idx = 0, prev_idx = max_diag_length + 2, cur_idx = (max_diag_length << 1) + 3;
 
-		short match;
-		short direction;
-		*max_index = N + 1;
+	// This needs complete partitioning
+	int diagonals[3 * (MAX_DIAG_LEN + 1)];
+	int diag_max_val_buf[MAX_DIAG_LEN];
+	int database_offset = 0;
 
-		//Here the real computation starts. Place your code whenever is required. 
-		// Scan the N*M array row-wise starting from the second row.
+	char query_buf[MEMCPY_CHAR_BW];
+	char database_buf[MEMCPY_CHAR_BW];
 
-		Row: for (i = 0; i < M; i++) {
-//#pragma HLS PIPELINE II=1
-			index = i * N;
-			similarity_index = index + N + i + 2;
-			Column: for (j = 0; j < N; j++, index++, similarity_index++) {
-				max_value = 0;
-				direction = CENTER;
+    int north_value = 0, west_value = 0, northwest_value = 0;
+	int max_value = 0;
 
-				match = string1[j] == string2[i] ? MATCH : MISS_MATCH;
-				northwest_value = similarity_matrix[similarity_index - N - 2] + match;
-				north_value = similarity_matrix[similarity_index - N - 1] + GAP_d;
-				west_value = similarity_matrix[similarity_index - 1] + GAP_i;
+	short match = 0, direction = 0;
+	*max_index = N + 1;
 
-				if (northwest_value > max_value) {
-					max_value = northwest_value;
-					direction = NORTH_WEST;
-				}
+	// THESE FOR LOOPS ARE DOGSHIT WE NEED THE DIAGONAL ONES + PADDING ACCOUNTED FOR
+	for (i = 0; i < M + MAX_DIAG_LEN; i++) {
+		// The BW >> 1 allows for II = 1. Else we need more AXI channels.
+		// memcpy(database_buf, &string2[MAX_DIAG_LEN - i*], MIN(MEMCPY_CHAR_BW >> 1, M)); // TODO string need padding.
+		for (j = 0; j < N; j++) {
+			//memcpy(query_buf, string1, MEMCPY_CHAR_BW >> 1);
 
-				if (north_value > max_value) {
-					max_value = north_value;
-					direction = NORTH;
-				}
+			match = (string1[j] == string2[i]) ? MATCH : MISS_MATCH;
 
-				if (west_value > max_value) {
-					max_value = west_value;
-					direction = WEST;
-				}
+			west_value = diagonals[prev_idx + j] + GAP_i;
+			north_value = diagonals[prev_idx + j + 1] + GAP_d;
+			northwest_value = diagonals[prev_prev_idx + j] + match;
 
-				similarity_matrix[similarity_index] = max_value;
-				direction_matrix[index] = direction;
-				if (max_value > similarity_matrix[*max_index])
-					*max_index = similarity_index;
+			max_value = northwest_value;
+			direction = NORTH_WEST;
+
+			cond_north = (north_value > max_value);
+			max_value = cond_north ? north_value : max_value;
+			direction = cond_north ? NORTH : direction;
+
+			cond_west = (west_value > max_value);
+			max_value = cond_west ? west_value : max_value;
+			direction = cond_west ? WEST : direction;
+
+			cond_zero = (0 >= max_value);
+			max_value = cond_zero ? 0 : max_value;
+			direction = cond_zero ? CENTER : direction;
+
+			diagonals[cur_idx + j] = max_value;
+			diag_max_val_buf[j] = (i - MAX_DIAG_LEN) + j * N;
+		}
+		max_index_temp = -1;
+		for (k = 0; k < MAX_DIAG_LEN; k++) {
+			new_val = diag_max_val_buf[k];
+			if (max_value < new_val) {
+				max_value = new_val;
+				max_index_temp = k;
 			}
 		}
-	}  // end of function
+		// if (max_index_temp != -1) max_index_buf = ...;
+	}
 }
+
