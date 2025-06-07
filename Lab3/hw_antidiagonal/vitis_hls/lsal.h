@@ -1,5 +1,5 @@
-#define N 32
-#define M 65536
+#define N 5
+#define M 6
 #define PADDED_M (M + 2 * (N - 1))
 
 typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
