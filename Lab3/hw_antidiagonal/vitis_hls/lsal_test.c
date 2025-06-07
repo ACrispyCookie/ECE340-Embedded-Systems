@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
 	memset(direction_matrix_gold, 0, sizeof(short) * N * M);
 
 	compute_matrices_gold(query, database, max_index_gold, similarity_matrix_gold, direction_matrix_gold);
-	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix);
+	compute_matrices(query, database, max_index, direction_matrix);
     
     printf ("Comparing against gold version \n");
 	int fail_sim = 0, fail_dir = 0, fail_max = 0, i = 0;

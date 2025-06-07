@@ -1,5 +1,6 @@
 #include "lsal.h"
 #include <string.h>
+#include <ap_int.h>
 
 /**********************************************************************************************
  * LSAL algorithm
@@ -20,18 +21,27 @@ void compute_matrices(
 	int max_index_temp = 0;
 	int max_index_buf = 0, new_val = 0;
 	int cond_north, cond_west, cond_zero;
-	int diagNum = M + MAX_DIAG_LEN;
+	int diagNum = M + MAX_DIAG_LEN - 1;
 
 	// These are offsets for the diagonals these will round robin.
 	int prev_prev_idx = 1, swap_idx = 0, prev_idx = MAX_DIAG_LEN + 2, cur_idx = (MAX_DIAG_LEN << 1) + 3;
-
+	
 	// This needs complete partitioning
-	int diagonals[3 * MAX_DIAG_LEN + 3];
-	int diag_max_val_buf[MAX_DIAG_LEN] = {0};
+	int diagonals[DIAG_ARRAY_LEN];
+	#pragma HLS ARRAY_PARTITION variable=diagonals dim=1 factor=16 cyclic
+
+	int diag_max_val_buf[MAX_DIAG_LEN];
 	short direction_buf[MAX_DIAG_LEN];
 
-	// char query_buf[MEMCPY_CHAR_BW];
-	// char database_buf[MEMCPY_CHAR_BW];
+	//#pragma HLS ARRAY_PARTITION variable=diag_max_val_buf dim=1 complete
+	//#pragma HLS ARRAY_PARTITION variable=direction_buf dim=1 complete
+
+
+	char query_buf[MAX_DIAG_LEN];
+	char database_buf[((MAX_DIAG_LEN - 1) << 1) + M];
+
+	//#pragma HLS ARRAY_RESHAPE variable=query_buf dim=1 factor=4 block
+	//#pragma HLS ARRAY_RESHAPE variable=database_buf dim=1 factor=4 block
 
     int north_value = 0, west_value = 0, northwest_value = 0;
 	int max_value = 0;
@@ -39,13 +49,13 @@ void compute_matrices(
 	short match = 0, direction = 0;
 	*max_index = 0;
 
-	// memcpy(database_buf, &string2[MAX_DIAG_LEN - i*], MIN(MEMCPY_CHAR_BW >> 1, M)); // TODO string need padding.
-	// memcpy(query_buf, string1, MEMCPY_CHAR_BW >> 1);
+	memcpy(query_buf, string1, MAX_DIAG_LEN);
+	memcpy(database_buf, string2, ((MAX_DIAG_LEN - 1) << 1) + M);
 
-	for (diag = 0; diag < diagNum + 1; ++diag) {
-		// The BW >> 1 allows for II = 1. Else we need more AXI channels.
-		for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
-			match = (string1[row] == string2[diag]) ? MATCH : MISS_MATCH;
+	Diagonals: for (diag = 0; diag < diagNum + 1; ++diag) {
+	#pragma HLS PIPELINE II=1
+		Rows: for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
+			match = (query_buf[row] == database_buf[diag]) ? MATCH : MISS_MATCH;
 
 			north_value = diagonals[prev_idx + row] + GAP_i;
 			west_value = diagonals[prev_idx + row + 1] + GAP_d;
@@ -73,7 +83,7 @@ void compute_matrices(
 		}
 
 		// Find new max index
-		for (k = 0, max_index_temp = -1; k < MAX_DIAG_LEN; k++) {
+		Max: for (k = 0, max_index_temp = -1; k < MAX_DIAG_LEN; k++) {
 			new_val = diag_max_val_buf[k];
 			if (max_value < new_val) {
 				max_value = new_val;

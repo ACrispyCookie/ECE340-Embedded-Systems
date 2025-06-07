@@ -12,3 +12,4 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define MEMCPY_CHAR_BW 64
 
 #define DIAGONAL_LENGTH(d, max_dim, min_dim) ((d) >= (max_dim) ? (min_dim) + (max_dim - d) : (d < min_dim ? d : min_dim))
+#define DIAG_ARRAY_LEN 3 * MAX_DIAG_LEN + 3
