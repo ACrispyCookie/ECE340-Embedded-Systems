@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "lsal.h"
 
 void print_arr_int(int *arr, int rows, int cols);
 void print_arr_short(short *arr, int rows, int cols);
@@ -56,16 +57,16 @@ int main(int argc, char** argv) {
 
 	// Call gold and function under test
 	compute_matrices_gold(query, database, max_index_gold, similarity_matrix_gold, direction_matrix_gold);
-	compute_matrices(query, database, max_index, similarity_matrix, direction_matrix);
+	compute_matrices(query, database, max_index, direction_matrix);
 
 	// Reshape results
-	order_matrix_blocks_int(similarity_matrix, similarity_matrix_final);
+//	order_matrix_blocks_int(similarity_matrix, similarity_matrix_final);
 	order_matrix_blocks_short(direction_matrix, direction_matrix_final);
     
 	// Compare results
 	int fail_sim = 0, fail_dir = 0, fail_max = 0;
 
-	fail_sim = check_matrix_int(similarity_matrix_final, (N - 1) * N, 0, similarity_matrix_gold, N + 2, 1);
+	fail_sim = 0; //check_matrix_int(similarity_matrix_final, (N - 1) * N, 0, similarity_matrix_gold, N + 2, 1);
 	fail_dir = check_matrix_short(direction_matrix_final, (N - 1) * N, 0, direction_matrix_gold, 0, 0);
 	fail_max = *max_index != *max_index_gold;
 
