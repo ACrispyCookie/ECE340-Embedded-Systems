@@ -13,7 +13,7 @@
  *           similarity and direction matrices. Note that these two matrices are initialized with zeros.
  **********************************************************************************************/
 
-#define WRITE_DIAG_OFF 1
+#define DIAG_PAD 1
 
 void compute_matrices(
 	const char *string1, const char *string2,
@@ -79,7 +79,7 @@ void compute_matrices(
 			max_value = cond_zero ? 0 : max_value;
 			direction = cond_zero ? CENTER : direction;
 
-			diagonals[cur_idx + row + WRITE_DIAG_OFF] = max_value;
+			diagonals[cur_idx + row + DIAG_PAD] = max_value;
 		
 			diag_max_val_buf[row] = max_value;
 			direction_buf[row] = direction;
