@@ -55,11 +55,9 @@ extern "C" {
 		short match = 0, direction = 0;
 		*max_index = 0;
 
-		Diagonals:
-		for (diag = 0; diag < diagNum; ++diag) {
+		Diagonals: for (diag = 0; diag < diagNum; ++diag) {
 //			#pragma HLS PIPELINE II=1
-			Rows:
-			for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
+			Rows: for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
 				match = (query_buf[row] == database_buf[diag - row + N - 1]) ? MATCH : MISS_MATCH;
 
 				west_value = diagonals[prev_idx + row] + GAP_d;
@@ -78,10 +76,9 @@ extern "C" {
 				direction = cond_west ? WEST : direction;
 
 				cond_zero = (0 >= max_value);
-				max_value = cond_zero ? 0 : max_value;
+				diagonals[cur_idx + row + DIAG_PAD] = cond_zero ? 0 : max_value;
 				direction = cond_zero ? CENTER : direction;
 	
-				diagonals[cur_idx + row + DIAG_PAD] = max_value;
 				direction_buf[row] = direction;
 			}
 
