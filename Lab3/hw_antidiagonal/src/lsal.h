@@ -6,3 +6,9 @@ typedef enum { CENTER, NORTH_WEST, NORTH, WEST } Direction;
 #define GAP_d -1
 #define MATCH 2
 #define MISS_MATCH -1
+
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
+#define MAX_DIAG_LEN MIN(N, M)
+#define MEMCPY_CHAR_BW 64
+
+#define DIAGONAL_LENGTH(d, max_dim, min_dim) ((d) >= (max_dim) ? (min_dim) + (max_dim - d) : (d < min_dim ? d : min_dim))
