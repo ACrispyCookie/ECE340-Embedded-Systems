@@ -15,7 +15,7 @@ void compute_matrices_gold(
 
     short match = 0;
     short direction = 0;
-    *max_index = N + 1;
+    int max_similarity_index = N + 1;
 
     for (i = 0; i < M; i++, similarity_index++) {
         northwest_value = 0;
@@ -44,9 +44,10 @@ void compute_matrices_gold(
             similarity_matrix[similarity_index] = max_value;
             direction_matrix[index] = direction;
             
-            *max_index = max_value > similarity_matrix[*max_index] ? similarity_index : *max_index;
+            max_similarity_index = max_value > similarity_matrix[max_similarity_index] ? similarity_index : max_similarity_index;
             northwest_value = north_value - GAP_d;
             west_value = max_value + GAP_i;
         }
     }
+    *max_index = max_similarity_index - N - 1 - max_similarity_index / (N + 1);
 }  // end of function
