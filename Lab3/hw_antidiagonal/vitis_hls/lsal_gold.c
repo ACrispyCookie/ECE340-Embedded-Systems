@@ -44,7 +44,7 @@ void compute_matrices_gold(
             similarity_matrix[similarity_index] = max_value;
             direction_matrix[index] = direction;
             
-            max_similarity_index = max_value > similarity_matrix[max_similarity_index] ? similarity_index : max_similarity_index;
+            max_similarity_index = max_value >= similarity_matrix[max_similarity_index] ? similarity_index : max_similarity_index;
             northwest_value = north_value - GAP_d;
             west_value = max_value + GAP_i;
         }

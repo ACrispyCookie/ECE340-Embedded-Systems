@@ -57,8 +57,6 @@ int main(int argc, char** argv) {
 	memset(direction_matrix, 0, sizeof(short) * direction_size);
 	memset(similarity_matrix_gold, 0, sizeof(int) * similarity_size_gold);
 	memset(direction_matrix_gold, 0, sizeof(short) * direction_size_gold);
-	printf("1111111111111111111111111111111111111111111111\n");
-	print_arr_short(direction_matrix, (PADDED_M + N - 1), N);
 
 	// Call gold and function under test
 	compute_matrices_gold(query, database, max_index_gold, similarity_matrix_gold, direction_matrix_gold);
@@ -67,13 +65,6 @@ int main(int argc, char** argv) {
 	// Reshape results
 //	order_matrix_blocks_int(similarity_matrix, similarity_matrix_final);
 	order_matrix_blocks_short(direction_matrix, direction_matrix_final);
-
-	printf("22222222222222222222222222222222222222222222222222\n");
-	print_arr_short(direction_matrix_gold, M, N);
-	printf("3333333333333333333333333333333333333333333333333333\n");
-	print_arr_short(direction_matrix, (PADDED_M + N - 1), N);
-	printf("44444444444444444444444444444444444444444444444444444\n");
-	print_arr_short(direction_matrix_final, PADDED_M, N);
     
 	// Compare results
 	int fail_sim = 0, fail_dir = 0, fail_max = 0;
@@ -97,6 +88,7 @@ int main(int argc, char** argv) {
 	if (fail_max) {
         fprintf(stdout, "*******************************************\n");
         fprintf(stdout, "FAIL: Max index does not match the golden output\n");
+        fprintf(stdout, "Golden: %d Under test: %d\n", *max_index_gold, *max_index);
         fprintf(stdout, "*******************************************\n");
 	}
 

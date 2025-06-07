@@ -14,6 +14,9 @@
  **********************************************************************************************/
 
 #define DIAG_PAD 1
+#define MAX_DIAG_LEN MIN(N, M)
+#define DIAG_ARRAY_LEN (3 * MAX_DIAG_LEN + 3)
+#define DIAGONAL_LENGTH(d, max_dim, min_dim) ((d) >= (max_dim) ? (min_dim) + (max_dim - d) : (d < min_dim ? d : min_dim))
 
 extern "C" {
 	void compute_matrices(
@@ -31,32 +34,33 @@ extern "C" {
 		
 		// This needs complete partitioning
 		int diagonals[DIAG_ARRAY_LEN];
-		#pragma HLS ARRAY_PARTITION variable=diagonals dim=1 factor=16 cyclic
+		memset(diagonals, 0, DIAG_ARRAY_LEN * sizeof(int));
+//		#pragma HLS ARRAY_PARTITION variable=diagonals dim=1 factor=16 cyclic
 
-		#pragma HLS ARRAY_PARTITION variable=diag_max_val_buf dim=1 complete
+//		#pragma HLS ARRAY_PARTITION variable=diag_max_val_buf dim=1 complete
 		//#pragma HLS ARRAY_PARTITION variable=direction_buf dim=1 complete
 		int diag_max_val_buf[MAX_DIAG_LEN];
 		short direction_buf[MAX_DIAG_LEN];
 
 		char query_buf[N];
 		char database_buf[PADDED_M];
-		memcpy(query_buf, string1, N);
-		memcpy(database_buf, string2, PADDED_M);
+		memcpy(query_buf, string1, N * sizeof(char));
+		memcpy(database_buf, string2, PADDED_M * sizeof(char));
 
 		//#pragma HLS ARRAY_RESHAPE variable=query_buf dim=1 factor=4 block
 		//#pragma HLS ARRAY_RESHAPE variable=database_buf dim=1 factor=4 block
 
 		int north_value = 0, west_value = 0, northwest_value = 0;
-		int max_value = 0;
+		int max_value = 0, curr_max_value = 0;
 		short match = 0, direction = 0;
 		*max_index = 0;
 
 		Diagonals:
 		for (diag = 0; diag < diagNum; ++diag) {
-			#pragma HLS PIPELINE II=1
+//			#pragma HLS PIPELINE II=1
 			Rows:
 			for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
-				match = (query_buf[row] == database_buf[diag - row]) ? MATCH : MISS_MATCH;
+				match = (query_buf[row] == database_buf[diag - row + N - 1]) ? MATCH : MISS_MATCH;
 
 				west_value = diagonals[prev_idx + row] + GAP_d;
 				north_value = diagonals[prev_idx + row + 1] + GAP_i;
@@ -78,22 +82,18 @@ extern "C" {
 				direction = cond_zero ? CENTER : direction;
 	
 				diagonals[cur_idx + row + DIAG_PAD] = max_value;
-
-				diag_max_val_buf[row] = max_value;
 				direction_buf[row] = direction;
 			}
 
 			// Find new max index
+			// TODO Find out what to do with max index
 			Max: for (k = 0, max_index_temp = -1; k < MAX_DIAG_LEN; k++) {
-				new_val = diag_max_val_buf[k];
-				if (max_value < new_val) {
-					max_value = new_val;
+				new_val = diagonals[cur_idx + k + DIAG_PAD];
+				if (curr_max_value  < new_val) {
+					curr_max_value  = new_val;
 					max_index_temp = k;
 				}
 			}
-
-			// if might be better here because of *
-			if (max_index_temp != -1) *max_index = (diag - max_index_temp) + max_index_temp * MAX_DIAG_LEN;
 
 			// Move diagonal indexes sequence.
 			swap_idx = prev_prev_idx;
@@ -101,9 +101,13 @@ extern "C" {
 			prev_idx = cur_idx;
 			cur_idx = swap_idx;
 
+			// if might be better here because of *
+			if (max_index_temp != -1)
+				*max_index = (diag - max_index_temp) * MAX_DIAG_LEN + max_index_temp;
+
 			// Set directional matrix (in RAM)
 			// This need reshaping maybe
-			memcpy(&direction_matrix[diag * MAX_DIAG_LEN], direction_buf, MAX_DIAG_LEN);
+			memcpy(&direction_matrix[diag * MAX_DIAG_LEN], direction_buf, MAX_DIAG_LEN * sizeof(short));
 		}
 	}
 }
