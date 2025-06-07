@@ -32,11 +32,10 @@ void compute_matrices(
 	int diagonals[DIAG_ARRAY_LEN];
 	#pragma HLS ARRAY_PARTITION variable=diagonals dim=1 factor=16 cyclic
 
-	int diag_max_val_buf[MAX_DIAG_LEN];
-	short direction_buf[MAX_DIAG_LEN];
-
 	#pragma HLS ARRAY_PARTITION variable=diag_max_val_buf dim=1 complete
 	//#pragma HLS ARRAY_PARTITION variable=direction_buf dim=1 complete
+	int diag_max_val_buf[MAX_DIAG_LEN];
+	short direction_buf[MAX_DIAG_LEN];
 
 
 	char query_buf[MAX_DIAG_LEN];
@@ -45,7 +44,7 @@ void compute_matrices(
 	//#pragma HLS ARRAY_RESHAPE variable=query_buf dim=1 factor=4 block
 	//#pragma HLS ARRAY_RESHAPE variable=database_buf dim=1 factor=4 block
 
-    int north_value = 0, west_value = 0, northwest_value = 0;
+	int north_value = 0, west_value = 0, northwest_value = 0;
 	int max_value = 0;
 
 	short match = 0, direction = 0;
@@ -54,9 +53,11 @@ void compute_matrices(
 	memcpy(query_buf, string1, MAX_DIAG_LEN);
 	memcpy(database_buf, string2, ((MAX_DIAG_LEN - 1) << 1) + M);
 
-	Diagonals: for (diag = 0; diag < diagNum; ++diag) {
-	#pragma HLS PIPELINE II=1
-		Rows: for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
+	Diagonals: 
+	for (diag = 0; diag < diagNum; ++diag) {
+		#pragma HLS PIPELINE II=1
+		Rows: 
+		for (int row = 0; row < MAX_DIAG_LEN; ++row) { // For non-padded version replace MAX_DIAG_LEN with DIAGONAL_LENGTH(diag, M, N)
 			match = (query_buf[row] == database_buf[diag]) ? MATCH : MISS_MATCH;
 
 			west_value = diagonals[prev_idx + row] + GAP_d;
@@ -79,11 +80,11 @@ void compute_matrices(
 			direction = cond_zero ? CENTER : direction;
 
 			diagonals[cur_idx + row + WRITE_DIAG_OFF] = max_value;
-			
+		
 			diag_max_val_buf[row] = max_value;
 			direction_buf[row] = direction;
 		}
-
+	
 		// Find new max index
 		Max: for (k = 0, max_index_temp = -1; k < MAX_DIAG_LEN; k++) {
 			new_val = diag_max_val_buf[k];
@@ -94,10 +95,7 @@ void compute_matrices(
 		}
 
 		// if might be better here because of *
-		if (max_index_temp != -1) *max_index = 
-		
-		
-		//(diag - max_index_temp) + max_index_temp * MAX_DIAG_LEN;
+		if (max_index_temp != -1) *max_index = (diag - max_index_temp) + max_index_temp * MAX_DIAG_LEN;
 
 		// Move diagonal indexes sequence.
 		swap_idx = prev_prev_idx;
@@ -110,4 +108,5 @@ void compute_matrices(
 		memcpy(&direction_matrix[diag * MAX_DIAG_LEN], direction_buf, MAX_DIAG_LEN);
 	}
 }
+
 

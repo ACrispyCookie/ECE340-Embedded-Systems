@@ -164,7 +164,7 @@ int main(int argc, char** argv) {
 	printf("starting HOST code \n");
 	fflush(stdout);
 	int err;                            // error code returned from api calls
-	cl_uint sim_size, dir_size;
+	cl_uint sim_size, dir_size, dir_final_size;
 
     if (argc != 4) {
 		printf("%s <input xclbin file> <Query Size N> <DataBase Size M>\n", argv[0]);
