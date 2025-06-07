@@ -88,6 +88,73 @@ int load_file_to_memory(const char *filename, char **result) {
 	return size;
 }
 
+void order_matrix_blocks_short(short *in_matrix, short *out_matrix) {
+	int num_diag = 0;
+	int store_elem = 1;
+	int store_index;
+	int tmp_i = 0;
+	int tmp_j = 0;
+	int i = 0;
+	int j;
+
+	for(i = 0; i<(PADDED_M + N - 1) * N;){
+	//while(store_elem != 0){
+		if(num_diag < PADDED_M){
+			tmp_j = num_diag;
+			tmp_i = 0;
+		}else{
+			tmp_i = (num_diag + 1) - PADDED_M;
+			tmp_j = PADDED_M - 1;
+		}
+
+		for(j = 0; j < store_elem; j++){
+			store_index = tmp_j * N + tmp_i;
+			out_matrix[store_index] = in_matrix[i];
+			// printf("stored %d in index %d \n", out_matrix[store_index], store_index);
+			tmp_j--;
+			tmp_i++;
+			i++;
+		}
+		num_diag++;
+
+		if(num_diag >= PADDED_M){
+			store_elem--;
+			i = num_diag * N + N - store_elem;
+		}else{
+			if(store_elem != N){
+				store_elem++;
+				i = num_diag * N;
+			}
+		}
+	}
+}
+
+/*
+	Checks if the similarity matrix under test is correct.
+
+	Parameters:
+	int start_offset - Elements to skip from the start of the matrix under test
+	int offset_per_row - Elements to skip for each line on the matrix under test
+	int start_offset_gold - Elements to skip from the start of the gold matrix
+	int offset_per_row_gold - Elements to skip for each line on the gold matrix
+*/
+int check_matrix_short(short *ut, int start_offset, int offset_per_row, 
+	short *gold, int start_offset_gold, int offset_per_row_gold)
+{
+
+	for (int i = 0; i < M; i++) {
+		for (int j = 0; j < N; j++) {
+			int ut_index = start_offset + (i * (N + offset_per_row)) + j;
+			int gold_index = start_offset_gold + (i * (N + offset_per_row_gold)) + j;
+			if (ut[ut_index] != gold[gold_index]) {
+				printf("short: ut_index %d gold_index %d, %d %d\n", ut_index, gold_index, ut[ut_index], gold[gold_index]);
+				return 1;
+			}
+		} 
+	}
+	return 0;
+}
+
 /*******************************************************************************
  *   Host program running on the Arm CPU. 
  *   The code is written using the OpenCL API. 
@@ -113,7 +180,7 @@ int main(int argc, char** argv) {
 
     sim_size = (N + 1) * (M + 1);
 	dir_size = N * M;
-
+	dir_final_size = N * PADDED_M;
 
 	char *query = (char*) malloc(sizeof(char) * N);
 	char *database = (char*) malloc(sizeof(char) * M);
@@ -458,24 +525,22 @@ int main(int argc, char** argv) {
 			sizeof( short) * dir_size);
 	int * max_index_sw = ( int *) malloc(
 				sizeof( int));
+	short * direction_matrix_final = ( short*) malloc(
+			sizeof( short) * dir_final_size);
 
 	for(cl_uint i = 0; i < sim_size; i++){
 		similarity_matrix_sw[i] = 0;
 	}
 	compute_matrices_gold(query, database, max_index_sw, similarity_matrix_sw, direction_matrix_sw);
-
 	printf("both ended\n");
-
 	printf(" execution time is %lf ms \n", executionTime);
-	for (cl_uint i = 0; i < dir_size; i++) {
-		if (direction_matrix_sw[i] != direction_matrix[i]) {
-			printf("Error, mismatch in the results, i + %d, SW: %d, HW %d \n",
-					i, direction_matrix_sw[i], direction_matrix[i]);
-			return EXIT_FAILURE;
-		}
-	}
 
-	printf("computation ended!- RESULTS CORRECT \n");
+	order_matrix_blocks_short(direction_matrix, direction_matrix_final);
+	int fail_dir = check_matrix_short(direction_matrix_final, (N - 1) * N, 0, direction_matrix_sw, 0, 0);
+	if (!fail_dir)
+		printf("computation ended!- RESULTS CORRECT \n");
+	else 
+		printf("Error, mismatch in the results!\n");
 
 	/**************************************************************
 	 * Clean up everything and, then, shutdown 

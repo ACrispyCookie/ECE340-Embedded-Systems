@@ -10,9 +10,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#define PADDED_M (M + 2 * (N - 1))
-#define MIN(a, b) ((a > b) ? b : a)
-
 void print_arr_int(int *arr, int rows, int cols);
 void print_arr_short(short *arr, int rows, int cols);
 int check_matrix_short(short *ut, int start_offset, int offset_per_row, 
