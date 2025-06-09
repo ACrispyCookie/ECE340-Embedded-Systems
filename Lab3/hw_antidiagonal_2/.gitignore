@@ -1,0 +1,13 @@
+_x*/
+.ipcache/
+.Xil/
+build_dir.hw.zedboard_202020_1/
+build_dir.sw_emu.zedboard_202020_1/
+package.sw_emu/
+package.hw/
+vitis_hls/lsal/
+lsal
+lsal.xclbin
+lsal.xclbin.package_summary
+run_app.sh
+*.log
