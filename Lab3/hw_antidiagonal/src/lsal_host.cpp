@@ -68,6 +68,24 @@ void fillRandom(char* string, int dimension) {
 
 }
 
+void print_arr_short(short *arr, int rows, int cols) {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			printf("%3d ", arr[i * cols + j]);
+		}
+		printf("\n");
+	}
+}
+
+void print_arr_int(int *arr, int rows, int cols) {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			printf("%3d ", arr[i * cols + j]);
+		}
+		printf("\n");
+	}
+}
+
 int load_file_to_memory(const char *filename, char **result) {
 	size_t size = 0;
 	FILE *f = fopen(filename, "rb");
@@ -511,11 +529,44 @@ int main(int argc, char** argv) {
 	printf(" execution time is %lf ms \n", executionTime);
 
 	order_matrix_blocks_short(direction_matrix, direction_matrix_final);
-	int fail_dir = check_matrix_short(direction_matrix_final, (N - 1) * N, 0, direction_matrix_sw, 0, 0);
-	if (!fail_dir)
-		printf("computation ended!- RESULTS CORRECT \n");
-	else 
-		printf("Error, mismatch in the results!\n");
+	
+	// Compare results
+	int fail_sim = 0, fail_dir = 0, fail_max = 0;
+
+	fail_sim = 0; //check_matrix_int(similarity_matrix_final, (N - 1) * N, 0, similarity_matrix_gold, N + 2, 1);
+	fail_dir = check_matrix_short(direction_matrix_final, (N - 1) * N, 0, direction_matrix_sw, 0, 0);
+	fail_max = *max_index != *max_index_sw;
+
+	if (fail_sim) {
+        fprintf(stdout, "*******************************************\n");
+        fprintf(stdout, "FAIL: Simulation matrix doesn't match golden output\n");
+        fprintf(stdout, "*******************************************\n");
+	}
+
+	if (fail_dir) {
+        fprintf(stdout, "*******************************************\n");
+        fprintf(stdout, "FAIL: Direction matrix doesn't match golden output\n");
+        fprintf(stdout, "*******************************************\n");
+        fprintf(stdout, "############## Golden direction ##############\n");
+		print_arr_short(direction_matrix_sw, M, N);
+        fprintf(stdout, "############## Output direction ##############\n");
+		print_arr_short(direction_matrix, PADDED_M + N - 1, N);
+        fprintf(stdout, "############## Final direction ##############\n");
+		print_arr_short(direction_matrix_final, PADDED_M, N);
+	}
+
+	if (fail_max) {
+        fprintf(stdout, "*******************************************\n");
+        fprintf(stdout, "FAIL: Max index does not match the golden output\n");
+        fprintf(stdout, "Golden: %d Under test: %d\n", *max_index_sw, *max_index);
+        fprintf(stdout, "*******************************************\n");
+	}
+
+	if (!fail_sim && !fail_dir && !fail_max) {
+		fprintf(stdout, "*******************************************\n");
+		fprintf(stdout, "PASS: The output matches the golden output!\n");
+		fprintf(stdout, "*******************************************\n");
+	}
 
 	/**************************************************************
 	 * Clean up everything and, then, shutdown 
