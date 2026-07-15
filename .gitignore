@@ -1,0 +1,66 @@
+# OS/editor metadata
+.DS_Store
+._*
+*~
+*.swp
+.vscode/
+.idea/
+
+# Vivado/Vitis generated output
+.Xil/
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+*.rpt
+*.rpx
+*.dcp
+*.bit
+*.ltx
+*.hwh
+*.hwdef
+*.xsa
+*.xpr.zip
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.tmp/
+
+# Eclipse/Vitis workspace metadata and generated platform output
+.metadata/
+RemoteSystemsTempFiles/
+.analytics
+IDE.log
+Debug/
+Release/
+_system/
+*_system/
+export/
+*/standalone_domain/bsp/
+*/zynq_fsbl/
+
+# Build products
+*.o
+*.a
+*.so
+*.elf
+*.exe
+*.class
+/target/
+build/
+dist/
+
+# Lab 3 software generated data
+Lab3/sw_x86/target/*
+!Lab3/sw_x86/target/.gitignore
+Lab3/sw_x86/out/*
+!Lab3/sw_x86/out/.gitignore
+Lab3/sw_x86/perf/*
+!Lab3/sw_x86/perf/.gitignore
+Lab3/sw_x86/plots/*
+!Lab3/sw_x86/plots/.gitignore
