@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+<title id="title">ECE340 Lab 3 acceleration workflow</title>
+<desc id="desc">Workflow for profiling software implementations and building HLS/OpenCL FPGA accelerator variants for local sequence alignment.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+  <style>.bg{fill:#020617}.grid{stroke:#1e293b;stroke-width:.6}.box{fill:#0f172a;stroke-width:2;rx:16}.h{font:700 18px 'Segoe UI',sans-serif;fill:#f8fafc}.t{font:500 13px 'Segoe UI',sans-serif;fill:#cbd5e1}.s{font:600 12px 'Segoe UI',sans-serif;fill:#94a3b8}.title{font:700 26px 'Segoe UI',sans-serif;fill:#f8fafc}.line{stroke:#22d3ee;stroke-width:3;fill:none;marker-end:url(#arrow)}</style>
+</defs>
+<rect class="bg" width="1200" height="500" rx="24"/><path class="grid" d="M0 80H1200M0 160H1200M0 240H1200M0 320H1200M0 400H1200M120 0V500M240 0V500M360 0V500M480 0V500M600 0V500M720 0V500M840 0V500M960 0V500M1080 0V500" opacity=".65"/>
+<text class="title" x="44" y="52">Lab 3 local sequence alignment acceleration</text>
+<text class="s" x="44" y="78">Software baselines, profiling, hardware kernels, and measured accelerator results</text>
+
+<rect class="box" x="60" y="150" width="220" height="115" stroke="#60a5fa"/><text class="h" x="88" y="188">C baseline</text><text class="t" x="88" y="218">LSAL / Smith-Waterman</text><text class="t" x="88" y="242">correctness + timing runs</text>
+<path class="line" d="M280 208H365"/>
+<rect class="box" x="380" y="120" width="220" height="175" stroke="#a78bfa"/><text class="h" x="408" y="158">Profiling loop</text><text class="t" x="408" y="190">branch/cache/perf data</text><text class="t" x="408" y="216">x86 and ARM targets</text><text class="t" x="408" y="242">bottleneck selection</text><text class="s" x="408" y="270">Lab3/sw_perf</text>
+<path class="line" d="M600 208H685"/>
+<rect class="box" x="700" y="120" width="220" height="175" stroke="#34d399"/><text class="h" x="728" y="158">HLS/OpenCL kernels</text><text class="t" x="728" y="190">baseline accelerator</text><text class="t" x="728" y="216">anti-diagonal variants</text><text class="t" x="728" y="242">host/kernel experiments</text><text class="s" x="728" y="270">Lab3/hw_antidiagonal*</text>
+<path class="line" d="M920 208H1005"/>
+<rect class="box" x="1020" y="150" width="130" height="115" stroke="#f59e0b"/><text class="h" x="1044" y="188">Results</text><text class="t" x="1044" y="218">speedups</text><text class="t" x="1044" y="242">trade-offs</text>
+
+<rect x="110" y="350" width="980" height="70" rx="18" fill="#111827" stroke="#334155"/>
+<text class="h" x="145" y="382">Report artifact</text><text class="t" x="300" y="382">docs/reports/lab-3-local-sequence-alignment-fpga-report.pdf</text>
+<text class="h" x="145" y="407">Presentation</text><text class="t" x="300" y="407">docs/presentations/lab-3-local-sequence-alignment-fpga-presentation.pdf</text>
+</svg>

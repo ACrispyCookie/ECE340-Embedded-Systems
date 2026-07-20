@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+<title id="title">ECE340 lab map</title>
+<desc id="desc">Three embedded systems labs moving from Verilog floating point datapaths to Zynq ARM integration and HLS/OpenCL acceleration.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#020617"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/></marker>
+  <style>
+    .title{font:700 26px 'Segoe UI',sans-serif;fill:#f8fafc}.sub{font:500 14px 'Segoe UI',sans-serif;fill:#94a3b8}.card{fill:#0f172a;stroke-width:2;rx:18}.h{font:700 18px 'Segoe UI',sans-serif;fill:#f8fafc}.t{font:500 13px 'Segoe UI',sans-serif;fill:#cbd5e1}.small{font:600 12px 'Segoe UI',sans-serif;fill:#94a3b8}.pill{font:700 12px 'Segoe UI',sans-serif;fill:#0f172a}.arrow{stroke:#38bdf8;stroke-width:3;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1200" height="430" fill="url(#bg)" rx="24"/>
+<path d="M0 70 H1200 M0 140 H1200 M0 210 H1200 M0 280 H1200 M0 350 H1200 M100 0 V430 M220 0 V430 M340 0 V430 M460 0 V430 M580 0 V430 M700 0 V430 M820 0 V430 M940 0 V430 M1060 0 V430" stroke="#1e293b" stroke-width="0.6" opacity="0.65"/>
+<text class="title" x="44" y="48">ECE340 embedded systems progression</text>
+<text class="sub" x="44" y="76">RTL datapaths → Zynq/Vitis integration → measured FPGA acceleration workflow</text>
+
+<rect class="card" x="55" y="125" width="310" height="190" stroke="#60a5fa"/>
+<rect x="85" y="105" width="90" height="28" rx="14" fill="#60a5fa"/><text class="pill" x="107" y="124">Lab 1</text>
+<text class="h" x="85" y="165">Floating-point adder</text>
+<text class="t" x="85" y="195">• single-cycle and pipelined RTL</text>
+<text class="t" x="85" y="220">• testbenches and display logic</text>
+<text class="t" x="85" y="245">• debounced input and memory paths</text>
+<text class="small" x="85" y="285">Verilog · FPGA I/O · XDC constraints</text>
+
+<path class="arrow" d="M380 220 H475"/>
+
+<rect class="card" x="490" y="125" width="310" height="190" stroke="#34d399"/>
+<rect x="520" y="105" width="90" height="28" rx="14" fill="#34d399"/><text class="pill" x="542" y="124">Lab 2</text>
+<text class="h" x="520" y="165">Zynq ARM + custom IP</text>
+<text class="t" x="520" y="195">• bare-metal GPIO applications</text>
+<text class="t" x="520" y="220">• interrupt-driven control flow</text>
+<text class="t" x="520" y="245">• AXI-packaged FP adder IP</text>
+<text class="small" x="520" y="285">Vivado block designs · Vitis apps</text>
+
+<path class="arrow" d="M815 220 H850"/>
+
+<rect class="card" x="865" y="125" width="285" height="190" stroke="#f59e0b"/>
+<rect x="895" y="105" width="90" height="28" rx="14" fill="#f59e0b"/><text class="pill" x="917" y="124">Lab 3</text>
+<text class="h" x="895" y="165">HLS/OpenCL accelerator</text>
+<text class="t" x="895" y="195">• software profiling</text>
+<text class="t" x="895" y="220">• anti-diagonal kernels</text>
+<text class="t" x="895" y="245">• x86/ARM/FPGA results</text>
+<text class="small" x="895" y="285">Local sequence alignment</text>
+
+<rect x="175" y="345" width="850" height="42" rx="21" fill="#111827" stroke="#334155"/>
+<text class="sub" x="214" y="371">portfolio focus: a complete path from low-level RTL design to hardware/software performance evaluation</text>
+</svg>
