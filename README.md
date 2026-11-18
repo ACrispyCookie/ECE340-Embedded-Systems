@@ -1,13 +1,9 @@
 # ECE340 — Embedded Systems
 
-![Verilog](https://img.shields.io/badge/Verilog-RTL-2F74C0)
-![C](https://img.shields.io/badge/C-Embedded-00599C)
-![C++](https://img.shields.io/badge/C%2B%2B-HLS%20%2F%20Host-00599C)
-![Vivado](https://img.shields.io/badge/Xilinx-Vivado-F15B2A)
-![Vitis](https://img.shields.io/badge/Xilinx-Vitis-F15B2A)
-![Zynq](https://img.shields.io/badge/Zynq-ARM%20%2B%20FPGA-7A3E9D)
-![OpenCL/XRT](https://img.shields.io/badge/OpenCL-XRT-2E8B57)
-![Coursework](https://img.shields.io/badge/UTH-ECE340-teal)
+![Verilog](https://img.shields.io/badge/Verilog-0E7C86?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik04IDZsLTYgNiA2IDZNMTYgNmw2IDYtNiA2IiBzdHJva2Utd2lkdGg9IjIuNCIvPjwvc3ZnPg==)
+![C / C++](https://img.shields.io/badge/C%20%2F%20C%2B%2B-0E7C86?style=flat&logo=cplusplus&logoColor=white)
+![Vitis HLS](https://img.shields.io/badge/Vitis%20HLS-8A6D2B?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xNC43IDYuM2E0IDQgMCAwIDAtNS40IDUuMkwzIDE3LjhWMjFoMy4ybDYuMy02LjNhNCA0IDAgMCAwIDUuMi01LjRsLTIuNiAyLjYtMi40LS42LS42LTIuNHoiLz48L3N2Zz4=)
+![Zynq-7000](https://img.shields.io/badge/Zynq--7000-2E7D5B?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjIiLz48cmVjdCB4PSI5LjUiIHk9IjkuNSIgd2lkdGg9IjUiIGhlaWdodD0iNSIgcng9IjEiIGZpbGw9IndoaXRlIiBzdHJva2U9Im5vbmUiLz48cGF0aCBkPSJNOSAydjNNMTUgMnYzTTkgMTl2M00xNSAxOXYzTTIgOWgzTTIgMTVoM00xOSA5aDNNMTkgMTVoMyIvPjwvc3ZnPg==)
 
 Coursework repository for **ECE340 — Embedded Systems** at the **University of Thessaly**. The labs combine Verilog RTL, FPGA system integration, bare-metal ARM software, Vivado/Vitis projects, AXI custom IP, and HLS/OpenCL acceleration work.
 
