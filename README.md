@@ -24,15 +24,15 @@ Coursework repository for **ECE340 — Embedded Systems** at the **University of
 | Custom IP integration | Floating-point adder RTL packaged as AXI-connected IP and integrated with Zynq/Vivado projects. |
 | Hardware acceleration | LSAL/Smith-Waterman-style workload implementations across x86 C, ARM measurements, Vitis HLS kernels, and OpenCL/XRT host code. |
 
-## Standout lab: FPGA acceleration for local sequence alignment
+## Highlight: FPGA acceleration for local sequence alignment
 
 <p align="center">
   <img src="docs/images/lab3-acceleration-workflow.svg" alt="Lab 3 acceleration workflow from C baselines and profiling to HLS/OpenCL kernels and measured results" width="100%">
 </p>
 
-The final lab explores software and FPGA implementations of a local sequence alignment workload. It starts from CPU implementations and profiling, then moves toward HLS/OpenCL accelerator designs with measured x86, ARM, and hardware results.
+The final lab implements local sequence alignment in software and on the FPGA. CPU versions are profiled first, then HLS/OpenCL kernels are built and timed against the x86 and ARM baselines.
 
-Useful paths:
+Where to look:
 
 - [`Lab3/sw_x86/`](Lab3/sw_x86/) — x86 software baselines and optimization experiments.
 - [`Lab3/sw_perf/`](Lab3/sw_perf/) — captured x86/ARM performance measurements.
@@ -48,7 +48,7 @@ Useful paths:
 | [`Lab1/`](Lab1/) | Verilog floating-point adder and FPGA I/O: single-cycle/pipelined adder RTL, testbenches, display integration, debounced inputs, memory logic, and XDC constraints. | [`handout`](docs/handouts/lab-1-floating-point-adder.pdf) |
 | [`Lab2/`](Lab2/) | Zynq ARM/Vivado/Vitis work: bare-metal GPIO, interrupts, timer support, custom floating-point adder IP, driver stubs, and Zynq integration descriptors. | [`handout`](docs/handouts/lab-2-zynq-arm-vitis.pdf) |
 | [`Lab3/`](Lab3/) | Software profiling and FPGA acceleration for local sequence alignment using C, OpenMP, Vitis HLS, OpenCL/XRT, and measured performance experiments. | [`handout`](docs/handouts/lab-3-hls-opencl-acceleration.pdf), [`report`](docs/reports/lab-3-local-sequence-alignment-fpga-report.pdf), [`presentation`](docs/presentations/lab-3-local-sequence-alignment-fpga-presentation.pdf) |
-| [`docs/handouts/`](docs/handouts/) | Clean copies of the lab handouts. | — |
+| [`docs/handouts/`](docs/handouts/) | Lab handouts. | — |
 | [`docs/reports/`](docs/reports/) | Final Lab 3 report. | — |
 | [`docs/presentations/`](docs/presentations/) | Final Lab 3 presentation. | — |
 | [`docs/images/`](docs/images/) | README diagrams for the lab progression and final accelerator workflow. | — |
@@ -107,4 +107,4 @@ scripts/list_assignments.sh
 
 Open the Vivado and Vitis project files from the corresponding lab directories, then rebuild or export hardware platforms with the Xilinx tools as required by each lab handout.
 
-`make check` performs checks that are feasible without the full Xilinx toolchain: representative Verilog elaboration for Lab 1/Lab 2 and a representative Lab 3 x86 software target on x86 hosts. Full Vivado synthesis/implementation, Vitis application builds, board programming, and HLS cosimulation still require the Xilinx toolchain and hardware setup.
+`make check` runs what is possible without the Xilinx toolchain: representative Verilog elaboration for Lab 1/Lab 2 and a representative Lab 3 x86 software target on x86 hosts. Synthesis, implementation, Vitis builds, board programming, and HLS cosimulation need the Xilinx tools and the board.
